@@ -1,0 +1,23 @@
+.section {
+  @apply py-16;
+}
+
+.section h2 {
+  @apply mb-6 font-medium text-3xl;
+}
+
+.section p {
+  @apply text-base md:text-xl;
+}
+
+.zinc-section {
+  @apply section bg-zinc-100;
+}
+
+.orange-section {
+  @apply section bg-orange-100;
+}
+
+.orange-section h2 {
+  @apply text-amber-700;
+}

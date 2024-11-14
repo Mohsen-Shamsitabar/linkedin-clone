@@ -1,0 +1,27 @@
+.root {
+  @apply py-8 
+  md:py-3;
+}
+
+.container {
+  @apply flex items-center flex-wrap 
+  md:flex-nowrap md:justify-between;
+}
+
+.footer-option {
+  @apply flex items-center justify-center w-1/2 mb-3 
+  md:mb-0;
+}
+
+.footer-option a {
+  @apply size-fit text-xs text-icon font-bold 
+  hover:underline hover:text-primary;
+}
+
+.linkedin-logo {
+  @apply w-16 h-full mr-2 text-black;
+}
+
+.mark {
+  @apply text-xs text-icon font-semibold;
+}

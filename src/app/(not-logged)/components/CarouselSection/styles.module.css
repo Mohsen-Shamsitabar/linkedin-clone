@@ -1,0 +1,11 @@
+.btn {
+  @apply z-50 top-0 opacity-80;
+}
+
+.back-btn {
+  @apply btn left-0;
+}
+
+.next-btn {
+  @apply btn right-0;
+}
