@@ -1,0 +1,12 @@
+.container {
+  @apply flex flex-col 
+  md:flex-row md:gap-8;
+}
+
+.linkedin-logo-container {
+  @apply mb-8 md:mr-8;
+}
+
+.linkedin-logo {
+  @apply size-full w-24 text-primary;
+}

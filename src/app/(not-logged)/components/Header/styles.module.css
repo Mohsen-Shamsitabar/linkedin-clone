@@ -1,0 +1,38 @@
+.root {
+  @apply mb-4;
+}
+
+.navbar {
+  @apply w-full h-20 flex flex-row items-center py-5;
+}
+
+.linkedin-logo-container {
+  @apply h-full flex items-center justify-center;
+}
+
+.linkedin-logo {
+  @apply max-h-full w-28 text-primary;
+}
+
+.desktop-tabs {
+  @apply flex-row items-center ml-auto gap-8 hidden 
+  md:flex;
+}
+
+.icon-link {
+  @apply flex flex-col items-center justify-center text-icon stroke-icon hover:text-highlight hover:stroke-highlight;
+}
+
+.icon-text {
+  @apply text-xs font-medium;
+}
+
+.separator {
+  @apply mx-4 hidden 
+  md:block;
+}
+
+.btn-container {
+  @apply flex flex-row items-center ml-auto 
+  md:ml-0;
+}

@@ -1,0 +1,13 @@
+.container {
+  @apply flex flex-col gap-8 
+  md:flex-row;
+}
+
+.txt-container {
+  @apply md:w-1/2;
+}
+
+.chips-container {
+  @apply flex flex-wrap items-center w-full gap-2 
+  md:w-1/2;
+}

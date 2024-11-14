@@ -1,0 +1,41 @@
+.root {
+  @apply flex flex-col items-center 
+  md:flex-row;
+}
+
+.container {
+  @apply mb-5 
+  md:w-1/2 md:mr-10;
+}
+
+.head-text {
+  @apply text-center mb-10 text-slate-500 font-medium text-3xl 
+  md:text-start md:mb-8 md:text-5xl;
+}
+
+.btn-container {
+  @apply flex flex-col items-center justify-center gap-3 mb-6;
+}
+
+.agreement-text-container {
+  @apply text-center text-xs mb-8;
+}
+
+.agreement-text-link {
+  @apply text-primary font-semibold ml-1 
+  hover:underline;
+}
+
+.new-to-linkedin-container {
+  @apply flex items-center justify-center;
+}
+
+.new-to-linkedin-link {
+  @apply ml-2 text-primary font-semibold 
+  hover:underline;
+}
+
+.img-container {
+  @apply w-64 
+  md:w-1/2;
+}

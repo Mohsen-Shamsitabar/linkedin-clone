@@ -1,0 +1,17 @@
+.root {
+  @apply w-full flex flex-col;
+}
+
+.topic-name {
+  @apply text-base font-semibold mb-3;
+}
+
+.options-container {
+  @apply flex flex-col mb-2;
+}
+
+.option {
+  @apply text-icon text-sm font-semibold mb-3 size-fit 
+  hover:underline hover:text-primary 
+  md:mb-2;
+}

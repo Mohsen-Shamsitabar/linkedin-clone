@@ -1,0 +1,26 @@
+.container {
+  @apply flex flex-col 
+  md:flex-row;
+}
+
+.txt-container {
+  @apply flex flex-col 
+  md:w-1/2;
+}
+
+.options-container {
+  @apply w-full flex flex-col items-center gap-4;
+}
+
+.img-container {
+  @apply hidden md:block
+  md:w-1/2;
+}
+
+.option {
+  @apply w-full flex flex-row items-center justify-between p-4 bg-orange-200 hover:bg-orange-300/60;
+}
+
+.option span {
+  @apply text-xl;
+}

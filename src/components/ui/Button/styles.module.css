@@ -1,0 +1,74 @@
+.root {
+  @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-3xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0;
+
+  --outline-bg: #ebebeb;
+}
+
+/* COLOR */
+
+.default {
+}
+
+.icon {
+}
+
+.primary {
+}
+
+.secondary {
+  @apply bg-secondary text-secondary-foreground;
+}
+
+.destructive {
+  @apply bg-destructive text-destructive-foreground;
+}
+
+/* variant */
+
+.fill {
+}
+
+.outline {
+  @apply border;
+}
+
+.ghost {
+}
+
+.link {
+  @apply underline-offset-4 hover:underline;
+}
+
+/* SIZE */
+
+.md {
+  @apply h-10 px-4 py-2 text-base font-semibold;
+}
+
+.sm {
+  @apply h-9 px-3 font-semibold;
+}
+
+.lg {
+  @apply h-11 px-8;
+}
+
+.circle {
+  @apply h-10 w-10;
+}
+/* === COMBINE === */
+
+.fill.primary {
+  @apply bg-primary text-primary-foreground 
+  hover:bg-primary-dark;
+}
+
+.outline.primary {
+  @apply border-primary text-primary
+  hover:bg-primary-outline-bg hover:border-primary-dark hover:text-primary-dark;
+}
+
+.outline.default {
+  @apply border-icon text-icon
+  hover:bg-accent hover:text-accent-foreground;
+}
