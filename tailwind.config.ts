@@ -1,63 +1,57 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    darkMode: ["class"],
-    content: [
+  darkMode: ["class"],
+  content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
-  		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+    container: {
+      center: true,
+      padding: "1rem",
+      screens: {
+        DEFAULT: "1128px",
+      },
+    },
+    extend: {
+      colors: {
+        "primary-dark": "var(--primary-dark)",
+        "primary-light": "var(--primary-light)",
+        "primary-outline-bg": "var(--primary-outline-bg)",
+        focus: "var(--focus)",
+        highlight: "var(--highlight)",
+        icon: "var(--icon)",
+        divider: "var(--divider)",
+
+        // === === === ===
+
+        primary: "var(--primary)",
+        "primary-foreground": "var(--primary-foreground)",
+        secondary: "var(--secondary)",
+        "secondary-foreground": "var(--secondary-foreground)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        muted: "var(--muted)",
+        "muted-foreground": "var(--muted-foreground)",
+        card: "var(--card)",
+        "card-foreground": "var(--card-foreground)",
+        popover: "var(--popover)",
+        "popover-foreground": "var(--popover-foreground)",
+        border: "var(--border)",
+        input: "var(--input)",
+        accent: "var(--accent)",
+        "accent-foreground": "var(--accent-foreground)",
+        destructive: "var(--destructive)",
+        "destructive-foreground": "var(--destructive-foreground)",
+        ring: "var(--ring)",
+        radius: "var(--radius)",
+      },
+    },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
+  // plugins: [tailwindAnimate],
 };
 export default config;
