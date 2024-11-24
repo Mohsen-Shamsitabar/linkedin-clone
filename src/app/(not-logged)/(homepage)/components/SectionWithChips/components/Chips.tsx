@@ -1,4 +1,4 @@
-import type { Chip } from "@/app/(not-logged)/types";
+import type { Chip } from "@/app/(not-logged)/(homepage)/types";
 import { Button } from "@/components/ui";
 import Link from "next/link";
 

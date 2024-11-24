@@ -1,4 +1,4 @@
-import type { Option } from "@/app/(not-logged)/types";
+import type { Option } from "@/app/(not-logged)/(homepage)/types";
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";

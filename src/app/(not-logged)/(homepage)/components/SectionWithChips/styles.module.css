@@ -8,6 +8,6 @@
 }
 
 .chips-container {
-  @apply flex flex-wrap items-center w-full gap-2 
+  @apply flex flex-wrap items-center w-full gap-2 content-start
   md:w-1/2;
 }
