@@ -1,7 +1,7 @@
 import { LinkedinLogo } from "@/components/svgs";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { FOOTER_OPTIONS } from "../footerOptions";
+import { FOOTER_OPTIONS } from "./footerOptions";
 import classes from "./styles.module.css";
 
 type Props = {
