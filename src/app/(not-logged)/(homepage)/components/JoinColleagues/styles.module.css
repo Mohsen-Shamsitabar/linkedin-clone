@@ -1,0 +1,17 @@
+.container {
+  @apply relative 
+  md:h-72;
+}
+
+.txt-container {
+  @apply flex flex-col;
+}
+
+.img-container {
+  @apply absolute top-0 -z-10 w-full hidden h-96
+  md:block;
+
+  background-image: url("@/public/images/join-colleagues-img.png");
+  background-size: auto 110%;
+  background-position: center bottom;
+}

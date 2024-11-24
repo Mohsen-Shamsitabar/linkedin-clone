@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
-import joinColleaguesImg from "@/public/images/join-colleagues-img.png";
-import Image from "next/image";
 import Link from "next/link";
 import classes from "./styles.module.css";
 
@@ -23,9 +21,7 @@ const JoinColleagues = (props: Props) => {
           </Button>
         </div>
 
-        <div className={classes["img-container"]}>
-          <Image src={joinColleaguesImg} alt={"join colleagues image"} />
-        </div>
+        <div className={classes["img-container"]} />
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import type { Option } from "@/app/(not-logged)/types";
+import type { Option } from "@/app/(not-logged)/(homepage)/types";
 
 export const FOOTER_OPTIONS: Option[] = [
   {
