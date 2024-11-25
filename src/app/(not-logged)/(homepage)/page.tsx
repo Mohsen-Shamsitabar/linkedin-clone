@@ -11,8 +11,6 @@ import {
   CarouselSection,
   ConnectWithPpl,
   Directory,
-  Footer,
-  Header,
   HeroSection,
   JoinColleagues,
   LearnSkills,
@@ -23,9 +21,7 @@ import classes from "./styles.module.css";
 
 const HomePage = () => {
   return (
-    <main className="w-full h-full">
-      <Header />
-
+    <div className="w-full h-full">
       <HeroSection />
 
       <SectionWithChips
@@ -82,9 +78,7 @@ const HomePage = () => {
       <JoinColleagues className={classes["section"]} />
 
       <Directory className={classes["zinc-section"]} />
-
-      <Footer />
-    </main>
+    </div>
   );
 };
 
