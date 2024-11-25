@@ -1,6 +1,7 @@
 import { LinkedinLogo } from "@/components/svgs";
 import { Button, Separator } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import * as PATHS from "@/routes/paths";
 import {
   BriefcaseBusiness,
   Gamepad2,
@@ -15,12 +16,15 @@ const Header = () => {
   return (
     <header className={cn("container", classes["root"])}>
       <nav className={classes["navbar"]}>
-        <Link className={classes["linkedin-logo-container"]} href={"/"}>
+        <Link
+          className={classes["linkedin-logo-container"]}
+          href={PATHS.NL_HOMEPAGE}
+        >
           <LinkedinLogo className={classes["linkedin-logo"]} />
         </Link>
 
         <div className={classes["desktop-tabs"]}>
-          <Link href={"/"} className={classes["icon-link"]}>
+          <Link href={PATHS.NL_ARTICLES} className={classes["icon-link"]}>
             <NewspaperIcon />
             <span className={classes["icon-text"]}>Articles</span>
           </Link>
