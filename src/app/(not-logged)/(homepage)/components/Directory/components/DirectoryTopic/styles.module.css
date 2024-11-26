@@ -3,7 +3,7 @@
 }
 
 .topic-name {
-  @apply text-base font-semibold mb-3;
+  @apply text-body2 font-semibold mb-3;
 }
 
 .options-container {
@@ -11,7 +11,7 @@
 }
 
 .option {
-  @apply text-icon text-sm font-semibold mb-3 size-fit 
+  @apply text-icon text-subtitle1 font-semibold mb-3 size-fit 
   hover:underline hover:text-primary 
   md:mb-2;
 }

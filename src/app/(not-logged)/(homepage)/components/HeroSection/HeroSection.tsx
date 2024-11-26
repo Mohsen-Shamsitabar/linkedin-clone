@@ -10,9 +10,9 @@ const HeroSection = () => {
   return (
     <section className={cn("container", classes["root"])}>
       <div className={classes["container"]}>
-        <h2 className={classes["head-text"]}>
+        <h1 className={classes["head-text"]}>
           Welcome to your professional community
-        </h2>
+        </h1>
 
         <div className={classes["btn-container"]}>
           <Button className="w-full" color="primary">

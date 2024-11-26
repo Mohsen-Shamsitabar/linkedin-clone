@@ -9,8 +9,8 @@
 }
 
 .head-text {
-  @apply text-center mb-10 text-slate-500 font-medium text-3xl 
-  md:text-start md:mb-8 md:text-5xl;
+  @apply text-center mb-10 text-slate-500 font-medium text-h3 
+  md:text-start md:mb-8 md:text-h1;
 }
 
 .btn-container {
@@ -18,7 +18,7 @@
 }
 
 .agreement-text-container {
-  @apply text-center text-xs mb-8;
+  @apply text-center text-subtitle2 mb-8;
 }
 
 .agreement-text-link {
