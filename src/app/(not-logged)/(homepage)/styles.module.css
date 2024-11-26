@@ -3,11 +3,11 @@
 }
 
 .section h2 {
-  @apply mb-6 font-medium text-3xl;
+  @apply mb-6 font-medium text-h3;
 }
 
 .section p {
-  @apply text-base md:text-xl;
+  @apply text-base md:text-body1;
 }
 
 .zinc-section {

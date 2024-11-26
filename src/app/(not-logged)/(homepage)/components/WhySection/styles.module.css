@@ -22,5 +22,5 @@
 }
 
 .option span {
-  @apply text-xl;
+  @apply text-body1;
 }

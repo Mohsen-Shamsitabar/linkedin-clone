@@ -55,6 +55,17 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontSize: {
+        h1: ["3rem", "1.25"],
+        h2: ["2rem", "1.25"],
+        h3: ["1.875rem", "1.25"],
+
+        subtitle1: ["0.875rem", "1.25"],
+        subtitle2: ["0.75rem", "1.5"],
+
+        body1: ["1.25rem", "1.5"],
+        body2: ["1rem", "1.5"],
+      },
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports

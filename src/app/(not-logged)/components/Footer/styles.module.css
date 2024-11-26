@@ -14,7 +14,7 @@
 }
 
 .footer-option a {
-  @apply size-fit text-xs text-icon font-bold 
+  @apply size-fit text-subtitle2 text-icon font-bold 
   hover:underline hover:text-primary;
 }
 
@@ -23,5 +23,5 @@
 }
 
 .mark {
-  @apply text-xs text-icon font-semibold;
+  @apply text-subtitle2 text-icon font-semibold;
 }

@@ -24,7 +24,7 @@
 }
 
 .icon-text {
-  @apply text-xs font-medium;
+  @apply text-subtitle2 font-medium;
 }
 
 .separator {
