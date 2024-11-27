@@ -24,7 +24,7 @@ const Header = () => {
         </Link>
 
         <div className={classes["desktop-tabs"]}>
-          <Link href={PATHS.NL_ARTICLES} className={classes["icon-link"]}>
+          <Link href={"/"} className={classes["icon-link"]}>
             <NewspaperIcon />
             <span className={classes["icon-text"]}>Articles</span>
           </Link>

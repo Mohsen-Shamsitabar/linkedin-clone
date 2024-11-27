@@ -1,7 +1,7 @@
+import { ReactQueryProvider } from "@/providers";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "normalize.css";
-import { Footer, Header } from "./(not-logged)";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -30,11 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen overflow-x-hidden`}
       >
-        <Header />
-
-        <main className="w-full">{children}</main>
-
-        <Footer />
+        <ReactQueryProvider>
+          <div className="w-full">{children}</div>
+        </ReactQueryProvider>
       </body>
     </html>
   );
