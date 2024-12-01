@@ -23,7 +23,7 @@ const Footer = (props: Props) => {
   };
 
   return (
-    <footer className={(cn(className), classes["root"])}>
+    <footer className={cn(className, classes["root"])}>
       <div className={cn("container", classes["container"])}>
         <div
           className={cn(classes["footer-option"], "flex flex-row items-center")}
