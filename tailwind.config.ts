@@ -59,6 +59,7 @@ const config: Config = {
         h1: ["3rem", "1.25"],
         h2: ["2rem", "1.25"],
         h3: ["1.875rem", "1.25"],
+        h4: ["1.5rem", "1.2"],
 
         subtitle1: ["0.875rem", "1.25"],
         subtitle2: ["0.75rem", "1.5"],
