@@ -1,8 +1,6 @@
 export { default as CarouselSection } from "./CarouselSection";
 export { default as ConnectWithPpl } from "./ConnectWithPpl";
 export { default as Directory } from "./Directory";
-export { default as Footer } from "./Footer";
-export { default as Header } from "./Header";
 export { default as HeroSection } from "./HeroSection";
 export { default as JoinColleagues } from "./JoinColleagues";
 export { default as LearnSkills } from "./LearnSkills";

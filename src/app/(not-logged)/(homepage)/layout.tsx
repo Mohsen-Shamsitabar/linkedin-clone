@@ -1,4 +1,4 @@
-import { Footer, Header } from "./components";
+import { Footer, Header } from "../components";
 
 const Layout = ({
   children,

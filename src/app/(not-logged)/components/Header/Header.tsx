@@ -57,8 +57,8 @@ const Header = () => {
             Sign in
           </Button>
 
-          <Button variant="fill" color="primary" className="ml-2">
-            Join now
+          <Button asChild variant="fill" color="primary" className="ml-2">
+            <Link href={PATHS.SIGNUP}>Join now</Link>
           </Button>
         </div>
       </nav>
