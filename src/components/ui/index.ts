@@ -1,5 +1,6 @@
 export * from "./Button";
 export * from "./Carousel";
+export { default as Checkbox } from "./Checkbox";
 export * from "./Form";
 export { default as Input } from "./Input";
 export { default as Label } from "./Label";

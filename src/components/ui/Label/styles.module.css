@@ -1,0 +1,3 @@
+.root {
+  @apply text-subtitle1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}

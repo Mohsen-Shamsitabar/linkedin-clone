@@ -1,15 +1,11 @@
-.form-item {
-  @apply space-y-2;
-}
-
 .form-label--error {
   @apply text-destructive;
 }
 
 .form-description {
-  @apply text-sm text-muted-foreground;
+  @apply text-subtitle2 text-muted-foreground;
 }
 
 .form-message {
-  @apply text-sm font-medium text-destructive;
+  @apply text-subtitle2 font-medium text-destructive;
 }

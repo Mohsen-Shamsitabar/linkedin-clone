@@ -10,21 +10,36 @@ import {
   Input,
   TextArea,
 } from "@/components/ui";
+import { cn } from "@/lib/utils";
+import type { ControllerRenderProps } from "react-hook-form";
 import { useFormContext } from "react-hook-form";
+import { InputWithShowBtn } from "./components";
+import classes from "./styles.module.css";
 
 type Props = {
   label: string;
   name: string;
+  className?: string;
   multiline?: boolean;
   placeholder?: string;
   description?: string;
   type?: React.HTMLInputTypeAttribute;
   required?: boolean;
+  showBtn?: boolean;
 };
 
 const StringFormControl = (props: Props) => {
-  const { name, label, description, placeholder, type, multiline, required } =
-    props;
+  const {
+    name,
+    label,
+    className,
+    description,
+    placeholder,
+    type,
+    multiline,
+    required,
+    showBtn,
+  } = props;
 
   const { control } = useFormContext();
 
@@ -37,45 +52,41 @@ const StringFormControl = (props: Props) => {
     );
   };
 
+  const renderFormControl = (field: ControllerRenderProps) => {
+    if (multiline) {
+      return (
+        <FormControl>
+          <TextArea className="h-4" placeholder={placeholder} {...field} />
+        </FormControl>
+      );
+    }
+
+    if (type === "password" && showBtn) {
+      return <InputWithShowBtn field={field} placeholder={placeholder} />;
+    }
+
+    return (
+      <FormControl>
+        <Input type={type} placeholder={placeholder} {...field} />
+      </FormControl>
+    );
+  };
+
   const renderDescription = () => {
     if (!description) return null;
 
     return <FormDescription>{description}</FormDescription>;
   };
 
-  if (multiline) {
-    return (
-      <FormField
-        control={control}
-        name={name}
-        render={({ field }) => (
-          <FormItem>
-            {renderLabel()}
-
-            <FormControl>
-              <TextArea placeholder={placeholder} {...field} />
-            </FormControl>
-
-            {renderDescription()}
-
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-    );
-  }
-
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={cn(classes["root"], className)}>
           {renderLabel()}
 
-          <FormControl>
-            <Input type={type} placeholder={placeholder} {...field} />
-          </FormControl>
+          {renderFormControl(field)}
 
           {renderDescription()}
 

@@ -1,0 +1,15 @@
+.root {
+  @apply mb-4;
+}
+
+.navbar {
+  @apply w-full flex flex-row items-center py-5;
+}
+
+.linkedin-container {
+  @apply h-full;
+}
+
+.linkedin-logo {
+  @apply max-h-full w-24 text-primary;
+}
