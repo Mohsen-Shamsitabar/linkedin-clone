@@ -3,6 +3,7 @@
 import { Button, FormControl, Input } from "@/components/ui";
 import * as React from "react";
 import type { ControllerRenderProps } from "react-hook-form";
+import classes from "./styles.module.css";
 
 type Props = {
   field: ControllerRenderProps;
@@ -24,7 +25,7 @@ const InputWithShowBtn = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-row items-center relative">
+    <div className={classes["root"]}>
       <FormControl>
         <Input
           type={isVisible ? "text" : "password"}
@@ -34,7 +35,7 @@ const InputWithShowBtn = (props: Props) => {
       </FormControl>
 
       <Button
-        className="absolute right-0"
+        className={classes["show-btn"]}
         variant="ghost"
         color="primary"
         onClick={handleShowClick}

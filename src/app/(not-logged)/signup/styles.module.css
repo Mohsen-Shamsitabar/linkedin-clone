@@ -1,7 +1,15 @@
+.root {
+  @apply container h-screen flex flex-col justify-between;
+}
+
 .head-text {
   @apply text-center text-h4 font-semibold mb-6;
 }
 
 .main-container {
   @apply max-w-[400] mx-auto border-black rounded-lg p-6 md:border;
+}
+
+.footer {
+  @apply hidden md:block;
 }

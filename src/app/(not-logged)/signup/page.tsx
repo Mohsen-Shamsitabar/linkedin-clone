@@ -5,7 +5,7 @@ import { SigninForm, SigninHeader } from "./components";
 
 const SignUpPage = () => {
   return (
-    <div className="container h-screen flex flex-col justify-between">
+    <div className={classes["root"]}>
       <div>
         <SigninHeader />
 
@@ -16,7 +16,7 @@ const SignUpPage = () => {
         </main>
       </div>
 
-      <Footer className="hidden md:block" />
+      <Footer className={classes["footer"]} />
     </div>
   );
 };
