@@ -1,0 +1,7 @@
+.root {
+  @apply flex flex-row items-center;
+}
+
+.label {
+  @apply ml-2;
+}

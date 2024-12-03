@@ -1,56 +1,7 @@
-.header {
-  @apply mb-4;
-}
-
-.navbar {
-  @apply w-full flex flex-row items-center py-5;
-}
-
-.linkedin-container {
-  @apply h-full;
-}
-
-.linkedin-logo {
-  @apply max-h-full w-24 text-primary;
-}
-
-/*  */
-
 .head-text {
   @apply text-center text-h4 font-semibold mb-6;
 }
 
-/*  */
-
-.form {
-  @apply flex flex-col items-center;
-}
-
-.fieldsets {
-  @apply w-full flex flex-col gap-3 mb-2;
-}
-
-.fieldset {
-  @apply flex flex-col gap-2;
-}
-
-.fieldset.bool {
-  @apply flex flex-row;
-}
-
-/*  */
-
-.agreement-text {
-  @apply text-center text-subtitle2 text-icon mb-4;
-}
-
-.agreement-text span {
-  @apply text-primary font-semibold
-  hover:cursor-pointer;
-}
-
-/*  */
-
-.btn-container {
-  @apply w-full flex flex-col items-center justify-center mb-10;
+.main-container {
+  @apply max-w-[400] mx-auto border-black rounded-lg p-6 md:border;
 }

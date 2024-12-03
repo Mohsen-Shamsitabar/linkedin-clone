@@ -72,3 +72,7 @@
   @apply border-icon text-icon
   hover:bg-accent hover:text-accent-foreground;
 }
+
+.ghost.primary {
+  @apply text-primary;
+}
