@@ -17,15 +17,6 @@
   @apply flex flex-col items-center justify-center gap-3 mb-6;
 }
 
-.agreement-text-container {
-  @apply text-center text-subtitle2 mb-8;
-}
-
-.agreement-text-link {
-  @apply text-primary font-semibold ml-1 
-  hover:underline;
-}
-
 .new-to-linkedin-container {
   @apply flex items-center justify-center;
 }

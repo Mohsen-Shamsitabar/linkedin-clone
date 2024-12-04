@@ -1,5 +1,6 @@
 "use client";
 
+import { AgreementText } from "@/app/(not-logged)/components";
 import {
   BooleanFormControl,
   StringFormControl,
@@ -51,11 +52,7 @@ const SignupForm = () => {
           <BooleanFormControl label="Remember me" name="remember" />
         </div>
 
-        <p className={classes["agreement-text"]}>
-          By clicking Agree & Join or Continue, you agree to the LinkedIn
-          <span> User Agreement</span>,<span> Privacy Policy</span>, and
-          <span> Cookie Policy</span>
-        </p>
+        <AgreementText />
 
         <div className={classes["btn-container"]}>
           <Button
