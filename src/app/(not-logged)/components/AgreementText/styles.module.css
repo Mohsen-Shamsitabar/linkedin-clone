@@ -1,0 +1,8 @@
+.root {
+  @apply text-center text-subtitle2 mb-8;
+}
+
+.text-link {
+  @apply text-primary font-semibold ml-1 
+  hover:underline;
+}

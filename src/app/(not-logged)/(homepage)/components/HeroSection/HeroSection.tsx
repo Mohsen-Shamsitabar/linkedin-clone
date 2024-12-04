@@ -1,3 +1,4 @@
+import { AgreementText } from "@/app/(not-logged)/components";
 import GoogleLogo from "@/components/svgs/GoogleLogo";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -28,23 +29,7 @@ const HeroSection = () => {
           </Button>
         </div>
 
-        <p className={classes["agreement-text-container"]}>
-          <span>
-            By clicking Continue to join or sign in, you agree to LinkedIn’s
-          </span>
-          <Link href={"/"} className={classes["agreement-text-link"]}>
-            User Agreement
-          </Link>
-          ,
-          <Link href={"/"} className={classes["agreement-text-link"]}>
-            Privacy Policy
-          </Link>
-          , and
-          <Link href={"/"} className={classes["agreement-text-link"]}>
-            Cookie Policy
-          </Link>
-          .
-        </p>
+        <AgreementText />
 
         <p className={classes["new-to-linkedin-container"]}>
           <span>New to LinkedIn?</span>

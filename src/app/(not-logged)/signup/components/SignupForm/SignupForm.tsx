@@ -1,5 +1,6 @@
 "use client";
 
+import { AgreementText } from "@/app/(not-logged)/components";
 import {
   BooleanFormControl,
   StringFormControl,
@@ -17,7 +18,7 @@ const formSchema = z.object({
   remember: z.boolean().optional(),
 });
 
-const SigninForm = () => {
+const SignupForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,11 +52,7 @@ const SigninForm = () => {
           <BooleanFormControl label="Remember me" name="remember" />
         </div>
 
-        <p className={classes["agreement-text"]}>
-          By clicking Agree & Join or Continue, you agree to the LinkedIn
-          <span> User Agreement</span>,<span> Privacy Policy</span>, and
-          <span> Cookie Policy</span>
-        </p>
+        <AgreementText />
 
         <div className={classes["btn-container"]}>
           <Button
@@ -90,4 +87,4 @@ const SigninForm = () => {
   );
 };
 
-export default SigninForm;
+export default SignupForm;
