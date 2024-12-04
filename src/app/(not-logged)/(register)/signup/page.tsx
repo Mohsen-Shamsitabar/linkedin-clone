@@ -1,13 +1,14 @@
-import { Footer } from "../components";
+import { Footer } from "../../components";
 import classes from "./styles.module.css";
 
-import { SignupForm, SignupHeader } from "./components";
+import { RegisterHeader } from "../components";
+import { SignupForm } from "./components";
 
 const SignUpPage = () => {
   return (
     <div className={classes["root"]}>
       <div>
-        <SignupHeader />
+        <RegisterHeader />
 
         <h2 className={classes["head-text"]}>Join LinkedIn now — it’s free!</h2>
 

@@ -7,7 +7,9 @@ import {
 } from "@/components/form-controls";
 import GoogleLogo from "@/components/svgs/GoogleLogo";
 import { Button, Form, Separator } from "@/components/ui";
+import * as PATHS from "@/routes/paths";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import classes from "./styles.module.css";
@@ -15,16 +17,16 @@ import classes from "./styles.module.css";
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
-  remember: z.boolean().optional(),
+  keepLogged: z.boolean().optional(),
 });
 
-const SignupForm = () => {
+const SigninForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
       password: "",
-      remember: false,
+      keepLogged: true,
     },
   });
 
@@ -43,13 +45,17 @@ const SignupForm = () => {
           <StringFormControl label="Email" name="email" />
 
           <StringFormControl
-            label="Password (6+ characters)"
+            label="Password"
             name="password"
             type="password"
             showBtn
           />
 
-          <BooleanFormControl label="Remember me" name="remember" />
+          <div className={classes["forgot-pass-container"]}>
+            <Link href={""}>Forgot password?</Link>
+          </div>
+
+          <BooleanFormControl label="Keep me logged in" name="keepLogged" />
         </div>
 
         <AgreementText />
@@ -79,12 +85,12 @@ const SignupForm = () => {
           </Button>
         </div>
 
-        <p className={classes["on-linkedin-text"]}>
-          Already on Linkedin? <span>Sign in</span>
+        <p className={classes["new-to-linkedin-text"]}>
+          New to LinkedIn? <Link href={PATHS.SIGNUP}>Join now</Link>
         </p>
       </form>
     </Form>
   );
 };
 
-export default SignupForm;
+export default SigninForm;

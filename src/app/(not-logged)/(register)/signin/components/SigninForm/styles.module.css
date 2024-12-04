@@ -1,0 +1,52 @@
+.form {
+  @apply flex flex-col items-center;
+}
+
+.fieldsets {
+  @apply w-full flex flex-col gap-4 mb-5;
+}
+
+.forgot-pass-container {
+  @apply flex items-center justify-start;
+}
+.forgot-pass-container a {
+  @apply text-primary font-medium
+  hover:underline;
+}
+
+/*  */
+
+.agreement-text {
+  @apply text-center text-subtitle2 text-icon mb-4;
+}
+
+.agreement-text span {
+  @apply text-primary font-semibold
+  hover:cursor-pointer;
+}
+
+/*  */
+
+.btn-container {
+  @apply w-full flex flex-col items-center justify-center mb-10;
+}
+
+.separator-container {
+  @apply w-full flex flex-row items-center justify-center overflow-hidden relative;
+}
+.separator-container span {
+  @apply absolute bg-background px-5;
+}
+
+.google-logo-container {
+  @apply bg-background rounded-full p-2;
+}
+
+/*  */
+
+.new-to-linkedin-text {
+  @apply text-subtitle1;
+}
+.new-to-linkedin-text a {
+  @apply text-primary font-semibold hover:underline hover:cursor-pointer;
+}

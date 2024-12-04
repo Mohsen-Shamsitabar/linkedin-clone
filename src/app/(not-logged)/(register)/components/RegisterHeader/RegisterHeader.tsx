@@ -3,7 +3,7 @@ import * as PATHS from "@/routes/paths";
 import Link from "next/link";
 import classes from "./styles.module.css";
 
-const SignupHeader = () => {
+const RegisterHeader = () => {
   return (
     <header className={classes["root"]}>
       <nav className={classes["navbar"]}>
@@ -18,4 +18,4 @@ const SignupHeader = () => {
   );
 };
 
-export default SignupHeader;
+export default RegisterHeader;
