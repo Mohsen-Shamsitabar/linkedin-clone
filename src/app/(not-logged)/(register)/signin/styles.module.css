@@ -1,0 +1,22 @@
+.root {
+  @apply container h-screen flex flex-col justify-between;
+}
+
+.text-container {
+  @apply flex flex-col mb-4;
+}
+.text-container h2 {
+  @apply text-h2 font-semibold mb-2;
+}
+.text-container p {
+  @apply text-subtitle1;
+}
+
+.main-container {
+  @apply max-w-[400] mx-auto border-black rounded-lg p-6 mb-12
+  md:border;
+}
+
+.footer {
+  @apply hidden md:block;
+}

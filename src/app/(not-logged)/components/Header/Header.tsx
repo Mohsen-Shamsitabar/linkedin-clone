@@ -53,8 +53,8 @@ const Header = () => {
         <Separator className={classes["separator"]} orientation="vertical" />
 
         <div className={classes["btn-container"]}>
-          <Button variant="outline" color="primary">
-            Sign in
+          <Button asChild variant="outline" color="primary">
+            <Link href={PATHS.SIGNIN}>Sign in</Link>
           </Button>
 
           <Button asChild variant="fill" color="primary" className="ml-2">
