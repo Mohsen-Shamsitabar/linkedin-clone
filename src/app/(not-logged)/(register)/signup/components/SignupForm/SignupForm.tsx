@@ -7,7 +7,9 @@ import {
 } from "@/components/form-controls";
 import GoogleLogo from "@/components/svgs/GoogleLogo";
 import { Button, Form, Separator } from "@/components/ui";
+import * as PATHS from "@/routes/paths";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import classes from "./styles.module.css";
@@ -80,7 +82,7 @@ const SignupForm = () => {
         </div>
 
         <p className={classes["on-linkedin-text"]}>
-          Already on Linkedin? <span>Sign in</span>
+          Already on Linkedin? <Link href={PATHS.SIGNIN}>Sign in</Link>
         </p>
       </form>
     </Form>
