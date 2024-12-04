@@ -17,7 +17,7 @@ const formSchema = z.object({
   remember: z.boolean().optional(),
 });
 
-const SigninForm = () => {
+const SignupForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -90,4 +90,4 @@ const SigninForm = () => {
   );
 };
 
-export default SigninForm;
+export default SignupForm;

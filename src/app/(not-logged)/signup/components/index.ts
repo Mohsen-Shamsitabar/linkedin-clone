@@ -1,2 +1,2 @@
-export { default as SigninForm } from "./SigninForm";
-export { default as SigninHeader } from "./SigninHeader";
+export { default as SignupForm } from "./SignupForm";
+export { default as SignupHeader } from "./SignupHeader";
