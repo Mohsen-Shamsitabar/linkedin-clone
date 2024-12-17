@@ -7,8 +7,8 @@ const users: Users = {
     id: "USER_1",
     firstName: "Mohsen",
     lastName: "Shamsitabar",
-    avatar: "https://picsum.photos/id/0/800/200",
-    banner: "https://picsum.photos/id/10/152/152",
+    avatar: "https://picsum.photos/id/0/152/152",
+    banner: "https://picsum.photos/id/10/1000/250",
     location: {
       country: "Iran",
       city: "Karaj",
@@ -50,8 +50,8 @@ const users: Users = {
     id: "USER_2",
     firstName: "Mostafa",
     lastName: "Shamsitabar",
-    avatar: "https://picsum.photos/id/6/800/200",
-    banner: "https://picsum.photos/id/60/152/152",
+    avatar: "https://picsum.photos/id/6/152/152",
+    banner: "https://picsum.photos/id/60/1000/250",
     location: {
       country: "Iran",
       city: "Tehran",
@@ -95,6 +95,16 @@ export const getUsers = (_query = "") => {
   const promise = new Promise<Users>((resolve, _reject) => {
     setTimeout(() => {
       resolve(users);
+    }, 1000);
+  });
+
+  return promise;
+};
+
+export const getUser = (userId: UserId) => {
+  const promise = new Promise<User>((resolve, _reject) => {
+    setTimeout(() => {
+      resolve(users[userId]!);
     }, 1000);
   });
 

@@ -13,6 +13,7 @@
     --highlight: #191919;
     --icon: #666666;
     --divider: #b2b2b2;
+    --logged-bg: #f4f2ee;
 
     /* === SHADCN === */
 
@@ -34,7 +35,7 @@
     --popover: #ffffff;
     --popover-foreground: #1a73e8;
 
-    --border: #e2e8f0;
+    --border: #dfdedb;
 
     --input: #404040;
 
@@ -47,5 +48,14 @@
     --ring: #94a3b8;
 
     --radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .image-container {
+    @apply max-w-full max-h-full flex items-center justify-center overflow-hidden;
+  }
+  .image-container > img {
+    @apply size-full;
   }
 }

@@ -2,11 +2,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     container: {
       center: true,
@@ -24,6 +20,7 @@ const config: Config = {
         highlight: "var(--highlight)",
         icon: "var(--icon)",
         divider: "var(--divider)",
+        "logged-bg": "var(--logged-bg)",
 
         // === === === ===
 
@@ -71,6 +68,5 @@ const config: Config = {
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
-  // plugins: [tailwindAnimate],
 };
 export default config;
