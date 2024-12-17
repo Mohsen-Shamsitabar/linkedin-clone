@@ -1,0 +1,15 @@
+.root {
+  @apply p-4 bg-white flex flex-col;
+}
+
+.root > h2 {
+  @apply mb-3;
+}
+
+.root > a {
+  @apply flex items-center text-primary-dark;
+}
+
+.add-summary-text {
+  @apply text-subtitle1 font-semibold;
+}

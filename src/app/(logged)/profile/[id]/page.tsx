@@ -7,7 +7,7 @@ import { getUser } from "@/api/users";
 import type { UserId } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import { Header, ProfileSection } from "./components";
+import { AboutSection, Header, ProfileSection } from "./components";
 
 type ProfileParams = {
   id: UserId;
@@ -43,7 +43,9 @@ const ProfilePage = () => {
       {/* MOBILE VIEW */}
 
       <main className="md:hidden bg-logged-bg">
-        <ProfileSection user={user} />
+        <ProfileSection user={user} className="mb-2" />
+
+        <AboutSection user={user} className="mb-2" />
       </main>
 
       {/* PC VIEW */}
