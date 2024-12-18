@@ -11,6 +11,7 @@ import {
   FeaturedSection,
   Header,
   ProfileSection,
+  SkillsSection,
 } from "./components";
 import classes from "./styles.module.css";
 
@@ -57,6 +58,8 @@ const ProfilePage = () => {
         <ExperienceSection user={user} className={classes["section"]} />
 
         <EducationSection user={user} className={classes["section"]} />
+
+        <SkillsSection user={user} className={classes["section"]} />
       </main>
 
       {/* PC VIEW */}

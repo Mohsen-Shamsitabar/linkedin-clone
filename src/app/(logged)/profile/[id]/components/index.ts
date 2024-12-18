@@ -4,3 +4,4 @@ export { default as ExperienceSection } from "./ExperienceSection";
 export { default as FeaturedSection } from "./FeaturedSection";
 export { default as Header } from "./Header";
 export { default as ProfileSection } from "./ProfileSection";
+export { default as SkillsSection } from "./SkillsSection";
