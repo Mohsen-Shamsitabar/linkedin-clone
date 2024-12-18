@@ -1,0 +1,7 @@
+.featured-description {
+  @apply text-subtitle1 text-icon font-medium mb-4;
+}
+
+.add-featured {
+  @apply flex items-center text-primary-dark text-subtitle1 font-semibold;
+}

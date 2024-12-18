@@ -1,0 +1,7 @@
+.section {
+  @apply bg-white mb-2 p-4 flex flex-col;
+}
+
+.main-content {
+  @apply bg-logged-bg;
+}

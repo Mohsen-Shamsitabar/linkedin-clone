@@ -1,13 +1,16 @@
 "use client";
 
-import { Camera, CornerUpRight, Pencil, Settings } from "lucide-react";
-import Image from "next/image";
-
 import { getUser } from "@/api/users";
 import type { UserId } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import { AboutSection, Header, ProfileSection } from "./components";
+import {
+  AboutSection,
+  FeaturedSection,
+  Header,
+  ProfileSection,
+} from "./components";
+import classes from "./styles.module.css";
 
 type ProfileParams = {
   id: UserId;
@@ -42,15 +45,17 @@ const ProfilePage = () => {
 
       {/* MOBILE VIEW */}
 
-      <main className="md:hidden bg-logged-bg">
+      <main className={classes["main-content"]}>
         <ProfileSection user={user} className="mb-2" />
 
-        <AboutSection user={user} className="mb-2" />
+        <AboutSection user={user} className={classes["section"]} />
+
+        <FeaturedSection user={user} className={classes["section"]} />
       </main>
 
       {/* PC VIEW */}
 
-      <div className="bg-logged-bg hidden md:block">
+      {/* <div className="bg-logged-bg hidden md:block">
         <main className="md:container py-6">
           <section className="flex flex-col relative bg-white rounded-md border border-border">
             <div className="relative w-full">
@@ -110,7 +115,7 @@ const ProfilePage = () => {
             </div>
           </section>
         </main>
-      </div>
+      </div> */}
     </div>
   );
 };

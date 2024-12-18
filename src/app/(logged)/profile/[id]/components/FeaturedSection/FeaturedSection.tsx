@@ -1,0 +1,30 @@
+import type { User } from "@/types";
+import { PlusIcon } from "lucide-react";
+import Link from "next/link";
+import classes from "./styles.module.css";
+
+type Props = {
+  user: User;
+  className?: string;
+};
+
+const FeaturedSection = (props: Props) => {
+  const { user: _user, className } = props;
+
+  return (
+    <section className={className}>
+      <h2 className="mb-3">Featured</h2>
+
+      <p className={classes["featured-description"]}>
+        Add external documents, photos and links.
+      </p>
+
+      <Link href={"/"} className={classes["add-featured"]}>
+        <PlusIcon size={16} />
+        <span className={classes["add-featured-text"]}>Add featured</span>
+      </Link>
+    </section>
+  );
+};
+
+export default FeaturedSection;
