@@ -22,7 +22,7 @@ const FeaturedSection = (props: Props) => {
 
       <Link href={"/"} className={classes["add-featured"]}>
         <PlusIcon size={16} />
-        <span className={classes["add-featured-text"]}>Add featured</span>
+        <span>Add featured</span>
       </Link>
     </section>
   );
