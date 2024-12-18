@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import type { User } from "@/types";
 import { PlusIcon } from "lucide-react";
 import Link from "next/link";
@@ -12,7 +13,7 @@ const AboutSection = (props: Props) => {
   const { user: _user, className } = props;
 
   return (
-    <section className={className}>
+    <section className={cn(classes["root"], className)}>
       <h2 className="mb-3">About</h2>
 
       <Link href={"/"} className={classes["add-summary"]}>

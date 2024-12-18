@@ -1,3 +1,7 @@
+.root {
+  @apply p-4 flex flex-col;
+}
+
 .featured-description {
   @apply text-subtitle1 text-icon font-medium mb-4;
 }

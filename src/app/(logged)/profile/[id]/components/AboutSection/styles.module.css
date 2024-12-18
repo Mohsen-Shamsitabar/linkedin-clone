@@ -1,3 +1,7 @@
+.root {
+  @apply p-4 flex flex-col;
+}
+
 .add-summary {
   @apply flex items-center text-primary-dark text-subtitle1 font-semibold;
 }
