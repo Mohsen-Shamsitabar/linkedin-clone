@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import {
   AboutSection,
+  ExperienceSection,
   FeaturedSection,
   Header,
   ProfileSection,
@@ -46,11 +47,13 @@ const ProfilePage = () => {
       {/* MOBILE VIEW */}
 
       <main className={classes["main-content"]}>
-        <ProfileSection user={user} className="mb-2" />
+        <ProfileSection user={user} />
 
         <AboutSection user={user} className={classes["section"]} />
 
         <FeaturedSection user={user} className={classes["section"]} />
+
+        <ExperienceSection user={user} className={classes["section"]} />
       </main>
 
       {/* PC VIEW */}
