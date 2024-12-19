@@ -1,0 +1,7 @@
+.root {
+  @apply flex flex-col items-center justify-center;
+}
+
+.root > span {
+  @apply text-icon text-subtitle2 font-medium;
+}

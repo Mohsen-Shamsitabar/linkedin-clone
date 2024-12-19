@@ -10,6 +10,7 @@ import {
   EducationSection,
   ExperienceSection,
   FeaturedSection,
+  Footer,
   Header,
   ProfileSection,
   SkillsSection,
@@ -44,7 +45,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div>
+    <div className="relative">
       <Header user={user} />
 
       {/* MOBILE VIEW */}
@@ -64,6 +65,8 @@ const ProfilePage = () => {
 
         <ContactSection user={user} className={classes["section"]} />
       </main>
+
+      <Footer className="sticky bottom-0 right-0 left-0" />
 
       {/* PC VIEW */}
 
