@@ -9,7 +9,6 @@ import {
   ContactSection,
   EducationSection,
   ExperienceSection,
-  FeaturedSection,
   Footer,
   Header,
   ProfileSection,
@@ -57,8 +56,6 @@ const ProfilePage = () => {
           loggedUserId={loggedUserId}
           className={classes["section"]}
         />
-
-        <FeaturedSection user={user} className={classes["section"]} />
 
         <ExperienceSection user={user} className={classes["section"]} />
 
