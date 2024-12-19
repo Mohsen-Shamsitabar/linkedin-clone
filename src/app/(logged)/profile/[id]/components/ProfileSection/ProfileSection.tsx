@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
-import type { User } from "@/types";
+import type { User, UserId } from "@/types";
 import {
   CameraIcon,
   CornerUpRightIcon,
+  EllipsisVerticalIcon,
   PencilIcon,
   SettingsIcon,
 } from "lucide-react";
@@ -11,11 +12,62 @@ import classes from "./styles.module.css";
 
 type Props = {
   user: User;
+  loggedUserId: UserId;
   className?: string;
 };
 
 const ProfileSection = (props: Props) => {
-  const { user, className } = props;
+  const { user, loggedUserId, className } = props;
+
+  const renderSettingsIcon = () => {
+    if (loggedUserId !== user.id) return null;
+
+    return (
+      <div className={classes["settings-icon-container"]}>
+        <SettingsIcon className="stroke-icon" size={16} />
+      </div>
+    );
+  };
+
+  const renderHeadActions = () => {
+    if (loggedUserId !== user.id) {
+      return <EllipsisVerticalIcon className="stroke-icon" />;
+    }
+
+    return (
+      <>
+        <CornerUpRightIcon className="stroke-icon" />
+
+        <PencilIcon className="stroke-icon" />
+      </>
+    );
+  };
+
+  const renderConnectionsCount = () => {
+    if (loggedUserId !== user.id) {
+      return (
+        <span
+          className={classes["others-connections"]}
+        >{`${user.connections.length} connections`}</span>
+      );
+    }
+
+    return (
+      <span
+        className={classes["own-connections"]}
+      >{`${user.connections.length} connections`}</span>
+    );
+  };
+
+  const renderCameraIcon = () => {
+    if (loggedUserId !== user.id) return null;
+
+    return (
+      <div className={classes["camera-icon-container"]}>
+        <CameraIcon size={16} className="stroke-icon" />
+      </div>
+    );
+  };
 
   return (
     <section className={cn(classes["root"], className)}>
@@ -29,16 +81,12 @@ const ProfileSection = (props: Props) => {
           />
         </div>
 
-        <div className={classes["settings-icon-container"]}>
-          <SettingsIcon className="stroke-icon" size={16} />
-        </div>
+        {renderSettingsIcon()}
       </div>
 
       <div className={classes["info-container"]}>
-        <div className={classes["head-icons-container"]}>
-          <CornerUpRightIcon className="stroke-icon" />
-
-          <PencilIcon className="stroke-icon" />
+        <div className={classes["head-actions-container"]}>
+          {renderHeadActions()}
         </div>
 
         <div>
@@ -46,14 +94,14 @@ const ProfileSection = (props: Props) => {
             className={classes["username"]}
           >{`${user.firstName} ${user.lastName}`}</h1>
 
-          <p className={classes["user-bio"]}>{user.contactInfo.phoneNumber}</p>
+          <p className={classes["user-headline"]}>{user.headline}</p>
+
+          <p className={classes["user-industry"]}>{user.industry}</p>
 
           <p className={classes["user-info"]}>
             <span>{user.contactInfo.address}</span>
             <span className={classes["separator"]}>.</span>
-            <span
-              className={classes["connections"]}
-            >{`${user.connections.length} connections`}</span>
+            {renderConnectionsCount()}
           </p>
         </div>
       </div>
@@ -69,9 +117,7 @@ const ProfileSection = (props: Props) => {
             />
           </div>
 
-          <div className={classes["camera-icon-container"]}>
-            <CameraIcon size={16} className="stroke-icon" />
-          </div>
+          {renderCameraIcon()}
         </div>
       </div>
     </section>

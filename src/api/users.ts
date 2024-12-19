@@ -13,7 +13,8 @@ const users: Users = {
       country: "Iran",
       city: "Karaj",
     },
-    industary: "MYST",
+    headline: "Im sad and broke",
+    industry: "MYST",
     contactInfo: {
       phoneNumber: "09354360890",
       phoneType: "MOBILE",
@@ -38,6 +39,8 @@ const users: Users = {
         },
       ],
     },
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic et atque aliquid accusantium nesciunt, dolore amet, ea quos vel debitis dicta magnam, placeat earum. Eaque a sed nihil minus animi!",
     educations: ["EDU_1"],
     experiences: ["EXP_1"],
     posts: ["POST_1"],
@@ -56,12 +59,13 @@ const users: Users = {
       country: "Iran",
       city: "Tehran",
     },
-    industary: "Divar",
+    headline: "Senior Software Engineer @ TAPSI",
+    industry: "TAPSI",
     contactInfo: {
       phoneNumber: "09302124958",
       phoneType: "WORK",
       email: "guzguz@gmail.com",
-      address: "mewn, asdad, p2, v5",
+      address: "Tehran Province, Iran",
       birthday: {
         month: "2",
         day: "27",
@@ -81,6 +85,7 @@ const users: Users = {
         },
       ],
     },
+    summary: `As a Front-end Software Engineer with a profound dedication to the open-source movement, I excel in creating tools and infrastructure that serve as the backbone for innovative applications. My expertise extends beyond the code—I am deeply passionate about design in all its forms. This passion manifests in a meticulous approach to user experience and interface design, ensuring that the tools I craft are not only functional but also intuitive and aesthetically pleasing.\nIn every project I undertake, my goal is to harmonize efficiency with elegance, creating a seamless experience for developers and end-users alike. My commitment to this dual craft of engineering and design is what drives me to contribute to a future where technology is accessible, reliable, and delightful to use.\n\n> Check out my open-source projects:\nhttps://github.com/mimshins`,
     educations: ["EDU_2"],
     experiences: ["EXP_2"],
     posts: ["POST_2"],

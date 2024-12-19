@@ -19,7 +19,7 @@
   @apply w-full p-4;
 }
 
-.head-icons-container {
+.head-actions-container {
   @apply flex flex-row items-center justify-end gap-5 mb-10;
 }
 
@@ -27,19 +27,28 @@
   @apply text-body1 font-semibold m-0;
 }
 
-.user-bio {
+.user-headline {
+  @apply text-subtitle1 font-medium;
+}
+
+.user-industry {
+  @apply text-subtitle1 text-icon;
 }
 
 .user-info {
-  @apply text-subtitle1 font-semibold text-icon flex flex-row items-center;
+  @apply font-medium text-subtitle1 text-icon flex flex-row items-center;
 }
 
 .separator {
   @apply mx-2 font-black;
 }
 
-.connections {
-  @apply text-primary-dark hover:cursor-pointer;
+.own-connections {
+  @apply font-normal text-primary-dark hover:cursor-pointer;
+}
+
+.others-connections {
+  @apply font-normal;
 }
 
 /*  */

@@ -112,9 +112,11 @@ export type User = {
   lastName: string;
   avatar: string;
   banner: string;
-  industary: string;
+  headline: string;
+  industry: string;
   location: { country: string; city: string };
   contactInfo: ContactInfo;
+  summary: string;
   experiences: ExperienceId[];
   educations: EducationId[];
   posts: PostId[];
