@@ -17,13 +17,6 @@ export type WebsiteTypes =
   | "PORTFOLIO"
   | "OTHER";
 
-export type FoundByType =
-  | "LINKEDIN"
-  | "COMPANY_WEBSITE"
-  | "INDEED"
-  | "RECRUITER"
-  | "OTHER";
-
 export type LocationType = "ON_SITE" | "HYBRID" | "REMOTE";
 
 export type PhoneType = "HOME" | "WORK" | "MOBILE";
@@ -54,7 +47,6 @@ export type Experience = {
   id: ExperienceId;
   owner: UserId;
   title: string;
-  active: boolean;
   employmentType: EmploymentType;
   company: string;
   startDate: Date;
@@ -62,15 +54,13 @@ export type Experience = {
   location: string;
   locationType: LocationType;
   description: string;
-  profileHeadline: string;
-  foundBy: FoundByType;
   skills: Skill[];
 };
 
 export type Education = {
   id: EducationId;
   owner: UserId;
-  school: string;
+  name: string;
   degree: string;
   fieldOfStudy: string;
   startDate: Date;

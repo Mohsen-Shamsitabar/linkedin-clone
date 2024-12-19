@@ -6,7 +6,7 @@ const educations: Educations = {
   EDU_1: {
     id: "EDU_1",
     owner: "USER_1",
-    school: "Alborz",
+    name: "Alborz",
     fieldOfStudy: "Math",
     degree: "diploma",
     grade: "17.5",
@@ -19,7 +19,7 @@ const educations: Educations = {
   EDU_2: {
     id: "EDU_2",
     owner: "USER_2",
-    school: "Azad University Research Branch",
+    name: "Azad University Research Branch",
     fieldOfStudy: "CS",
     degree: "license",
     grade: "18.28",
