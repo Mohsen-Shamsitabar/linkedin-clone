@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import {
   AboutSection,
+  ContactSection,
   EducationSection,
   ExperienceSection,
   FeaturedSection,
@@ -60,6 +61,8 @@ const ProfilePage = () => {
         <EducationSection user={user} className={classes["section"]} />
 
         <SkillsSection user={user} className={classes["section"]} />
+
+        <ContactSection user={user} className={classes["section"]} />
       </main>
 
       {/* PC VIEW */}

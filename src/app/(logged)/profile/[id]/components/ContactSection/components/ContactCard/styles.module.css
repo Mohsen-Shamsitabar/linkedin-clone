@@ -1,0 +1,11 @@
+.text-container {
+  @apply flex flex-col;
+}
+
+.text-container > p {
+  @apply font-medium mb-1;
+}
+
+.text-container > a {
+  @apply text-subtitle1 text-primary-dark font-medium;
+}

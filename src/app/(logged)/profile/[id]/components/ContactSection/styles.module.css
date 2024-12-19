@@ -1,0 +1,11 @@
+.root {
+  @apply p-4 flex flex-col items-center;
+}
+
+.section-head {
+  @apply w-full flex items-center justify-between mb-2;
+}
+
+.section-body {
+  @apply w-full px-2;
+}
