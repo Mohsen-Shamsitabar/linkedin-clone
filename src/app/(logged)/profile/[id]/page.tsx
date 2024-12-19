@@ -52,7 +52,11 @@ const ProfilePage = () => {
       <main className={classes["main-content"]}>
         <ProfileSection user={user} loggedUserId={loggedUserId} />
 
-        <AboutSection user={user} className={classes["section"]} />
+        <AboutSection
+          user={user}
+          loggedUserId={loggedUserId}
+          className={classes["section"]}
+        />
 
         <FeaturedSection user={user} className={classes["section"]} />
 

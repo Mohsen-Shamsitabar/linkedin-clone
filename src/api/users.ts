@@ -39,8 +39,7 @@ const users: Users = {
         },
       ],
     },
-    summary:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic et atque aliquid accusantium nesciunt, dolore amet, ea quos vel debitis dicta magnam, placeat earum. Eaque a sed nihil minus animi!",
+    summary: "testing...",
     educations: ["EDU_1"],
     experiences: ["EXP_1"],
     posts: ["POST_1"],
