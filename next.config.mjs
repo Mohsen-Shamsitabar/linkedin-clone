@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: ["picsum.photos"],
+    // remotePatterns: ["picsum.photos"],
+    domains: ["picsum.photos"],
   },
 };
 
