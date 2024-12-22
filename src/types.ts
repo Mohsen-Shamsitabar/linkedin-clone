@@ -10,7 +10,7 @@ export type EmploymentType =
   | "SEASONAL"
   | "OTHER";
 
-export type WebsiteTypes =
+export type WebsiteType =
   | "PERSONAL"
   | "COMPANY"
   | "BLOG"
@@ -18,8 +18,6 @@ export type WebsiteTypes =
   | "OTHER";
 
 export type LocationType = "ON_SITE" | "HYBRID" | "REMOTE";
-
-export type PhoneType = "HOME" | "WORK" | "MOBILE";
 
 // === === === === === SUB TYPES === === === === === //
 
@@ -38,7 +36,7 @@ export type Date = {
 
 export type Website = {
   url: string;
-  type: WebsiteTypes;
+  type: WebsiteType;
 };
 
 // === === === === === MAIN TYPES === === === === === //
@@ -90,7 +88,6 @@ export type Comment = {
 export type ContactInfo = {
   email: string;
   phoneNumber: string;
-  phoneType: PhoneType;
   address: string;
   birthday: { month: string; day: string };
   websites: Website[];
