@@ -71,7 +71,8 @@ export type Education = {
 export type Post = {
   id: PostId;
   owner: UserId;
-  caption: string;
+  title: string;
+  description: string;
   media: string;
   likedBy: UserId[];
   comments: CommentId[];
