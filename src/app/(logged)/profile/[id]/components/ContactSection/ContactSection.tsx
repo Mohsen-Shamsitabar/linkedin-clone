@@ -2,9 +2,10 @@
 
 import { LinkedinIcon } from "@/components/svgs";
 import { Separator } from "@/components/ui";
+import { WEBSITE_TYPE_LABELS } from "@/labels";
 import { cn } from "@/lib/utils";
 import type { User } from "@/types";
-import { MailIcon, PencilIcon } from "lucide-react";
+import { BinaryIcon, MailIcon, PencilIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ContactCard } from "./components";
 import classes from "./styles.module.css";
@@ -46,6 +47,21 @@ const ContactSection = (props: Props) => {
     );
   };
 
+  const renderOtherWebsites = () => {
+    return user.contactInfo.websites.map((website, idx) => (
+      <div key={`${website.type}-${idx}`}>
+        <Separator orientation="horizontal" className="my-5" />
+
+        <ContactCard
+          title={WEBSITE_TYPE_LABELS[website.type]}
+          icon={<BinaryIcon className="stroke-icon mr-4" />}
+          linkText={website.url}
+          linkHref={website.url}
+        />
+      </div>
+    ));
+  };
+
   return (
     <section className={cn(classes["root"], className)}>
       <div className={classes["section-head"]}>
@@ -59,6 +75,8 @@ const ContactSection = (props: Props) => {
         <Separator orientation="horizontal" className="my-5" />
 
         {renderLinkedIn()}
+
+        {renderOtherWebsites()}
       </div>
     </section>
   );
