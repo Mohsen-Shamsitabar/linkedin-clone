@@ -11,6 +11,7 @@ import {
   ExperienceSection,
   Footer,
   Header,
+  PostsSection,
   ProfileSection,
   SkillsSection,
 } from "./components";
@@ -52,6 +53,12 @@ const ProfilePage = () => {
         <ProfileSection user={user} loggedUserId={loggedUserId} />
 
         <AboutSection
+          user={user}
+          loggedUserId={loggedUserId}
+          className={classes["section"]}
+        />
+
+        <PostsSection
           user={user}
           loggedUserId={loggedUserId}
           className={classes["section"]}

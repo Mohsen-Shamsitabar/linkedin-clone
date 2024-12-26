@@ -27,10 +27,22 @@ const posts: Posts = {
   },
 };
 
-export const getPosts = (_query = "") => {
+export const getPosts = (postIds: PostId[] = []) => {
   const promise = new Promise<Posts>((resolve, _reject) => {
     setTimeout(() => {
-      resolve(posts);
+      if (!postIds.length) resolve(posts);
+
+      const allPostIds = Object.keys(posts) as PostId[];
+
+      const fetchedPostIds = allPostIds.filter(postId =>
+        postIds.includes(postId),
+      );
+
+      const result: Posts = {};
+
+      fetchedPostIds.forEach(postId => (result[postId] = posts[postId]!));
+
+      resolve(result);
     }, 1000);
   });
 
