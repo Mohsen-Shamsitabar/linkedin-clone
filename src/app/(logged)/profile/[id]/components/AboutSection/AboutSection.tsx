@@ -27,7 +27,7 @@ const AboutSection = (props: Props) => {
     return (
       <Link href={"/"} className={classes["add-summary"]}>
         <PlusIcon size={16} />
-        <span className={classes["add-summary-text"]}>Add summary</span>
+        <span>Add summary</span>
       </Link>
     );
   };
