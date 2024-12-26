@@ -20,6 +20,7 @@ const config: Config = {
         highlight: "var(--highlight)",
         icon: "var(--icon)",
         divider: "var(--divider)",
+        "light-divider": "var(--light-divider)",
         "logged-bg": "var(--logged-bg)",
 
         // === === === ===
