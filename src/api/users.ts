@@ -5,6 +5,7 @@ type Users = Record<UserId, User>;
 const users: Users = {
   USER_1: {
     id: "USER_1",
+    createDate: "2024-12-26T18:38:00+03:30",
     firstName: "Mohsen",
     lastName: "Shamsitabar",
     avatar: "https://picsum.photos/id/0/152/152",
@@ -17,7 +18,6 @@ const users: Users = {
     industry: "MYST",
     contactInfo: {
       phoneNumber: "09354360890",
-      phoneType: "MOBILE",
       email: "shamsitabar.mohsen@gmail.com",
       address: "boom,boom,boom,boom",
       birthday: {
@@ -50,6 +50,7 @@ const users: Users = {
   },
   USER_2: {
     id: "USER_2",
+    createDate: "2024-12-26T18:38:00+03:30",
     firstName: "Mostafa",
     lastName: "Shamsitabar",
     avatar: "https://picsum.photos/id/6/152/152",
@@ -62,7 +63,6 @@ const users: Users = {
     industry: "TAPSI",
     contactInfo: {
       phoneNumber: "09302124958",
-      phoneType: "WORK",
       email: "guzguz@gmail.com",
       address: "Tehran Province, Iran",
       birthday: {

@@ -29,11 +29,6 @@ export type CommentId = `CMNT_${string}`;
 
 export type Skill = string;
 
-export type Date = {
-  year: string;
-  month: string;
-};
-
 export type Website = {
   url: string;
   type: WebsiteType;
@@ -47,8 +42,8 @@ export type Experience = {
   title: string;
   employmentType: EmploymentType;
   company: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   location: string;
   locationType: LocationType;
   description: string;
@@ -61,8 +56,8 @@ export type Education = {
   name: string;
   degree: string;
   fieldOfStudy: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   grade: string;
   description: string;
   skills: Skill[];
@@ -70,6 +65,7 @@ export type Education = {
 
 export type Post = {
   id: PostId;
+  createDate: string;
   owner: UserId;
   title: string;
   description: string;
@@ -80,6 +76,7 @@ export type Post = {
 
 export type Comment = {
   id: CommentId;
+  createDate: string;
   writer: UserId;
   postId: PostId;
   text: string;
@@ -96,6 +93,7 @@ export type ContactInfo = {
 
 export type User = {
   id: UserId;
+  createDate: string;
   firstName: string;
   lastName: string;
   avatar: string;

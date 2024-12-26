@@ -5,6 +5,7 @@ type Posts = Record<PostId, Post>;
 const posts: Posts = {
   POST_1: {
     id: "POST_1",
+    createDate: "2024-12-26T18:38:00+03:30",
     owner: "USER_1",
     title: "sometimes im aloneeee...",
     description:
@@ -15,6 +16,7 @@ const posts: Posts = {
   },
   POST_2: {
     id: "POST_2",
+    createDate: "2024-12-26T18:38:00+03:30",
     owner: "USER_2",
     title: "eh, im thinking of ending things!",
     description:

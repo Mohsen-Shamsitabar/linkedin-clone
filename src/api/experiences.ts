@@ -11,8 +11,8 @@ const experiences: Experiences = {
     employmentType: "FULL_TIME",
     location: "Iran, Tehran, Sadeghie",
     locationType: "ON_SITE",
-    startDate: { year: "2020", month: "2" },
-    endDate: { year: "2022", month: "9" },
+    startDate: "2020-12-26T18:38:00+03:30",
+    endDate: "2024-12-26T18:38:00+03:30",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam error omnis, consequatur perspiciatis doloremque aperiam aspernatur? Magnam optio cumque quia, sapiente dolorem vitae impedit animi esse id illum veritatis quae.",
     skills: ["bluh", "bluh2", "bluh3"],
@@ -25,8 +25,8 @@ const experiences: Experiences = {
     employmentType: "APPRENTICESHIP",
     location: "HELL, HEll, JAHANAm",
     locationType: "HYBRID",
-    startDate: { year: "2022", month: "2" },
-    endDate: { year: "2024", month: "9" },
+    startDate: "2020-12-26T18:38:00+03:30",
+    endDate: "2024-12-26T18:38:00+03:30",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam error omnis, consequatur perspiciatis doloremque aperiam aspernatur? Magnam optio cumque quia, sapiente dolorem vitae impedit animi esse id illum veritatis quae.",
     skills: [],
