@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" id="school-small-on-dark" data-supported-dps="48x48">
+  <path d="M3 19h42a3 3 0 013 3v23H0V22a3 3 0 013-3z" fill="#56687a"/>
+  <path fill="#9db3c8" d="M24 2l-10 9.25V45h20V11.25L24 2z"/>
+  <path d="M23 45h-4v-9.5a1.5 1.5 0 011.5-1.5H23zM25 34h2.5a1.5 1.5 0 011.5 1.5V45h-4z" fill="#56687a"/>
+  <circle cx="24" cy="16" r="5" fill="#38434f"/>
+  <path d="M24 17h-2a1 1 0 010-2h1v-2a1 1 0 012 0v3a1 1 0 01-1 1z" fill="#9db3c8"/>
+  <ellipse cx="41" cy="35" rx="4" ry="6" fill="#9eb88f"/>
+  <ellipse cx="7" cy="35" rx="4" ry="6" fill="#9db88f"/>
+  <path d="M8 38a1 1 0 00-2 0v7h2zM42 38a1 1 0 00-2 0v7h2z" fill="#d6ebce"/>
+</svg>

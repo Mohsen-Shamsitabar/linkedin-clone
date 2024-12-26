@@ -1,0 +1,19 @@
+.root {
+  @apply p-4 flex flex-col;
+}
+
+.section-head {
+  @apply flex items-center justify-between mb-2;
+}
+
+.add-skills {
+  @apply flex items-center text-primary-dark text-subtitle1 font-semibold mb-4;
+}
+
+.skills-list {
+  @apply w-full flex flex-wrap items-center;
+}
+
+.skills-item {
+  @apply mb-2 text-subtitle1 font-semibold;
+}

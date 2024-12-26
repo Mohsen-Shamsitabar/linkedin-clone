@@ -10,23 +10,14 @@ export type EmploymentType =
   | "SEASONAL"
   | "OTHER";
 
-export type WebsiteTypes =
+export type WebsiteType =
   | "PERSONAL"
   | "COMPANY"
   | "BLOG"
   | "PORTFOLIO"
   | "OTHER";
 
-export type FoundByType =
-  | "LINKEDIN"
-  | "COMPANY_WEBSITE"
-  | "INDEED"
-  | "RECRUITER"
-  | "OTHER";
-
 export type LocationType = "ON_SITE" | "HYBRID" | "REMOTE";
-
-export type PhoneType = "HOME" | "WORK" | "MOBILE";
 
 // === === === === === SUB TYPES === === === === === //
 
@@ -38,14 +29,9 @@ export type CommentId = `CMNT_${string}`;
 
 export type Skill = string;
 
-export type Date = {
-  year: string;
-  month: string;
-};
-
 export type Website = {
   url: string;
-  type: WebsiteTypes;
+  type: WebsiteType;
 };
 
 // === === === === === MAIN TYPES === === === === === //
@@ -54,27 +40,24 @@ export type Experience = {
   id: ExperienceId;
   owner: UserId;
   title: string;
-  active: boolean;
   employmentType: EmploymentType;
   company: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   location: string;
   locationType: LocationType;
   description: string;
-  profileHeadline: string;
-  foundBy: FoundByType;
   skills: Skill[];
 };
 
 export type Education = {
   id: EducationId;
   owner: UserId;
-  school: string;
+  name: string;
   degree: string;
   fieldOfStudy: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   grade: string;
   description: string;
   skills: Skill[];
@@ -82,8 +65,10 @@ export type Education = {
 
 export type Post = {
   id: PostId;
+  createDate: string;
   owner: UserId;
-  caption: string;
+  title: string;
+  description: string;
   media: string;
   likedBy: UserId[];
   comments: CommentId[];
@@ -91,6 +76,7 @@ export type Post = {
 
 export type Comment = {
   id: CommentId;
+  createDate: string;
   writer: UserId;
   postId: PostId;
   text: string;
@@ -100,7 +86,6 @@ export type Comment = {
 export type ContactInfo = {
   email: string;
   phoneNumber: string;
-  phoneType: PhoneType;
   address: string;
   birthday: { month: string; day: string };
   websites: Website[];
@@ -108,13 +93,16 @@ export type ContactInfo = {
 
 export type User = {
   id: UserId;
+  createDate: string;
   firstName: string;
   lastName: string;
   avatar: string;
   banner: string;
-  industary: string;
+  headline: string;
+  industry: string;
   location: { country: string; city: string };
   contactInfo: ContactInfo;
+  summary: string;
   experiences: ExperienceId[];
   educations: EducationId[];
   posts: PostId[];

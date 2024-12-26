@@ -1,0 +1,15 @@
+.root {
+  @apply p-4 flex flex-col;
+}
+
+.head-container {
+  @apply flex items-center justify-between;
+}
+
+.add-summary {
+  @apply flex items-center text-primary-dark text-subtitle1 font-semibold;
+}
+
+.summary-text {
+  @apply whitespace-pre-line text-subtitle1 font-medium;
+}

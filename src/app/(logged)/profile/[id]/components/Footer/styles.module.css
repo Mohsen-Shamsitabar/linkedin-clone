@@ -1,0 +1,11 @@
+.root {
+  @apply bg-white w-full border-t border-divider px-4 py-1;
+}
+
+.root > nav {
+  @apply size-full;
+}
+
+.options-container {
+  @apply size-full flex items-center justify-between;
+}

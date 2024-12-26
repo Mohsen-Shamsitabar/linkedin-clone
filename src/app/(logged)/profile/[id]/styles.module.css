@@ -1,0 +1,7 @@
+.section {
+  @apply bg-white;
+}
+
+.main-content {
+  @apply bg-logged-bg space-y-2;
+}
