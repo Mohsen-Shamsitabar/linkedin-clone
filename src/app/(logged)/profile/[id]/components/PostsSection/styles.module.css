@@ -1,9 +1,9 @@
 .root {
-  @apply p-4 flex flex-col;
+  @apply p-4 flex flex-col space-y-5;
 }
 
 .head-container {
-  @apply flex items-center justify-between mb-6;
+  @apply flex items-center justify-between;
 }
 
 .add-post {
