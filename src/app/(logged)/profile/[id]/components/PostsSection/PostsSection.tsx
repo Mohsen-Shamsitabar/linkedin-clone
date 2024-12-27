@@ -2,6 +2,7 @@
 
 import { getPosts } from "@/api/posts";
 import { PostContainer } from "@/components/common";
+import type { CarouselApi } from "@/components/ui";
 import {
   Carousel,
   CarouselContent,
@@ -14,6 +15,7 @@ import type { User, UserId } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRightIcon, PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
+import * as React from "react";
 import classes from "./styles.module.css";
 
 type Props = {
@@ -29,6 +31,23 @@ const PostsSection = (props: Props) => {
     queryKey: ["postData"],
     queryFn: () => getPosts(user.posts),
   });
+
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [count, setCount] = React.useState(0);
+  const [current, setCurrent] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   // dont show when others view empty posts.
   if (loggedUserId !== user.id && !posts) return null;
@@ -71,6 +90,18 @@ const PostsSection = (props: Props) => {
     ));
   };
 
+  const renderBackBtn = () => {
+    if (current === 1) return null;
+
+    return <CarouselPrevious variant="fill" className={classes["back-btn"]} />;
+  };
+
+  const renderNextBtn = () => {
+    if (current === count) return null;
+
+    return <CarouselNext variant="fill" className={classes["next-btn"]} />;
+  };
+
   return (
     <section className={cn(classes["root"], className)}>
       <div className={classes["head-container"]}>
@@ -80,12 +111,12 @@ const PostsSection = (props: Props) => {
       </div>
 
       <div>
-        <Carousel>
+        <Carousel setApi={setApi} className="relative">
           <CarouselContent>{renderRecentPosts()}</CarouselContent>
 
-          <CarouselPrevious />
+          {renderBackBtn()}
 
-          <CarouselNext />
+          {renderNextBtn()}
         </Carousel>
       </div>
 

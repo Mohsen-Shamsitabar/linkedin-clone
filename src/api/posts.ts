@@ -7,8 +7,7 @@ const posts: Posts = {
     id: "POST_1",
     createDate: "2024-12-26T18:38:00+03:30",
     owner: "USER_1",
-    title: "sometimes im aloneeee...",
-    description:
+    caption:
       "meow meow meow meow, this is a description for this post, just ignore it!!!",
     media: "https://picsum.photos/id/237/552/696",
     likedBy: ["USER_2"],
@@ -18,8 +17,7 @@ const posts: Posts = {
     id: "POST_2",
     createDate: "2024-12-26T18:38:00+03:30",
     owner: "USER_2",
-    title: "eh, im thinking of ending things!",
-    description:
+    caption:
       "meow meow meow meow, this is a description for this post, just ignore it!!!",
     media: "https://picsum.photos/id/300/552/696",
     likedBy: [],

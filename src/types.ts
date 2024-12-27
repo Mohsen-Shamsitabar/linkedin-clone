@@ -67,8 +67,7 @@ export type Post = {
   id: PostId;
   createDate: string;
   owner: UserId;
-  title: string;
-  description: string;
+  caption: string;
   media: string;
   likedBy: UserId[];
   comments: CommentId[];
