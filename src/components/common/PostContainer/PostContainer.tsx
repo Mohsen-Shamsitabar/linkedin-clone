@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { MessageSquareTextIcon, ThumbsUpIcon } from "lucide-react";
 import moment from "moment";
 import Image from "next/image";
+import * as React from "react";
 import classes from "./styles.module.css";
 
 type Props = {
@@ -22,11 +23,30 @@ const PostContainer = (props: Props) => {
     queryFn: () => getUser(post.owner),
   });
 
+  const [isShown, setIsShown] = React.useState(false);
+
   if (isPending) return <h1>Loading...</h1>;
 
   if (!postOwner) return null;
 
   const deltaDate = moment(post.createDate).fromNow();
+
+  const renderMoreBtn = () => {
+    if (isShown) return null;
+
+    return (
+      <a
+        className="text-subtitle1 text-icon hover:cursor-pointer hover:underline hover:text-primary"
+        onClick={handleMoreBtn}
+      >
+        ...more
+      </a>
+    );
+  };
+
+  const handleMoreBtn = () => {
+    setIsShown(c => !c);
+  };
 
   return (
     <article className={classes["root"]}>
@@ -51,19 +71,17 @@ const PostContainer = (props: Props) => {
           </div>
         </div>
 
-        {/* add ...more btn */}
-        <p className={classes["post-description"]}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-          quia modi praesentium sint qui vel itaque quidem ea laborum repellat
-          dolorum et ipsa dolor, consequatur dolores ex quas est nesciunt. Lorem
-          ipsum dolor, sit amet consectetur adipisicing elit. Numquam a facilis
-          veritatis corporis nulla voluptatum optio soluta omnis atque, quisquam
-          fuga nam fugit tenetur beatae et repudiandae accusantium maiores
-          officia? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Facilis mollitia quidem officiis eveniet, veniam commodi neque
-          excepturi a quia incidunt cumque deserunt ab veritatis in vitae
-          voluptatum quam unde ullam?
+        <p
+          className={cn(
+            isShown
+              ? classes["post-description"]
+              : classes["post-description--clipped"],
+          )}
+        >
+          {post.description}
         </p>
+
+        <div className="flex items-center justify-end">{renderMoreBtn()}</div>
       </div>
 
       <div className="image-container">

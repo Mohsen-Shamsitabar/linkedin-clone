@@ -26,6 +26,10 @@
   @apply whitespace-pre-line text-subtitle1;
 }
 
+.post-description--clipped {
+  @apply post-description h-[54px] overflow-y-hidden;
+}
+
 .post-statistics-container {
   @apply flex items-center justify-between px-4 py-2;
 }
