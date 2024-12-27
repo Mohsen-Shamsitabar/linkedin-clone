@@ -22,12 +22,12 @@
   @apply text-subtitle2 text-icon;
 }
 
-.post-description {
+.post-caption {
   @apply whitespace-pre-line text-subtitle1;
 }
 
-.post-description--clipped {
-  @apply post-description h-[54px] overflow-y-hidden;
+.post-caption--clipped {
+  @apply post-caption h-[54px] overflow-y-hidden;
 }
 
 .post-statistics-container {

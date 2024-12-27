@@ -74,11 +74,11 @@ const PostContainer = (props: Props) => {
         <p
           className={cn(
             isShown
-              ? classes["post-description"]
-              : classes["post-description--clipped"],
+              ? classes["post-caption"]
+              : classes["post-caption--clipped"],
           )}
         >
-          {post.description}
+          {post.caption}
         </p>
 
         <div className="flex items-center justify-end">{renderMoreBtn()}</div>
