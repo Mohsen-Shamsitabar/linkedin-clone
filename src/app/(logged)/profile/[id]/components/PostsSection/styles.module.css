@@ -13,3 +13,16 @@
 .show-posts {
   @apply flex items-center justify-center;
 }
+
+.btn {
+  @apply z-50 opacity-80
+  hover:opacity-100;
+}
+
+.back-btn {
+  @apply btn left-[-16px];
+}
+
+.next-btn {
+  @apply btn right-[-16px];
+}

@@ -63,6 +63,10 @@
   hover:bg-primary-dark;
 }
 
+.fill.default {
+  @apply bg-black text-white;
+}
+
 .outline.primary {
   @apply border-primary text-primary
   hover:bg-primary-outline-bg hover:border-primary-dark hover:text-primary-dark;
