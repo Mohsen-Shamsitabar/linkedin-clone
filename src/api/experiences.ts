@@ -5,7 +5,13 @@ type Experiences = Record<ExperienceId, Experience>;
 const experiences: Experiences = {
   EXP_1: {
     id: "EXP_1",
-    owner: "USER_1",
+    userSummary: {
+      id: "USER_1",
+      firstName: "Mohsen",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/0/152/152",
+      headline: "Im sad and broke",
+    },
     title: "Tapsi",
     company: "Tapsi",
     employmentType: "FULL_TIME",
@@ -19,7 +25,13 @@ const experiences: Experiences = {
   },
   EXP_2: {
     id: "EXP_2",
-    owner: "USER_2",
+    userSummary: {
+      id: "USER_2",
+      firstName: "Mostafa",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/6/152/152",
+      headline: "Senior Software Engineer @ TAPSI",
+    },
     title: "Divar",
     company: "Divar",
     employmentType: "APPRENTICESHIP",

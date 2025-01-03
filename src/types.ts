@@ -36,60 +36,6 @@ export type Website = {
 
 // === === === === === MAIN TYPES === === === === === //
 
-export type Experience = {
-  id: ExperienceId;
-  owner: UserId;
-  title: string;
-  employmentType: EmploymentType;
-  company: string;
-  startDate: string;
-  endDate: string;
-  location: string;
-  locationType: LocationType;
-  description: string;
-  skills: Skill[];
-};
-
-export type Education = {
-  id: EducationId;
-  owner: UserId;
-  name: string;
-  degree: string;
-  fieldOfStudy: string;
-  startDate: string;
-  endDate: string;
-  grade: string;
-  description: string;
-  skills: Skill[];
-};
-
-export type Post = {
-  id: PostId;
-  createDate: string;
-  owner: UserId;
-  caption: string;
-  media: string;
-  likedBy: UserId[];
-  comments: CommentId[];
-};
-
-export type Comment = {
-  id: CommentId;
-  createDate: string;
-  writer: UserId;
-  postId: PostId;
-  text: string;
-  likedBy: UserId[];
-};
-
-export type ContactInfo = {
-  email: string;
-  phoneNumber: string;
-  address: string;
-  birthday: { month: string; day: string };
-  websites: Website[];
-};
-
 export type User = {
   id: UserId;
   createDate: string;
@@ -109,4 +55,63 @@ export type User = {
   connections: UserId[];
   followers: UserId[];
   followings: UserId[];
+};
+
+export type UserSummary = Pick<
+  User,
+  "avatar" | "firstName" | "id" | "lastName" | "headline"
+>;
+
+export type Experience = {
+  id: ExperienceId;
+  userSummary: UserSummary;
+  title: string;
+  employmentType: EmploymentType;
+  company: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+  locationType: LocationType;
+  description: string;
+  skills: Skill[];
+};
+
+export type Education = {
+  id: EducationId;
+  userSummary: UserSummary;
+  name: string;
+  degree: string;
+  fieldOfStudy: string;
+  startDate: string;
+  endDate: string;
+  grade: string;
+  description: string;
+  skills: Skill[];
+};
+
+export type Post = {
+  id: PostId;
+  createDate: string;
+  userSummary: UserSummary;
+  caption: string;
+  media: string;
+  likedBy: UserId[];
+  comments: CommentId[];
+};
+
+export type Comment = {
+  id: CommentId;
+  createDate: string;
+  userSummary: UserSummary;
+  postId: PostId;
+  text: string;
+  likedBy: UserId[];
+};
+
+export type ContactInfo = {
+  email: string;
+  phoneNumber: string;
+  address: string;
+  birthday: { month: string; day: string };
+  websites: Website[];
 };

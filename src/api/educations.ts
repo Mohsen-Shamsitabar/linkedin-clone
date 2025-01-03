@@ -5,7 +5,13 @@ type Educations = Record<EducationId, Education>;
 const educations: Educations = {
   EDU_1: {
     id: "EDU_1",
-    owner: "USER_1",
+    userSummary: {
+      id: "USER_1",
+      firstName: "Mohsen",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/0/152/152",
+      headline: "Im sad and broke",
+    },
     name: "Alborz",
     fieldOfStudy: "Math",
     degree: "diploma",
@@ -18,7 +24,13 @@ const educations: Educations = {
   },
   EDU_2: {
     id: "EDU_2",
-    owner: "USER_2",
+    userSummary: {
+      id: "USER_2",
+      firstName: "Mostafa",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/6/152/152",
+      headline: "Senior Software Engineer @ TAPSI",
+    },
     name: "Azad University Research Branch",
     fieldOfStudy: "CS",
     degree: "license",

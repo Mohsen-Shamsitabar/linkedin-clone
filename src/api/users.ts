@@ -109,6 +109,7 @@ export const getUser = (userId: UserId) => {
   const promise = new Promise<User>((resolve, _reject) => {
     setTimeout(() => {
       resolve(users[userId]!);
+      // _reject(new Error("meow"));
     }, 1000);
   });
 
