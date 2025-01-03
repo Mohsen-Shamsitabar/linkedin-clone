@@ -1,16 +1,17 @@
 import { LinkedinIcon } from "@/components/svgs";
-import type { User } from "@/types";
+import { useProfileUser } from "@/contexts";
 import { MessageSquareMoreIcon } from "lucide-react";
 import Image from "next/image";
 import { ActionNav, Searchbar } from "./components";
 
 type Props = {
-  user: User;
   className?: string;
 };
 
 const Header = (props: Props) => {
-  const { className, user } = props;
+  const { className } = props;
+
+  const profileUser = useProfileUser()!;
 
   return (
     <header className={className}>
@@ -21,8 +22,8 @@ const Header = (props: Props) => {
           <Image
             width={32}
             height={32}
-            src={user.avatar}
-            alt={`${user.firstName}'s avatar`}
+            src={profileUser.avatar}
+            alt={`${profileUser.firstName}'s avatar`}
           />
         </div>
 

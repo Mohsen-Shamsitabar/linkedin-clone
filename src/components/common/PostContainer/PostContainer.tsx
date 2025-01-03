@@ -1,10 +1,8 @@
 "use client";
 
-import { getUser } from "@/api/users";
 import { cn } from "@/lib/utils";
 import likeIcon from "@/public/svgs/linkedinLikeIcon.svg";
 import type { Post } from "@/types";
-import { useQuery } from "@tanstack/react-query";
 import { MessageSquareTextIcon, ThumbsUpIcon } from "lucide-react";
 import moment from "moment";
 import Image from "next/image";
@@ -17,17 +15,9 @@ type Props = {
 
 const PostContainer = (props: Props) => {
   const { post } = props;
-
-  const { isPending, data: postOwner } = useQuery({
-    queryKey: ["postOwnerData"],
-    queryFn: () => getUser(post.owner),
-  });
+  const owner = post.userSummary;
 
   const [isShown, setIsShown] = React.useState(false);
-
-  if (isPending) return <h1>Loading...</h1>;
-
-  if (!postOwner) return null;
 
   const deltaDate = moment(post.createDate).fromNow();
 
@@ -48,25 +38,23 @@ const PostContainer = (props: Props) => {
     setIsShown(c => !c);
   };
 
+  const likeCount = post.likedBy.length;
+  const commentCount = post.comments.length;
+
   return (
     <article className={classes["root"]}>
       <div className={classes["text-container"]}>
         <div className={classes["owner-info-container"]}>
           <div className={cn("image-container", classes["owner-avatar"])}>
-            <Image
-              width={48}
-              height={48}
-              src={postOwner.avatar}
-              alt={"avatar"}
-            />
+            <Image width={48} height={48} src={owner.avatar} alt={"avatar"} />
           </div>
 
           <div>
             <p
               className={classes["owner-name"]}
-            >{`${postOwner.firstName} ${postOwner.lastName}`}</p>
+            >{`${owner.firstName} ${owner.lastName}`}</p>
 
-            <p className={classes["subtitle-text"]}>{postOwner.headline}</p>
+            <p className={classes["subtitle-text"]}>{owner.headline}</p>
             <p className={classes["subtitle-text"]}>{deltaDate}</p>
           </div>
         </div>
@@ -99,11 +87,11 @@ const PostContainer = (props: Props) => {
             />
           </div>
 
-          <span>69</span>
+          <span>{likeCount}</span>
         </div>
 
         <div>
-          <span>69</span>
+          <span>{commentCount}</span>
 
           <span>Comments</span>
         </div>

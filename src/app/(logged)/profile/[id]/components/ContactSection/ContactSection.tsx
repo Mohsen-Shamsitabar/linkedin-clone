@@ -2,22 +2,23 @@
 
 import { LinkedinIcon } from "@/components/svgs";
 import { Separator } from "@/components/ui";
+import { useProfileUser } from "@/contexts";
 import { WEBSITE_TYPE_LABELS } from "@/labels";
 import { cn } from "@/lib/utils";
-import type { User } from "@/types";
 import { BinaryIcon, MailIcon, PencilIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ContactCard } from "./components";
 import classes from "./styles.module.css";
 
 type Props = {
-  user: User;
   className?: string;
 };
 
 const ContactSection = (props: Props) => {
-  const { user, className } = props;
-  const { email } = user.contactInfo;
+  const { className } = props;
+
+  const profileUser = useProfileUser()!;
+  const { email } = profileUser.contactInfo;
 
   const pathname = usePathname();
 
@@ -48,7 +49,7 @@ const ContactSection = (props: Props) => {
   };
 
   const renderOtherWebsites = () => {
-    return user.contactInfo.websites.map((website, idx) => (
+    return profileUser.contactInfo.websites.map((website, idx) => (
       <div key={`${website.type}-${idx}`}>
         <Separator orientation="horizontal" className="my-5" />
 

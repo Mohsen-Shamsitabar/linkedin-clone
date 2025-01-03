@@ -1,5 +1,6 @@
+import { useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
-import type { User, UserId } from "@/types";
+import type { UserId } from "@/types";
 import {
   CameraIcon,
   CornerUpRightIcon,
@@ -11,16 +12,17 @@ import Image from "next/image";
 import classes from "./styles.module.css";
 
 type Props = {
-  user: User;
   loggedUserId: UserId;
   className?: string;
 };
 
 const ProfileSection = (props: Props) => {
-  const { user, loggedUserId, className } = props;
+  const { loggedUserId, className } = props;
+
+  const profileUser = useProfileUser()!;
 
   const renderSettingsIcon = () => {
-    if (loggedUserId !== user.id) return null;
+    if (loggedUserId !== profileUser.id) return null;
 
     return (
       <div className={classes["settings-icon-container"]}>
@@ -30,7 +32,7 @@ const ProfileSection = (props: Props) => {
   };
 
   const renderHeadActions = () => {
-    if (loggedUserId !== user.id) {
+    if (loggedUserId !== profileUser.id) {
       return <EllipsisVerticalIcon className="stroke-icon" />;
     }
 
@@ -44,23 +46,23 @@ const ProfileSection = (props: Props) => {
   };
 
   const renderConnectionsCount = () => {
-    if (loggedUserId !== user.id) {
+    if (loggedUserId !== profileUser.id) {
       return (
         <span
           className={classes["others-connections"]}
-        >{`${user.connections.length} connections`}</span>
+        >{`${profileUser.connections.length} connections`}</span>
       );
     }
 
     return (
       <span
         className={classes["own-connections"]}
-      >{`${user.connections.length} connections`}</span>
+      >{`${profileUser.connections.length} connections`}</span>
     );
   };
 
   const renderCameraIcon = () => {
-    if (loggedUserId !== user.id) return null;
+    if (loggedUserId !== profileUser.id) return null;
 
     return (
       <div className={classes["camera-icon-container"]}>
@@ -76,8 +78,8 @@ const ProfileSection = (props: Props) => {
           <Image
             width={400}
             height={100}
-            src={user.banner}
-            alt={`${user.firstName}'s banner image`}
+            src={profileUser.banner}
+            alt={`${profileUser.firstName}'s banner image`}
           />
         </div>
 
@@ -92,14 +94,18 @@ const ProfileSection = (props: Props) => {
         <div>
           <h1
             className={classes["username"]}
-          >{`${user.firstName} ${user.lastName}`}</h1>
+          >{`${profileUser.firstName} ${profileUser.lastName}`}</h1>
 
-          <p className={classes["user-headline"]}>{user.headline}</p>
+          <p className={classes["profileUser-headline"]}>
+            {profileUser.headline}
+          </p>
 
-          <p className={classes["user-industry"]}>{user.industry}</p>
+          <p className={classes["profileUser-industry"]}>
+            {profileUser.industry}
+          </p>
 
-          <p className={classes["user-info"]}>
-            <span>{user.contactInfo.address}</span>
+          <p className={classes["profileUser-info"]}>
+            <span>{profileUser.contactInfo.address}</span>
             <span className={classes["separator"]}>.</span>
             {renderConnectionsCount()}
           </p>
@@ -112,8 +118,8 @@ const ProfileSection = (props: Props) => {
             <Image
               width={152}
               height={152}
-              src={user.avatar}
-              alt={`${user.firstName}'s avatar`}
+              src={profileUser.avatar}
+              alt={`${profileUser.firstName}'s avatar`}
             />
           </div>
 

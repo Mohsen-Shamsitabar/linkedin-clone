@@ -1,17 +1,15 @@
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import university from "@/public/svgs/university.svg";
-import type { User } from "@/types";
 import Image from "next/image";
 import classes from "./styles.module.css";
 
 type Props = {
-  user: User;
   className?: string;
 };
 
 const EducationSection = (props: Props) => {
-  const { user: _user, className } = props;
+  const { className } = props;
 
   return (
     <section className={cn(classes["root"], className)}>

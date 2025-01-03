@@ -1,22 +1,25 @@
+import { useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
-import type { User } from "@/types";
 import { PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
 import classes from "./styles.module.css";
 
 type Props = {
-  user: User;
   className?: string;
 };
 
 const SkillsSection = (props: Props) => {
-  const { user, className } = props;
+  const { className } = props;
+
+  const profileUser = useProfileUser()!;
 
   const renderSkills = () => {
-    return user.skills.map((skill, idx) => (
+    return profileUser.skills.map((skill, idx) => (
       <li key={`${idx}-${skill}`} className={classes["skills-item"]}>
         <span>{skill}</span>
-        {idx !== user.skills.length - 1 && <span className="mx-2">.</span>}
+        {idx !== profileUser.skills.length - 1 && (
+          <span className="mx-2">.</span>
+        )}
       </li>
     ));
   };

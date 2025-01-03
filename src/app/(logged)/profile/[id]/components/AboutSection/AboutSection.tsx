@@ -1,28 +1,30 @@
+import { useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
-import type { User, UserId } from "@/types";
+import type { UserId } from "@/types";
 import { PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
 import classes from "./styles.module.css";
 
 type Props = {
-  user: User;
   loggedUserId: UserId;
   className?: string;
 };
 
 const AboutSection = (props: Props) => {
-  const { user, loggedUserId, className } = props;
+  const { loggedUserId, className } = props;
 
-  if (loggedUserId !== user.id && !user.summary) return null;
+  const profileUser = useProfileUser()!;
+
+  if (loggedUserId !== profileUser.id && !profileUser.summary) return null;
 
   const renderEditAction = () => {
-    if (!user.summary || loggedUserId !== user.id) return null;
+    if (!profileUser.summary || loggedUserId !== profileUser.id) return null;
 
     return <PencilIcon className="stroke-icon" />;
   };
 
   const renderAddSummaryBtn = () => {
-    if (user.summary) return null;
+    if (profileUser.summary) return null;
 
     return (
       <Link href={"/"} className={classes["add-summary"]}>
@@ -40,7 +42,7 @@ const AboutSection = (props: Props) => {
         {renderEditAction()}
       </div>
 
-      <span className={classes["summary-text"]}>{user.summary}</span>
+      <span className={classes["summary-text"]}>{profileUser.summary}</span>
 
       {renderAddSummaryBtn()}
     </section>
