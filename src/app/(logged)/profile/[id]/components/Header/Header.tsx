@@ -1,3 +1,5 @@
+"use client";
+
 import { LinkedinIcon } from "@/components/svgs";
 import { useProfileUser } from "@/contexts";
 import { MessageSquareMoreIcon } from "lucide-react";

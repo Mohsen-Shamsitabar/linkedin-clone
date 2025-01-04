@@ -1,3 +1,5 @@
+"use client";
+
 import { useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
 import type { UserId } from "@/types";
