@@ -12,14 +12,16 @@ const educations: Educations = {
       avatar: "https://picsum.photos/id/0/152/152",
       headline: "Im sad and broke",
     },
-    name: "Alborz",
+    companySummary: {
+      id: "COMPANY_1",
+      name: "Alborz School",
+      avatar: "https://picsum.photos/id/12/152/152",
+    },
     fieldOfStudy: "Math",
     degree: "diploma",
     grade: "17.5",
     startDate: "2020-12-26T18:38:00+03:30",
     endDate: "2024-12-26T18:38:00+03:30",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam error omnis, consequatur perspiciatis doloremque aperiam aspernatur? Magnam optio cumque quia, sapiente dolorem vitae impedit animi esse id illum veritatis quae.",
     skills: ["shit", "shit2", "shit3"],
   },
   EDU_2: {
@@ -31,22 +33,38 @@ const educations: Educations = {
       avatar: "https://picsum.photos/id/6/152/152",
       headline: "Senior Software Engineer @ TAPSI",
     },
-    name: "Azad University Research Branch",
+    companySummary: {
+      id: "COMPANY_2",
+      name: "Azad University Research Branch",
+      avatar: "https://picsum.photos/id/14/152/152",
+    },
     fieldOfStudy: "CS",
     degree: "license",
     grade: "18.28",
     startDate: "2020-12-26T18:38:00+03:30",
     endDate: "2024-12-26T18:38:00+03:30",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam error omnis, consequatur perspiciatis doloremque aperiam aspernatur? Magnam optio cumque quia, sapiente dolorem vitae impedit animi esse id illum veritatis quae.",
     skills: [],
   },
 };
 
-export const getEducations = (_query = "") => {
+export const getEducations = (educationIds: EducationId[] = []) => {
   const promise = new Promise<Educations>((resolve, _reject) => {
     setTimeout(() => {
-      resolve(educations);
+      if (!educationIds.length) resolve(educations);
+
+      const allEducationIds = Object.keys(educations) as EducationId[];
+
+      const fetchedEducationIds = allEducationIds.filter(eduId =>
+        educationIds.includes(eduId),
+      );
+
+      const result: Educations = {};
+
+      fetchedEducationIds.forEach(
+        eduId => (result[eduId] = educations[eduId]!),
+      );
+
+      resolve(result);
     }, 1000);
   });
 
