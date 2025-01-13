@@ -17,9 +17,9 @@ export type WebsiteType =
   | "PORTFOLIO"
   | "OTHER";
 
-export type LocationType = "ON_SITE" | "HYBRID" | "REMOTE";
+export type WorkEnviromentType = "ON_SITE" | "HYBRID" | "REMOTE";
 
-export type CompanyType = "EDUCATIONAL" | "TECHNOLOGY";
+export type CompanyType = "EDUCATIONAL" | "PRIVATELY_HELD";
 
 // === === === === === SUB TYPES === === === === === //
 
@@ -89,19 +89,20 @@ export type Company = Omit<
   type: CompanyType;
 };
 
-export type CompanySummary = Pick<Company, "id" | "avatar" | "name">;
+export type CompanySummary = Pick<
+  Company,
+  "id" | "avatar" | "name" | "location"
+>;
 
 export type Experience = {
   id: ExperienceId;
   userSummary: UserSummary;
-  title: string;
+  companySummary: CompanySummary;
   employmentType: EmploymentType;
-  company: string;
+  workEnv: WorkEnviromentType;
+  position: string;
   startDate: string;
   endDate: string;
-  location: string;
-  locationType: LocationType;
-  description: string;
   skills: Skill[];
 };
 
