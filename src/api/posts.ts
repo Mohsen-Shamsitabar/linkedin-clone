@@ -6,9 +6,15 @@ const posts: Posts = {
   POST_1: {
     id: "POST_1",
     createDate: "2024-12-26T18:38:00+03:30",
-    owner: "USER_1",
+    userSummary: {
+      id: "USER_1",
+      firstName: "Mohsen",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/0/152/152",
+      headline: "Im sad and broke",
+    },
     caption:
-      "meow meow meow meow, this is a description for this post, just ignore it!!!",
+      "meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!",
     media: "https://picsum.photos/id/237/552/696",
     likedBy: ["USER_2"],
     comments: ["CMNT_1"],
@@ -16,7 +22,13 @@ const posts: Posts = {
   POST_2: {
     id: "POST_2",
     createDate: "2024-12-26T18:38:00+03:30",
-    owner: "USER_2",
+    userSummary: {
+      id: "USER_2",
+      firstName: "Mostafa",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/6/152/152",
+      headline: "Senior Software Engineer @ TAPSI",
+    },
     caption:
       "meow meow meow meow, this is a description for this post, just ignore it!!!",
     media: "https://picsum.photos/id/300/552/696",

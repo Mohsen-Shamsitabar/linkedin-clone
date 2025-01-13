@@ -5,3 +5,7 @@
 .main-content {
   @apply bg-logged-bg space-y-2;
 }
+
+.footer {
+  @apply sticky bottom-0 right-0 left-0;
+}

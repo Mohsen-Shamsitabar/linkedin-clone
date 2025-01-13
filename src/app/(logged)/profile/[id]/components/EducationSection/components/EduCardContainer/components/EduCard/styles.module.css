@@ -1,0 +1,11 @@
+.root {
+  @apply flex w-full items-center space-x-4;
+}
+
+.text-container {
+  @apply flex flex-col text-subtitle1;
+}
+
+.company-name {
+  @apply text-body2 font-medium;
+}

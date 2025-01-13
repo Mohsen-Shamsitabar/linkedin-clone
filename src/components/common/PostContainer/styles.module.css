@@ -1,4 +1,6 @@
 .root {
+  --clipped-height: 54px;
+
   @apply size-full flex flex-col border rounded-lg border-light-divider;
 }
 
@@ -23,11 +25,11 @@
 }
 
 .post-caption {
-  @apply whitespace-pre-line text-subtitle1;
+  @apply whitespace-pre-line text-subtitle1 min-h-[var(--clipped-height)];
 }
 
 .post-caption--clipped {
-  @apply post-caption h-[54px] overflow-y-hidden;
+  @apply post-caption h-[var(--clipped-height)] overflow-y-hidden;
 }
 
 .post-statistics-container {

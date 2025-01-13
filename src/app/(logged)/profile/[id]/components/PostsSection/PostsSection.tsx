@@ -10,8 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui";
+import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
-import type { User, UserId } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRightIcon, PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
@@ -19,17 +19,18 @@ import * as React from "react";
 import classes from "./styles.module.css";
 
 type Props = {
-  user: User;
-  loggedUserId: UserId;
   className?: string;
 };
 
 const PostsSection = (props: Props) => {
-  const { user, loggedUserId, className } = props;
+  const { className } = props;
+
+  const profileUser = useProfileUser();
+  const loggedUser = useLoggedUser();
 
   const { isPending, data: posts } = useQuery({
     queryKey: ["postData"],
-    queryFn: () => getPosts(user.posts),
+    queryFn: () => getPosts(!profileUser ? [] : profileUser.posts),
   });
 
   const [api, setApi] = React.useState<CarouselApi>();
@@ -49,13 +50,17 @@ const PostsSection = (props: Props) => {
     });
   }, [api]);
 
+  if (!profileUser || !loggedUser) return null;
+
+  const { id: loggedUserId } = loggedUser;
+
   // dont show when others view empty posts.
-  if (loggedUserId !== user.id && !posts) return null;
+  if (loggedUserId !== profileUser.id && !posts) return null;
 
   if (isPending) return <span>Loading...</span>;
 
   const renderEditAction = () => {
-    if (!posts || loggedUserId !== user.id) return null;
+    if (!posts || loggedUserId !== profileUser.id) return null;
 
     return <PencilIcon className="stroke-icon" />;
   };
@@ -83,7 +88,7 @@ const PostsSection = (props: Props) => {
   const renderRecentPosts = () => {
     if (!posts) return null;
 
-    return user.posts.map(post => (
+    return profileUser.posts.map(post => (
       <CarouselItem key={post}>
         <PostContainer post={posts[post]!} />
       </CarouselItem>

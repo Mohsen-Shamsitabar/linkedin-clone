@@ -1,9 +1,7 @@
-"use client";
-
 import { getUser } from "@/api/users";
+import { LoggedUserProvider, ProfileUserProvider } from "@/contexts";
 import type { UserId } from "@/types";
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
+import type { RouteProps } from "@/utils/types";
 import {
   AboutSection,
   ContactSection,
@@ -17,63 +15,46 @@ import {
 } from "./components";
 import classes from "./styles.module.css";
 
-type ProfileParams = {
-  id: UserId;
-};
+const ProfilePage = async (props: RouteProps<{ id: UserId }>) => {
+  const {
+    params: { id: userId },
+  } = props;
 
-const ProfilePage = () => {
-  const { id: userId } = useParams<ProfileParams>();
   const loggedUserId: UserId = "USER_1";
 
-  const {
-    isPending,
-    error,
-    data: user,
-  } = useQuery({
-    queryKey: ["userData"],
-    queryFn: () => getUser(userId),
-  });
+  // for redirecting...
+  // const isAuth = false;
 
-  if (isPending) return <h1>Loading...</h1>;
-
-  if (error) {
-    return (
-      <h1>
-        <p>ERROR:</p>
-        <p>{error.message}</p>
-      </h1>
-    );
-  }
+  const [profileUser, loggedUser] = await Promise.all([
+    getUser(userId),
+    getUser(loggedUserId),
+  ]);
 
   return (
     <div className="relative">
-      <Header user={user} />
+      <LoggedUserProvider context={loggedUser}>
+        <ProfileUserProvider context={profileUser}>
+          <Header />
 
-      <main className={classes["main-content"]}>
-        <ProfileSection user={user} loggedUserId={loggedUserId} />
+          <main className={classes["main-content"]}>
+            <ProfileSection />
 
-        <AboutSection
-          user={user}
-          loggedUserId={loggedUserId}
-          className={classes["section"]}
-        />
+            <AboutSection className={classes["section"]} />
 
-        <PostsSection
-          user={user}
-          loggedUserId={loggedUserId}
-          className={classes["section"]}
-        />
+            <PostsSection className={classes["section"]} />
 
-        <ExperienceSection user={user} className={classes["section"]} />
+            <ExperienceSection className={classes["section"]} />
 
-        <EducationSection user={user} className={classes["section"]} />
+            <EducationSection className={classes["section"]} />
 
-        <SkillsSection user={user} className={classes["section"]} />
+            <SkillsSection className={classes["section"]} />
 
-        <ContactSection user={user} className={classes["section"]} />
-      </main>
+            <ContactSection className={classes["section"]} />
+          </main>
 
-      <Footer className="sticky bottom-0 right-0 left-0" />
+          <Footer className={classes["footer"]} />
+        </ProfileUserProvider>
+      </LoggedUserProvider>
     </div>
   );
 };
