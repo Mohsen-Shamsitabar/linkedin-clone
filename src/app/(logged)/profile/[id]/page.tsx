@@ -1,5 +1,5 @@
 import { getUser } from "@/api/users";
-import { ProfileUserProvider } from "@/contexts";
+import { LoggedUserProvider, ProfileUserProvider } from "@/contexts";
 import type { UserId } from "@/types";
 import type { RouteProps } from "@/utils/types";
 import {
@@ -20,42 +20,41 @@ const ProfilePage = async (props: RouteProps<{ id: UserId }>) => {
     params: { id: userId },
   } = props;
 
-  const loggedUserId: UserId = "USER_2";
+  const loggedUserId: UserId = "USER_1";
 
   // for redirecting...
   // const isAuth = false;
 
-  const profileUser = await getUser(userId);
+  const [profileUser, loggedUser] = await Promise.all([
+    getUser(userId),
+    getUser(loggedUserId),
+  ]);
 
   return (
     <div className="relative">
-      <ProfileUserProvider context={profileUser}>
-        <Header />
+      <LoggedUserProvider context={loggedUser}>
+        <ProfileUserProvider context={profileUser}>
+          <Header />
 
-        <main className={classes["main-content"]}>
-          <ProfileSection loggedUserId={loggedUserId} />
+          <main className={classes["main-content"]}>
+            <ProfileSection />
 
-          <AboutSection
-            loggedUserId={loggedUserId}
-            className={classes["section"]}
-          />
+            <AboutSection className={classes["section"]} />
 
-          <PostsSection
-            loggedUserId={loggedUserId}
-            className={classes["section"]}
-          />
+            <PostsSection className={classes["section"]} />
 
-          <ExperienceSection className={classes["section"]} />
+            <ExperienceSection className={classes["section"]} />
 
-          <EducationSection className={classes["section"]} />
+            <EducationSection className={classes["section"]} />
 
-          <SkillsSection className={classes["section"]} />
+            <SkillsSection className={classes["section"]} />
 
-          <ContactSection className={classes["section"]} />
-        </main>
+            <ContactSection className={classes["section"]} />
+          </main>
 
-        <Footer className={classes["footer"]} />
-      </ProfileUserProvider>
+          <Footer className={classes["footer"]} />
+        </ProfileUserProvider>
+      </LoggedUserProvider>
     </div>
   );
 };

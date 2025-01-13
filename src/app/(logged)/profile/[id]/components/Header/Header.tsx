@@ -1,7 +1,7 @@
 "use client";
 
 import { LinkedinIcon } from "@/components/svgs";
-import { useProfileUser } from "@/contexts";
+import { useLoggedUser } from "@/contexts";
 import { MessageSquareMoreIcon } from "lucide-react";
 import Image from "next/image";
 import { ActionNav, Searchbar } from "./components";
@@ -13,7 +13,8 @@ type Props = {
 const Header = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useProfileUser()!;
+  const loggedUser = useLoggedUser();
+  if (!loggedUser) return null;
 
   return (
     <header className={className}>
@@ -24,8 +25,8 @@ const Header = (props: Props) => {
           <Image
             width={32}
             height={32}
-            src={profileUser.avatar}
-            alt={`${profileUser.firstName}'s avatar`}
+            src={loggedUser.avatar}
+            alt={`${loggedUser.firstName}'s avatar`}
           />
         </div>
 
