@@ -1,8 +1,7 @@
 "use client";
 
-import { useProfileUser } from "@/contexts";
+import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
-import type { UserId } from "@/types";
 import {
   CameraIcon,
   CornerUpRightIcon,
@@ -14,14 +13,17 @@ import Image from "next/image";
 import classes from "./styles.module.css";
 
 type Props = {
-  loggedUserId: UserId;
   className?: string;
 };
 
 const ProfileSection = (props: Props) => {
-  const { loggedUserId, className } = props;
+  const { className } = props;
 
-  const profileUser = useProfileUser()!;
+  const profileUser = useProfileUser();
+  const loggedUser = useLoggedUser();
+  if (!profileUser || !loggedUser) return null;
+
+  const { id: loggedUserId } = loggedUser;
 
   const renderSettingsIcon = () => {
     if (loggedUserId !== profileUser.id) return null;

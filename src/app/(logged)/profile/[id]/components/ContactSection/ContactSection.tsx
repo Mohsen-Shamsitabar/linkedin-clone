@@ -17,10 +17,11 @@ type Props = {
 const ContactSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useProfileUser()!;
-  const { email } = profileUser.contactInfo;
-
   const pathname = usePathname();
+  const profileUser = useProfileUser();
+  if (!profileUser) return null;
+
+  const { email } = profileUser.contactInfo;
 
   const renderEmail = () => {
     if (!email) return null;

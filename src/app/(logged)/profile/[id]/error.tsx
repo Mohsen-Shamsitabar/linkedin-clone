@@ -1,4 +1,5 @@
-"use client"; // Error boundaries must be Client Components
+/* eslint-disable no-console */
+"use client";
 
 import { useEffect } from "react";
 

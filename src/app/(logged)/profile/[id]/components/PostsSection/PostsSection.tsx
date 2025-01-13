@@ -10,9 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui";
-import { useProfileUser } from "@/contexts";
+import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
-import type { UserId } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRightIcon, PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
@@ -20,18 +19,18 @@ import * as React from "react";
 import classes from "./styles.module.css";
 
 type Props = {
-  loggedUserId: UserId;
   className?: string;
 };
 
 const PostsSection = (props: Props) => {
-  const { loggedUserId, className } = props;
+  const { className } = props;
 
-  const profileUser = useProfileUser()!;
+  const profileUser = useProfileUser();
+  const loggedUser = useLoggedUser();
 
   const { isPending, data: posts } = useQuery({
     queryKey: ["postData"],
-    queryFn: () => getPosts(profileUser.posts),
+    queryFn: () => getPosts(!profileUser ? [] : profileUser.posts),
   });
 
   const [api, setApi] = React.useState<CarouselApi>();
@@ -50,6 +49,10 @@ const PostsSection = (props: Props) => {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
+
+  if (!profileUser || !loggedUser) return null;
+
+  const { id: loggedUserId } = loggedUser;
 
   // dont show when others view empty posts.
   if (loggedUserId !== profileUser.id && !posts) return null;

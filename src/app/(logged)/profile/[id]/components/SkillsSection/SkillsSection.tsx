@@ -13,7 +13,8 @@ type Props = {
 const SkillsSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useProfileUser()!;
+  const profileUser = useProfileUser();
+  if (!profileUser) return null;
 
   const renderSkills = () => {
     return profileUser.skills.map((skill, idx) => (
