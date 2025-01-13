@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui";
+"use client";
+
+import { useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
-import briefCase from "@/public/svgs/brief-case.svg";
-import Image from "next/image";
+import { EmptyStatement, ExpCardContainer } from "./components";
 import classes from "./styles.module.css";
 
 type Props = {
@@ -11,22 +12,27 @@ type Props = {
 const ExperienceSection = (props: Props) => {
   const { className } = props;
 
+  const user = useProfileUser();
+  if (!user) return null;
+
+  const { experiences: expIds } = user;
+
+  const eduCount = expIds.length;
+
+  const renderContent = () => {
+    if (eduCount === 0) return <EmptyStatement />;
+
+    return <ExpCardContainer experienceIds={expIds} />;
+  };
+
   return (
-    <section className={cn(classes["root"], className)}>
-      <div className="image-container mb-2">
-        <Image src={briefCase as string} alt={"image of a brief case"} />
-      </div>
-
-      <h2 className="mb-1">Have more experience?</h2>
-
-      <p className="text-icon text-center text-subtitle1 font-medium mb-3">
-        Add past positions to find new career opportunities or to reconnect with
-        your past colleagues
-      </p>
-
-      <Button color="primary" variant="outline" className="w-full">
-        Add experience
-      </Button>
+    <section
+      className={cn(
+        eduCount > 0 ? classes["root"] : classes["root--empty"],
+        className,
+      )}
+    >
+      {renderContent()}
     </section>
   );
 };

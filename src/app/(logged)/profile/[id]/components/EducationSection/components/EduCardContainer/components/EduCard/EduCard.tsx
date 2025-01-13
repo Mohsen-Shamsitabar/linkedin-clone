@@ -18,13 +18,15 @@ const EduCard = (props: Props) => {
 
   return (
     <li className={cn(classes["root"], className)}>
-      <div className="image-container">
-        <Image
-          width={48}
-          height={48}
-          src={companySummary.avatar}
-          alt={`${companySummary.name}'s avatar`}
-        />
+      <div className="mt-1">
+        <div className="image-container">
+          <Image
+            width={48}
+            height={48}
+            src={companySummary.avatar}
+            alt={`${companySummary.name}'s avatar`}
+          />
+        </div>
       </div>
 
       <div className={classes["text-container"]}>

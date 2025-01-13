@@ -1,0 +1,11 @@
+.head-text {
+  @apply mb-4 font-normal;
+}
+
+.card-list {
+  @apply flex flex-col items-center w-full;
+}
+
+.separator {
+  @apply my-3 bg-light-divider !important;
+}

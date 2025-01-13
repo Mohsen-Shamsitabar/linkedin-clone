@@ -6,6 +6,10 @@
   @apply flex flex-col text-subtitle1;
 }
 
-.company-name {
+.position-text {
   @apply text-body2 font-medium;
+}
+
+.location-text {
+  @apply text-icon text-subtitle2 font-medium;
 }

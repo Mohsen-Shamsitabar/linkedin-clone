@@ -1,3 +1,7 @@
 .root {
-  @apply p-4 flex flex-col items-center;
+  @apply p-4 flex flex-col;
+}
+
+.root--empty {
+  @apply root items-center;
 }
