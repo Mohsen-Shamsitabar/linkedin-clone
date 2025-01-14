@@ -2,6 +2,11 @@
   @apply flex flex-col relative bg-white;
 }
 
+.icon-action {
+  @apply stroke-icon
+  hover:cursor-pointer;
+}
+
 /*  */
 
 .banner-container {
