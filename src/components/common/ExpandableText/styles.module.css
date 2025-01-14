@@ -1,0 +1,23 @@
+.text {
+  --clipped-height: 54px;
+  @apply whitespace-pre-line;
+}
+
+.text--visible {
+  @apply text line-clamp-none;
+}
+
+.text--hidden {
+  @apply text max-h-[var(--clipped-height)] overflow-y-hidden line-clamp-3;
+}
+
+/*  */
+
+.expand-btn-container {
+  @apply flex items-center;
+}
+
+.expand-btn {
+  @apply text-subtitle1 text-icon 
+  hover:cursor-pointer hover:underline hover:text-primary;
+}
