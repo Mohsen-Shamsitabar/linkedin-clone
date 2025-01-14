@@ -32,21 +32,21 @@ const ProfileSection = (props: Props) => {
 
     return (
       <div className={classes["settings-icon-container"]}>
-        <SettingsIcon className={classes["icon-action"]} size={16} />
+        <SettingsIcon className="icon-action" size={16} />
       </div>
     );
   };
 
   const renderHeadActions = () => {
     if (!isProfileOwner) {
-      return <EllipsisVerticalIcon className={classes["icon-action"]} />;
+      return <EllipsisVerticalIcon className="icon-action" />;
     }
 
     return (
       <>
-        <CornerUpRightIcon className={classes["icon-action"]} />
+        <CornerUpRightIcon className="icon-action" />
 
-        <PencilIcon className={classes["icon-action"]} />
+        <PencilIcon className="icon-action" />
       </>
     );
   };
@@ -72,7 +72,7 @@ const ProfileSection = (props: Props) => {
 
     return (
       <div className={classes["camera-icon-container"]}>
-        <CameraIcon size={16} className={classes["icon-action"]} />
+        <CameraIcon size={16} className="icon-action" />
       </div>
     );
   };

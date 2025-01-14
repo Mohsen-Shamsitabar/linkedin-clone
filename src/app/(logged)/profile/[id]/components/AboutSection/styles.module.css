@@ -11,5 +11,5 @@
 }
 
 .summary-text {
-  @apply whitespace-pre-line text-subtitle1 font-medium;
+  @apply text-subtitle1;
 }

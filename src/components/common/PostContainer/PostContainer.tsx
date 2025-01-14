@@ -1,12 +1,10 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import likeIcon from "@/public/svgs/linkedinLikeIcon.svg";
 import type { Post } from "@/types";
 import { MessageSquareTextIcon, ThumbsUpIcon } from "lucide-react";
 import moment from "moment";
 import Image from "next/image";
-import * as React from "react";
+import ExpandableText from "../ExpandableText";
 import classes from "./styles.module.css";
 
 type Props = {
@@ -17,26 +15,7 @@ const PostContainer = (props: Props) => {
   const { post } = props;
   const owner = post.userSummary;
 
-  const [isShown, setIsShown] = React.useState(false);
-
   const deltaDate = moment(post.createDate).fromNow();
-
-  const renderMoreBtn = () => {
-    if (isShown) return null;
-
-    return (
-      <a
-        className="text-subtitle1 text-icon hover:cursor-pointer hover:underline hover:text-primary"
-        onClick={handleMoreBtn}
-      >
-        ...more
-      </a>
-    );
-  };
-
-  const handleMoreBtn = () => {
-    setIsShown(c => !c);
-  };
 
   const likeCount = post.likedBy.length;
   const commentCount = post.comments.length;
@@ -59,17 +38,7 @@ const PostContainer = (props: Props) => {
           </div>
         </div>
 
-        <p
-          className={cn(
-            isShown
-              ? classes["post-caption"]
-              : classes["post-caption--clipped"],
-          )}
-        >
-          {post.caption}
-        </p>
-
-        <div className="flex items-center justify-end">{renderMoreBtn()}</div>
+        <ExpandableText text={post.caption} />
       </div>
 
       <div className="image-container">

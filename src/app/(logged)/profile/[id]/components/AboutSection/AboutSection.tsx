@@ -1,5 +1,6 @@
 "use client";
 
+import { ExpandableText } from "@/components/common";
 import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
 import { PencilIcon, PlusIcon } from "lucide-react";
@@ -19,10 +20,12 @@ const AboutSection = (props: Props) => {
 
   const { id: loggedUserId } = loggedUser;
 
-  if (loggedUserId !== profileUser.id && !profileUser.summary) return null;
+  const isProfileOwner = loggedUserId === profileUser.id;
+
+  if (!isProfileOwner && !profileUser.summary) return null;
 
   const renderEditAction = () => {
-    if (!profileUser.summary || loggedUserId !== profileUser.id) return null;
+    if (!profileUser.summary || !isProfileOwner) return null;
 
     return <PencilIcon className="stroke-icon" />;
   };
@@ -46,7 +49,10 @@ const AboutSection = (props: Props) => {
         {renderEditAction()}
       </div>
 
-      <span className={classes["summary-text"]}>{profileUser.summary}</span>
+      <ExpandableText
+        className={classes["summary-text"]}
+        text={profileUser.summary}
+      />
 
       {renderAddSummaryBtn()}
     </section>
