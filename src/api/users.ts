@@ -27,15 +27,15 @@ const users: Users = {
       websites: [
         {
           type: "PORTFOLIO",
-          url: "google.com",
+          url: "https://google.com",
         },
         {
           type: "BLOG",
-          url: "google.com",
+          url: "https://google.com",
         },
         {
           type: "OTHER",
-          url: "google.com",
+          url: "https://google.com",
         },
       ],
     },
@@ -72,15 +72,15 @@ const users: Users = {
       websites: [
         {
           type: "PORTFOLIO",
-          url: "google.com",
+          url: "https://google.com",
         },
         {
           type: "BLOG",
-          url: "google.com",
+          url: "https://google.com",
         },
         {
           type: "OTHER",
-          url: "google.com",
+          url: "https://google.com",
         },
       ],
     },
