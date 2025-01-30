@@ -95,21 +95,15 @@ const users: Users = {
   },
 };
 
-export const getUsers = (_query = "") => {
-  const promise = new Promise<Users>((resolve, _reject) => {
-    setTimeout(() => {
-      resolve(users);
-    }, 1000);
-  });
-
-  return promise;
-};
-
 export const getUser = (userId: UserId) => {
-  const promise = new Promise<User>((resolve, _reject) => {
+  const promise = new Promise<User>((resolve, reject) => {
+    const allUserIds = Object.keys(users);
+    const isValidUserId = allUserIds.includes(userId);
+
     setTimeout(() => {
-      resolve(users[userId]!);
-      // _reject(new Error("meow"));
+      if (isValidUserId) resolve(users[userId]!);
+
+      reject(new Error(`User id "${userId}" is invalid!`));
     }, 1000);
   });
 

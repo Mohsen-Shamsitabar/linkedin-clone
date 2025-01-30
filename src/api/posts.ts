@@ -37,12 +37,19 @@ const posts: Posts = {
   },
 };
 
+/**
+ * If `postIds` is empty, then all the `posts` will be resolved.
+ */
 export const getPosts = (postIds: PostId[] = []) => {
-  const promise = new Promise<Posts>((resolve, _reject) => {
+  const promise = new Promise<Posts>((resolve, reject) => {
+    const allPostIds = Object.keys(posts) as PostId[];
+    const arePostIdsValid = allPostIds.some(postId =>
+      postIds.some(givenPostId => postId === givenPostId),
+    );
+
     setTimeout(() => {
       if (!postIds.length) resolve(posts);
-
-      const allPostIds = Object.keys(posts) as PostId[];
+      if (!arePostIdsValid) reject(new Error("Post ids are invalid!"));
 
       const fetchedPostIds = allPostIds.filter(postId =>
         postIds.includes(postId),
