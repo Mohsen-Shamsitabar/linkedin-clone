@@ -1,15 +1,13 @@
 /* eslint-disable no-console */
 "use client";
 
+import { Button } from "@/components/ui";
+import type { ErrorPageProps } from "@/types";
 import { useEffect } from "react";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+const Error = (props: ErrorPageProps) => {
+  const { error, reset } = props;
+
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error.message);
@@ -18,14 +16,17 @@ export default function Error({
   return (
     <div>
       <h2>{error.message}</h2>
-      <button
+
+      <Button
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()
         }
       >
         Try again
-      </button>
+      </Button>
     </div>
   );
-}
+};
+
+export default Error;

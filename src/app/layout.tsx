@@ -1,4 +1,5 @@
 import { ReactQueryProvider } from "@/providers";
+import type { LayoutPageProps } from "@/types";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "normalize.css";
@@ -20,11 +21,9 @@ export const metadata: Metadata = {
   description: "Clone of linkedin.com",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout(props: LayoutPageProps) {
+  const { children } = props;
+
   return (
     <html lang="en">
       <body
