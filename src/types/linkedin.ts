@@ -1,15 +1,3 @@
-// === === === WORKSPACE_TYPES === === === //
-
-export type LayoutPageProps = {
-  children: React.ReactNode;
-  params?: Promise<unknown>;
-};
-
-export type ErrorPageProps = {
-  error: Error & { digest?: string };
-  reset: () => void;
-};
-
 // === === === === === OPTIONS === === === === === //
 export type EmploymentType =
   | "FULL_TIME"

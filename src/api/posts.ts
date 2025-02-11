@@ -1,6 +1,6 @@
 import type { Post, PostId } from "@/types";
 
-type Posts = Record<PostId, Post>;
+export type Posts = Record<PostId, Post>;
 
 const posts: Posts = {
   POST_1: {

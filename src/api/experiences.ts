@@ -1,6 +1,6 @@
 import type { Experience, ExperienceId } from "@/types";
 
-type Experiences = Record<ExperienceId, Experience>;
+export type Experiences = Record<ExperienceId, Experience>;
 
 const experiences: Experiences = {
   EXP_1: {

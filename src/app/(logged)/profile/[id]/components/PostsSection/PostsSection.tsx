@@ -1,6 +1,5 @@
 "use client";
 
-import { getPosts } from "@/api/posts";
 import { PostContainer } from "@/components/common";
 import type { CarouselApi } from "@/components/ui";
 import {
@@ -12,7 +11,6 @@ import {
 } from "@/components/ui";
 import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
-import { useQuery } from "@tanstack/react-query";
 import { ArrowRightIcon, PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
@@ -27,11 +25,6 @@ const PostsSection = (props: Props) => {
 
   const profileUser = useProfileUser();
   const loggedUser = useLoggedUser();
-
-  const { isPending, data: posts } = useQuery({
-    queryKey: ["postData"],
-    queryFn: () => getPosts(!profileUser ? [] : profileUser.posts),
-  });
 
   const [api, setApi] = React.useState<CarouselApi>();
   const [count, setCount] = React.useState(0);
@@ -53,20 +46,22 @@ const PostsSection = (props: Props) => {
   if (!profileUser || !loggedUser) return null;
 
   const { id: loggedUserId } = loggedUser;
+  const { posts, postsData } = profileUser;
+  const postsCount = posts.length;
 
   // dont show when others view empty posts.
-  if (loggedUserId !== profileUser.id && !posts) return null;
-
-  if (isPending) return <span>Loading...</span>;
+  if (loggedUserId !== profileUser.id && !postsCount) {
+    return null;
+  }
 
   const renderEditAction = () => {
-    if (!posts || loggedUserId !== profileUser.id) return null;
+    if (!postsCount || loggedUserId !== profileUser.id) return null;
 
     return <PencilIcon className="stroke-icon" />;
   };
 
-  const renderAddPostBtn = () => {
-    if (posts) {
+  const renderPostsAction = () => {
+    if (postsCount) {
       return (
         <div className={classes["show-posts"]}>
           <div className={classes["show-posts"]}>
@@ -86,23 +81,23 @@ const PostsSection = (props: Props) => {
   };
 
   const renderRecentPosts = () => {
-    if (!posts) return null;
+    if (!postsCount) return null;
 
     return profileUser.posts.map(post => (
       <CarouselItem key={post}>
-        <PostContainer post={posts[post]!} />
+        <PostContainer post={postsData[post]!} />
       </CarouselItem>
     ));
   };
 
   const renderBackBtn = () => {
-    if (current === 1) return null;
+    if (!postsCount || current === 1) return null;
 
     return <CarouselPrevious variant="fill" className={classes["back-btn"]} />;
   };
 
   const renderNextBtn = () => {
-    if (current === count) return null;
+    if (!postsCount || current === count) return null;
 
     return <CarouselNext variant="fill" className={classes["next-btn"]} />;
   };
@@ -125,7 +120,7 @@ const PostsSection = (props: Props) => {
         </Carousel>
       </div>
 
-      {renderAddPostBtn()}
+      {renderPostsAction()}
     </section>
   );
 };

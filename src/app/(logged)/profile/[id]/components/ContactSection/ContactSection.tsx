@@ -2,8 +2,8 @@
 
 import { LinkedinIcon } from "@/components/svgs";
 import { Separator } from "@/components/ui";
+import { WEBSITE_TYPE_LABELS } from "@/constants";
 import { useProfileUser } from "@/contexts";
-import { WEBSITE_TYPE_LABELS } from "@/labels";
 import { cn } from "@/lib/utils";
 import { BinaryIcon, MailIcon, PencilIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
