@@ -44,6 +44,6 @@
   @apply border-t border-light-divider flex items-center justify-between py-3 px-4;
 }
 
-.post-actions-container > div {
+.post-actions-container > * {
   @apply flex items-center justify-center text-icon stroke-icon font-semibold text-subtitle1 space-x-1;
 }

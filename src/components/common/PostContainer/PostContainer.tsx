@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
 import likeIcon from "@/public/svgs/linkedinLikeIcon.svg";
+import * as paths from "@/routes/paths";
 import type { Post } from "@/types";
 import { MessageSquareTextIcon, ThumbsUpIcon } from "lucide-react";
 import moment from "moment";
 import Image from "next/image";
+import Link from "next/link";
 import ExpandableText from "../ExpandableText";
 import classes from "./styles.module.css";
 
@@ -29,9 +31,9 @@ const PostContainer = (props: Props) => {
           </div>
 
           <div>
-            <p
-              className={classes["owner-name"]}
-            >{`${owner.firstName} ${owner.lastName}`}</p>
+            <p className={classes["owner-name"]}>
+              {`${owner.firstName} ${owner.lastName}`}
+            </p>
 
             <p className={classes["subtitle-text"]}>{owner.headline}</p>
             <p className={classes["subtitle-text"]}>{deltaDate}</p>
@@ -72,10 +74,10 @@ const PostContainer = (props: Props) => {
           <span>Like</span>
         </div>
 
-        <div>
+        <Link href={`${paths.POST}/${post.id}`}>
           <MessageSquareTextIcon />
           <span>Comment</span>
-        </div>
+        </Link>
       </div>
     </article>
   );
