@@ -23,9 +23,7 @@ const ProfileSection = (props: Props) => {
   const loggedUser = useLoggedUser();
   if (!profileUser || !loggedUser) return null;
 
-  const { id: loggedUserId } = loggedUser;
-
-  const isProfileOwner = loggedUserId === profileUser.id;
+  const isProfileOwner = loggedUser.id === profileUser.id;
 
   const renderSettingsIcon = () => {
     if (!isProfileOwner) return null;

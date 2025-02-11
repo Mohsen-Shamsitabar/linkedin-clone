@@ -3,7 +3,7 @@
 }
 
 .head-container {
-  @apply flex items-center justify-between;
+  @apply flex items-center justify-between mb-3;
 }
 
 .add-post {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useProfileUser } from "@/contexts";
+import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
 import { PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
@@ -14,7 +14,25 @@ const SkillsSection = (props: Props) => {
   const { className } = props;
 
   const profileUser = useProfileUser();
-  if (!profileUser) return null;
+  const loggedUser = useLoggedUser();
+  if (!profileUser || !loggedUser) return null;
+
+  const renderEditAction = () => {
+    if (loggedUser.id !== profileUser.id) return null;
+
+    return <PencilIcon className="stroke-icon" />;
+  };
+
+  const renderAddSkillBtn = () => {
+    if (loggedUser.id !== profileUser.id) return null;
+
+    return (
+      <Link href={"/"} className={classes["add-skills"]}>
+        <PlusIcon size={16} />
+        <span>Add skills</span>
+      </Link>
+    );
+  };
 
   const renderSkills = () => {
     return profileUser.skills.map((skill, idx) => (
@@ -31,13 +49,11 @@ const SkillsSection = (props: Props) => {
     <section className={cn(classes["root"], className)}>
       <div className={classes["section-head"]}>
         <h2>Skills</h2>
-        <PencilIcon className="stroke-icon" />
+
+        {renderEditAction()}
       </div>
 
-      <Link href={"/"} className={classes["add-skills"]}>
-        <PlusIcon size={16} />
-        <span>Add skills</span>
-      </Link>
+      {renderAddSkillBtn()}
 
       <ol className={classes["skills-list"]}>{renderSkills()}</ol>
     </section>

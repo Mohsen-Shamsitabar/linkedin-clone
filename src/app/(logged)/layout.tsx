@@ -9,7 +9,7 @@ const LoggedLayout = async (props: LayoutPageProps) => {
   // for redirecting...
   // const isAuth = false;
 
-  const loggedUserId: UserId = "USER_2";
+  const loggedUserId: UserId = "USER_1";
 
   const loggedUser = await getUser(loggedUserId);
 

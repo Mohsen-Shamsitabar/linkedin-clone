@@ -45,17 +45,16 @@ const PostsSection = (props: Props) => {
 
   if (!profileUser || !loggedUser) return null;
 
-  const { id: loggedUserId } = loggedUser;
   const { posts, postsData } = profileUser;
   const postsCount = posts.length;
 
   // dont show when others view empty posts.
-  if (loggedUserId !== profileUser.id && !postsCount) {
+  if (loggedUser.id !== profileUser.id && !postsCount) {
     return null;
   }
 
   const renderEditAction = () => {
-    if (!postsCount || loggedUserId !== profileUser.id) return null;
+    if (!postsCount || loggedUser.id !== profileUser.id) return null;
 
     return <PencilIcon className="stroke-icon" />;
   };
@@ -105,7 +104,7 @@ const PostsSection = (props: Props) => {
   return (
     <section className={cn(classes["root"], className)}>
       <div className={classes["head-container"]}>
-        <h2 className="mb-3">Posts</h2>
+        <h2>Posts</h2>
 
         {renderEditAction()}
       </div>
