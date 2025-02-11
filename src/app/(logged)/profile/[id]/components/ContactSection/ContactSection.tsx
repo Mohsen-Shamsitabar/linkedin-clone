@@ -3,7 +3,7 @@
 import { LinkedinIcon } from "@/components/svgs";
 import { Separator } from "@/components/ui";
 import { WEBSITE_TYPE_LABELS } from "@/constants";
-import { useProfileUser } from "@/contexts";
+import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
 import { BinaryIcon, MailIcon, PencilIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -19,9 +19,16 @@ const ContactSection = (props: Props) => {
 
   const pathname = usePathname();
   const profileUser = useProfileUser();
-  if (!profileUser) return null;
+  const loggedUser = useLoggedUser();
+  if (!profileUser || !loggedUser) return null;
 
   const { email } = profileUser.contactInfo;
+
+  const renderEditAction = () => {
+    if (loggedUser.id !== profileUser.id) return null;
+
+    return <PencilIcon className="stroke-icon" />;
+  };
 
   const renderEmail = () => {
     if (!email) return null;
@@ -68,7 +75,8 @@ const ContactSection = (props: Props) => {
     <section className={cn(classes["root"], className)}>
       <div className={classes["section-head"]}>
         <h2>Contact</h2>
-        <PencilIcon className="stroke-icon" />
+
+        {renderEditAction()}
       </div>
 
       <div className={classes["section-body"]}>
