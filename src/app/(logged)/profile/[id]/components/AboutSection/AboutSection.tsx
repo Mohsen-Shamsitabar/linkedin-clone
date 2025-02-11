@@ -42,7 +42,7 @@ const AboutSection = (props: Props) => {
   return (
     <section className={cn(classes["root"], className)}>
       <div className={classes["head-container"]}>
-        <h2 className="mb-3">About</h2>
+        <h2>About</h2>
 
         {renderEditAction()}
       </div>

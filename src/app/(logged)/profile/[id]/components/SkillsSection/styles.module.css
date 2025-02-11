@@ -3,7 +3,7 @@
 }
 
 .section-head {
-  @apply flex items-center justify-between mb-2;
+  @apply flex items-center justify-between mb-3;
 }
 
 .add-skills {
