@@ -15,7 +15,6 @@ const comments: Comments = {
     },
     postId: "POST_1",
     text: "THIS IS SOME GOOOOOOD shit !!!",
-    likedBy: ["USER_1"],
   },
 };
 
