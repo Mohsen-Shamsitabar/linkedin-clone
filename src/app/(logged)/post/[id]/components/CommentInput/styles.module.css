@@ -1,0 +1,7 @@
+.root {
+  @apply flex items-center p-2 space-x-2 shadow-md;
+}
+
+.avatar-container {
+  @apply size-8 rounded-full;
+}

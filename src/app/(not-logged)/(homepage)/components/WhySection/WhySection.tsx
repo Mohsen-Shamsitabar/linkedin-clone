@@ -35,7 +35,7 @@ const WhySection = (props: Props) => {
       >
         <span>{option.label}</span>
 
-        <ArrowRightIcon className="stroke-icon" />
+        <ArrowRightIcon className="icon-action" />
       </Link>
     ));
   };

@@ -2,8 +2,10 @@
 
 import { LinkedinIcon } from "@/components/svgs";
 import { useLoggedUser } from "@/contexts";
+import * as paths from "@/routes/paths";
 import { MessageSquareMoreIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { ActionNav, Searchbar } from "./components";
 
 type Props = {
@@ -21,19 +23,21 @@ const Header = (props: Props) => {
       {/* MOBILE VIEW */}
 
       <nav className="container flex flex-row justify-between items-center py-2 md:hidden">
-        <div className="image-container rounded-full hover:cursor-pointer">
-          <Image
-            width={32}
-            height={32}
-            src={loggedUser.avatar}
-            alt={`${loggedUser.firstName}'s avatar`}
-          />
-        </div>
+        <Link href={`${paths.PROFILE}/${loggedUser.id}`}>
+          <div className="image-container rounded-full hover:cursor-pointer">
+            <Image
+              width={32}
+              height={32}
+              src={loggedUser.avatar}
+              alt={`${loggedUser.firstName}'s avatar`}
+            />
+          </div>
+        </Link>
 
         <Searchbar />
 
         <div className="hover:cursor-pointer">
-          <MessageSquareMoreIcon className="stroke-icon" />
+          <MessageSquareMoreIcon className="icon-action" />
         </div>
       </nav>
 

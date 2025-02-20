@@ -1,8 +1,9 @@
 import { getComments } from "@/api/comments";
 import { getPosts } from "@/api/posts";
 import { PostContainer } from "@/components/common";
+import { PostStateManager } from "@/stateManagers/PostStateManager";
 import type { PostId, RouteProps } from "@/types";
-import { Comment } from "./components";
+import { Comment, CommentInput } from "./components";
 import classes from "./styles.module.css";
 
 const PostPage = async (props: RouteProps<{ id: PostId }>) => {
@@ -24,11 +25,15 @@ const PostPage = async (props: RouteProps<{ id: PostId }>) => {
 
   return (
     <div className={classes["root"]}>
-      <PostContainer post={post} />
+      <PostStateManager post={post}>
+        <PostContainer />
 
-      <section>
-        <ul className={classes["comments-container"]}>{renderComments()}</ul>
-      </section>
+        <CommentInput />
+
+        <section>
+          <ul className={classes["comments-container"]}>{renderComments()}</ul>
+        </section>
+      </PostStateManager>
     </div>
   );
 };

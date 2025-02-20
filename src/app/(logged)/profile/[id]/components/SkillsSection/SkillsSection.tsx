@@ -20,7 +20,7 @@ const SkillsSection = (props: Props) => {
   const renderEditAction = () => {
     if (loggedUser.id !== profileUser.id) return null;
 
-    return <PencilIcon className="stroke-icon" />;
+    return <PencilIcon className="icon-action" />;
   };
 
   const renderAddSkillBtn = () => {

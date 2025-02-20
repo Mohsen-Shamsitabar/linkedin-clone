@@ -25,7 +25,7 @@ const AboutSection = (props: Props) => {
   const renderEditAction = () => {
     if (!profileUser.summary || !isProfileOwner) return null;
 
-    return <PencilIcon className="stroke-icon" />;
+    return <PencilIcon className="icon-action" />;
   };
 
   const renderAddSummaryBtn = () => {

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui";
 import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
+import { PostStateManager } from "@/stateManagers/PostStateManager";
 import { ArrowRightIcon, PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
@@ -56,7 +57,7 @@ const PostsSection = (props: Props) => {
   const renderEditAction = () => {
     if (!postsCount || loggedUser.id !== profileUser.id) return null;
 
-    return <PencilIcon className="stroke-icon" />;
+    return <PencilIcon className="icon-action" />;
   };
 
   const renderPostsAction = () => {
@@ -84,7 +85,9 @@ const PostsSection = (props: Props) => {
 
     return profileUser.posts.map(post => (
       <CarouselItem key={post}>
-        <PostContainer post={postsData[post]!} />
+        <PostStateManager post={postsData[post]!}>
+          <PostContainer />
+        </PostStateManager>
       </CarouselItem>
     ));
   };

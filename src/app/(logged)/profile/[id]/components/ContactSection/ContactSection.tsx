@@ -27,7 +27,7 @@ const ContactSection = (props: Props) => {
   const renderEditAction = () => {
     if (loggedUser.id !== profileUser.id) return null;
 
-    return <PencilIcon className="stroke-icon" />;
+    return <PencilIcon className="icon-action" />;
   };
 
   const renderEmail = () => {
@@ -36,7 +36,7 @@ const ContactSection = (props: Props) => {
     return (
       <ContactCard
         title="Email"
-        icon={<MailIcon className="stroke-icon mr-4" />}
+        icon={<MailIcon className="icon-action mr-4" />}
         linkText={email}
         linkHref={""}
       />
@@ -63,7 +63,7 @@ const ContactSection = (props: Props) => {
 
         <ContactCard
           title={WEBSITE_TYPE_LABELS[website.type]}
-          icon={<BinaryIcon className="stroke-icon mr-4" />}
+          icon={<BinaryIcon className="icon-action mr-4" />}
           linkText={website.url}
           linkHref={website.url}
         />

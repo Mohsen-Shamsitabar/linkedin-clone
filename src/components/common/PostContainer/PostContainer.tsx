@@ -1,85 +1,78 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import likeIcon from "@/public/svgs/linkedinLikeIcon.svg";
 import * as paths from "@/routes/paths";
-import type { Post } from "@/types";
-import { MessageSquareTextIcon, ThumbsUpIcon } from "lucide-react";
+import {
+  PostStateManager,
+  usePostStateManager,
+} from "@/stateManagers/PostStateManager";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ExpandableText from "../ExpandableText";
+import { PostStatistics } from "./components";
 import classes from "./styles.module.css";
 
-type Props = {
-  post: Post;
-};
+const PostContainer = () => {
+  const pathName = usePathname();
 
-const PostContainer = (props: Props) => {
-  const { post } = props;
+  const postManager = usePostStateManager();
+  if (!postManager) return null;
+
+  const { state: post } = postManager;
+
   const owner = post.userSummary;
+
+  const isInPostsPage = pathName.includes("post");
 
   const deltaDate = moment(post.createDate).fromNow();
 
-  const likeCount = post.likedBy.length;
-  const commentCount = post.comments.length;
-
   return (
-    <article className={classes["root"]}>
-      <div className={classes["text-container"]}>
-        <div className={classes["owner-info-container"]}>
-          <div className={cn("image-container", classes["owner-avatar"])}>
-            <Image width={48} height={48} src={owner.avatar} alt={"avatar"} />
+    <PostStateManager post={post}>
+      <article
+        className={isInPostsPage ? classes["root"] : classes["root--compact"]}
+      >
+        <div className={classes["text-container"]}>
+          <div className={classes["owner-info-container"]}>
+            <Link href={`${paths.PROFILE}/${owner.id}`}>
+              <div className={cn("image-container", classes["owner-avatar"])}>
+                <Image
+                  width={48}
+                  height={48}
+                  src={owner.avatar}
+                  alt={"avatar"}
+                />
+              </div>
+            </Link>
+
+            <div>
+              <Link href={`${paths.PROFILE}/${owner.id}`}>
+                <p className={classes["owner-name"]}>
+                  {`${owner.firstName} ${owner.lastName}`}
+                </p>
+              </Link>
+
+              <p className={classes["subtitle-text"]}>{owner.headline}</p>
+              <p className={classes["subtitle-text"]}>{deltaDate}</p>
+            </div>
           </div>
 
-          <div>
-            <p className={classes["owner-name"]}>
-              {`${owner.firstName} ${owner.lastName}`}
-            </p>
-
-            <p className={classes["subtitle-text"]}>{owner.headline}</p>
-            <p className={classes["subtitle-text"]}>{deltaDate}</p>
-          </div>
+          <ExpandableText text={post.caption} />
         </div>
 
-        <ExpandableText text={post.caption} />
-      </div>
-
-      <div className="image-container">
-        <Image width={1200} height={400} src={post.media} alt={"post media"} />
-      </div>
-
-      <div className={classes["post-statistics-container"]}>
-        <div>
-          <div>
-            <Image
-              width={16}
-              height={16}
-              src={likeIcon as string}
-              alt={"like icon"}
-            />
-          </div>
-
-          <span>{likeCount}</span>
+        <div className="image-container">
+          <Image
+            width={1200}
+            height={400}
+            src={post.media}
+            alt={"post media"}
+          />
         </div>
 
-        <div>
-          <span>{commentCount}</span>
-
-          <span>Comments</span>
-        </div>
-      </div>
-
-      <div className={classes["post-actions-container"]}>
-        <div>
-          <ThumbsUpIcon />
-          <span>Like</span>
-        </div>
-
-        <Link href={`${paths.POST}/${post.id}`}>
-          <MessageSquareTextIcon />
-          <span>Comment</span>
-        </Link>
-      </div>
-    </article>
+        <PostStatistics isInPostsPage={isInPostsPage} />
+      </article>
+    </PostStateManager>
   );
 };
 
