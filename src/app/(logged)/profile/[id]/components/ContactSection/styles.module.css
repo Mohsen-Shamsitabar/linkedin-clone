@@ -3,7 +3,7 @@
 }
 
 .section-head {
-  @apply w-full flex items-center justify-between mb-2;
+  @apply w-full flex items-center justify-between mb-3;
 }
 
 .section-body {

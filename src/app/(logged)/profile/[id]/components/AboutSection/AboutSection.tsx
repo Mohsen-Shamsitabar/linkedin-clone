@@ -1,5 +1,6 @@
 "use client";
 
+import { ExpandableText } from "@/components/common";
 import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
 import { PencilIcon, PlusIcon } from "lucide-react";
@@ -17,14 +18,14 @@ const AboutSection = (props: Props) => {
   const loggedUser = useLoggedUser();
   if (!profileUser || !loggedUser) return null;
 
-  const { id: loggedUserId } = loggedUser;
+  const isProfileOwner = loggedUser.id === profileUser.id;
 
-  if (loggedUserId !== profileUser.id && !profileUser.summary) return null;
+  if (!isProfileOwner && !profileUser.summary) return null;
 
   const renderEditAction = () => {
-    if (!profileUser.summary || loggedUserId !== profileUser.id) return null;
+    if (!profileUser.summary || !isProfileOwner) return null;
 
-    return <PencilIcon className="stroke-icon" />;
+    return <PencilIcon className="icon-action" />;
   };
 
   const renderAddSummaryBtn = () => {
@@ -41,12 +42,15 @@ const AboutSection = (props: Props) => {
   return (
     <section className={cn(classes["root"], className)}>
       <div className={classes["head-container"]}>
-        <h2 className="mb-3">About</h2>
+        <h2>About</h2>
 
         {renderEditAction()}
       </div>
 
-      <span className={classes["summary-text"]}>{profileUser.summary}</span>
+      <ExpandableText
+        className={classes["summary-text"]}
+        text={profileUser.summary}
+      />
 
       {renderAddSummaryBtn()}
     </section>

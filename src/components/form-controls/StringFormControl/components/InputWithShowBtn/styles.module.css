@@ -1,7 +1,7 @@
 .root {
-  @apply flex flex-row items-center relative;
+  @apply flex flex-row items-center rounded-md border border-input bg-background;
 }
 
-.show-btn {
-  @apply absolute right-0;
+.input {
+  @apply border-0;
 }

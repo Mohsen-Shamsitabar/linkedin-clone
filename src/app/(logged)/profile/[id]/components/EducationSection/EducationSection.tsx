@@ -16,14 +16,14 @@ const EducationSection = (props: Props) => {
   const user = useProfileUser();
   if (!user) return null;
 
-  const { educations: eduIds } = user;
+  const { educations } = user;
 
-  const eduCount = eduIds.length;
+  const eduCount = educations.length;
 
   const renderContent = () => {
     if (eduCount === 0) return <EmptyStatement />;
 
-    return <EduCardContainer educationIds={eduIds} />;
+    return <EduCardContainer />;
   };
 
   return (

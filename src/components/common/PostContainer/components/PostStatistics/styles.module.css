@@ -1,0 +1,15 @@
+.post-statistics-container {
+  @apply flex items-center justify-between px-4 py-2;
+}
+
+.post-statistics-container > div {
+  @apply flex items-center text-subtitle2 text-icon font-medium space-x-1;
+}
+
+.post-actions-container {
+  @apply border-t border-light-divider flex items-center justify-between py-3 px-4;
+}
+
+.post-actions-container > * {
+  @apply flex items-center justify-center text-icon stroke-icon font-semibold text-subtitle1 space-x-1;
+}

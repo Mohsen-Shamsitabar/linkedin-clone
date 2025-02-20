@@ -1,0 +1,20 @@
+.root {
+  @apply w-full flex;
+}
+
+.avatar-container {
+  @apply w-8 h-8 mr-1 shrink-0 grow-0;
+}
+
+.text-container {
+  @apply flex flex-col w-full bg-logged-bg
+  p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl;
+}
+
+.text-container span {
+  @apply text-subtitle2 font-normal text-icon;
+}
+
+.text-head {
+  @apply flex items-center justify-between;
+}

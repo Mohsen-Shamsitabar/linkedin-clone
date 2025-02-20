@@ -28,7 +28,7 @@ const ActionNav = () => {
         href={option.href}
         className="flex flex-col items-center justify-center"
       >
-        <div className="stroke-icon">{option.icon}</div>
+        <div className="icon-action">{option.icon}</div>
 
         <div className="text-icon text-subtitle2 font-semibold">
           {option.title}

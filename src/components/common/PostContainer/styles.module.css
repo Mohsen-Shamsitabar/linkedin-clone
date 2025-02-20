@@ -1,7 +1,11 @@
 .root {
   --clipped-height: 54px;
 
-  @apply size-full flex flex-col border rounded-lg border-light-divider;
+  @apply size-full flex flex-col border-light-divider border-y;
+}
+
+.root--compact {
+  @apply root border rounded-lg;
 }
 
 .text-container {
@@ -30,20 +34,4 @@
 
 .post-caption--clipped {
   @apply post-caption h-[var(--clipped-height)] overflow-y-hidden;
-}
-
-.post-statistics-container {
-  @apply flex items-center justify-between px-4 py-2;
-}
-
-.post-statistics-container > div {
-  @apply flex items-center text-subtitle2 text-icon font-medium space-x-1;
-}
-
-.post-actions-container {
-  @apply border-t border-light-divider flex items-center justify-between py-3 px-4;
-}
-
-.post-actions-container > div {
-  @apply flex items-center justify-center text-icon stroke-icon font-semibold text-subtitle1 space-x-1;
 }

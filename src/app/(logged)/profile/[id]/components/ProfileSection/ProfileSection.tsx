@@ -23,34 +23,34 @@ const ProfileSection = (props: Props) => {
   const loggedUser = useLoggedUser();
   if (!profileUser || !loggedUser) return null;
 
-  const { id: loggedUserId } = loggedUser;
+  const isProfileOwner = loggedUser.id === profileUser.id;
 
   const renderSettingsIcon = () => {
-    if (loggedUserId !== profileUser.id) return null;
+    if (!isProfileOwner) return null;
 
     return (
       <div className={classes["settings-icon-container"]}>
-        <SettingsIcon className="stroke-icon" size={16} />
+        <SettingsIcon className="icon-action" size={16} />
       </div>
     );
   };
 
   const renderHeadActions = () => {
-    if (loggedUserId !== profileUser.id) {
-      return <EllipsisVerticalIcon className="stroke-icon" />;
+    if (!isProfileOwner) {
+      return <EllipsisVerticalIcon className="icon-action" />;
     }
 
     return (
       <>
-        <CornerUpRightIcon className="stroke-icon" />
+        <CornerUpRightIcon className="icon-action" />
 
-        <PencilIcon className="stroke-icon" />
+        <PencilIcon className="icon-action" />
       </>
     );
   };
 
   const renderConnectionsCount = () => {
-    if (loggedUserId !== profileUser.id) {
+    if (!isProfileOwner) {
       return (
         <span
           className={classes["others-connections"]}
@@ -66,11 +66,11 @@ const ProfileSection = (props: Props) => {
   };
 
   const renderCameraIcon = () => {
-    if (loggedUserId !== profileUser.id) return null;
+    if (!isProfileOwner) return null;
 
     return (
       <div className={classes["camera-icon-container"]}>
-        <CameraIcon size={16} className="stroke-icon" />
+        <CameraIcon size={16} className="icon-action" />
       </div>
     );
   };
@@ -100,15 +100,11 @@ const ProfileSection = (props: Props) => {
             className={classes["username"]}
           >{`${profileUser.firstName} ${profileUser.lastName}`}</h1>
 
-          <p className={classes["profileUser-headline"]}>
-            {profileUser.headline}
-          </p>
+          <p className={classes["user-headline"]}>{profileUser.headline}</p>
 
-          <p className={classes["profileUser-industry"]}>
-            {profileUser.industry}
-          </p>
+          <p className={classes["user-industry"]}>{profileUser.industry}</p>
 
-          <p className={classes["profileUser-info"]}>
+          <p className={classes["user-info"]}>
             <span>{profileUser.contactInfo.address}</span>
             <span className={classes["separator"]}>.</span>
             {renderConnectionsCount()}

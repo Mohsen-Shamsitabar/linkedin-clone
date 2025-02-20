@@ -1,6 +1,6 @@
 import type { Education, EducationId } from "@/types";
 
-type Educations = Record<EducationId, Education>;
+export type Educations = Record<EducationId, Education>;
 
 const educations: Educations = {
   EDU_1: {
@@ -49,12 +49,20 @@ const educations: Educations = {
   },
 };
 
+/**
+ * If `educationIds` is empty, then all the `educations` will be resolved.
+ */
 export const getEducations = (educationIds: EducationId[] = []) => {
-  const promise = new Promise<Educations>((resolve, _reject) => {
+  const promise = new Promise<Educations>((resolve, reject) => {
+    const allEducationIds = Object.keys(educations) as EducationId[];
+    const areEducationIdsValid = allEducationIds.some(eduId =>
+      educationIds.some(givenEduId => eduId === givenEduId),
+    );
+
     setTimeout(() => {
       if (!educationIds.length) resolve(educations);
-
-      const allEducationIds = Object.keys(educations) as EducationId[];
+      if (!areEducationIdsValid)
+        reject(new Error("Education ids are invalid!"));
 
       const fetchedEducationIds = allEducationIds.filter(eduId =>
         educationIds.includes(eduId),

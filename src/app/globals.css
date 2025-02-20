@@ -59,4 +59,8 @@
   .image-container > img {
     @apply size-full;
   }
+  .icon-action {
+    @apply stroke-icon
+    hover:cursor-pointer;
+  }
 }

@@ -1,4 +1,4 @@
-import type { EmploymentType, WebsiteType, WorkEnviromentType } from "./types";
+import type { EmploymentType, WebsiteType, WorkEnviromentType } from "@/types";
 
 export const EMPLOYMENT_TYPE_LABELS: Record<EmploymentType, string> = {
   APPRENTICESHIP: "Apprentice ship",

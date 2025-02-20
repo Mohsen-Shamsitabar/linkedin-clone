@@ -47,7 +47,7 @@ const users: Companies = {
       websites: [
         {
           type: "COMPANY",
-          url: "/",
+          url: "https://google.com",
         },
       ],
     },

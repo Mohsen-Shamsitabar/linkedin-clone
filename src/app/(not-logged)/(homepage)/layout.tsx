@@ -1,10 +1,9 @@
+import type { LayoutPageProps } from "@/types";
 import { Footer, Header } from "../components";
 
-const Layout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+const Layout = (props: LayoutPageProps) => {
+  const { children } = props;
+
   return (
     <>
       <Header />

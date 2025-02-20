@@ -28,18 +28,14 @@ const InputWithShowBtn = (props: Props) => {
     <div className={classes["root"]}>
       <FormControl>
         <Input
+          className={classes["input"]}
           type={isVisible ? "text" : "password"}
           placeholder={placeholder}
           {...field}
         />
       </FormControl>
 
-      <Button
-        className={classes["show-btn"]}
-        variant="ghost"
-        color="primary"
-        onClick={handleShowClick}
-      >
+      <Button variant="ghost" color="primary" onClick={handleShowClick}>
         {isVisible ? "Hide" : "Show"}
       </Button>
     </div>

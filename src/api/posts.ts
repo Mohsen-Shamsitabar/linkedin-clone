@@ -1,6 +1,6 @@
 import type { Post, PostId } from "@/types";
 
-type Posts = Record<PostId, Post>;
+export type Posts = Record<PostId, Post>;
 
 const posts: Posts = {
   POST_1: {
@@ -37,20 +37,28 @@ const posts: Posts = {
   },
 };
 
+/**
+ * If `postIds` is empty, then all the `posts` will be resolved.
+ */
 export const getPosts = (postIds: PostId[] = []) => {
+  const postIdsSet = new Set(postIds);
+
   const promise = new Promise<Posts>((resolve, _reject) => {
+    const allPostIds = Object.keys(posts) as PostId[];
+    // const arePostIdsValid = allPostIds.some(postId =>
+    //   postIds.some(givenPostId => postId === givenPostId),
+    // );
+
     setTimeout(() => {
       if (!postIds.length) resolve(posts);
-
-      const allPostIds = Object.keys(posts) as PostId[];
-
-      const fetchedPostIds = allPostIds.filter(postId =>
-        postIds.includes(postId),
-      );
+      // if (!arePostIdsValid) reject(new Error("Post ids are invalid!"));
 
       const result: Posts = {};
 
-      fetchedPostIds.forEach(postId => (result[postId] = posts[postId]!));
+      allPostIds.forEach(postId => {
+        if (!postIdsSet.has(postId)) return;
+        result[postId] = posts[postId]!;
+      });
 
       resolve(result);
     }, 1000);

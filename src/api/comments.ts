@@ -1,6 +1,6 @@
-import type { Comment, CommentId } from "@/types";
+import type { Comment, CommentId, PostId } from "@/types";
 
-type Comments = Record<CommentId, Comment>;
+export type Comments = Record<CommentId, Comment>;
 
 const comments: Comments = {
   CMNT_1: {
@@ -15,15 +15,27 @@ const comments: Comments = {
     },
     postId: "POST_1",
     text: "THIS IS SOME GOOOOOOD shit !!!",
-    likedBy: ["USER_1"],
   },
 };
 
-export const getComments = (_query = "") => {
+export const getComments = (postId: PostId) => {
   const promise = new Promise<Comments>((resolve, _reject) => {
+    const allCommentIds = Object.keys(comments) as CommentId[];
+
     setTimeout(() => {
-      resolve(comments);
-    }, 1000);
+      const result: Comments = {};
+
+      allCommentIds.forEach(commentId => {
+        const comment = comments[commentId]!;
+
+        if (comment.postId === postId) {
+          result[commentId] = comment;
+          return;
+        }
+      });
+
+      resolve(result);
+    }, 500);
   });
 
   return promise;

@@ -10,22 +10,22 @@ import type { FooterOptionType } from "./types";
 export const FOOTER_OPTIONS: FooterOptionType[] = [
   {
     title: "Home",
-    icon: <HomeIcon className="stroke-icon" />,
+    icon: <HomeIcon className="icon-action" />,
   },
   {
     title: "My Network",
-    icon: <UsersIcon className="stroke-icon" />,
+    icon: <UsersIcon className="icon-action" />,
   },
   {
     title: "Post",
-    icon: <SquarePlusIcon className="stroke-icon" />,
+    icon: <SquarePlusIcon className="icon-action" />,
   },
   {
     title: "Notifications",
-    icon: <BellIcon className="stroke-icon" />,
+    icon: <BellIcon className="icon-action" />,
   },
   {
     title: "Jobs",
-    icon: <BriefcaseBusinessIcon className="stroke-icon" />,
+    icon: <BriefcaseBusinessIcon className="icon-action" />,
   },
 ];

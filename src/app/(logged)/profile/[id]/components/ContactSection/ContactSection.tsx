@@ -2,8 +2,8 @@
 
 import { LinkedinIcon } from "@/components/svgs";
 import { Separator } from "@/components/ui";
-import { useProfileUser } from "@/contexts";
-import { WEBSITE_TYPE_LABELS } from "@/labels";
+import { WEBSITE_TYPE_LABELS } from "@/constants";
+import { useLoggedUser, useProfileUser } from "@/contexts";
 import { cn } from "@/lib/utils";
 import { BinaryIcon, MailIcon, PencilIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -19,9 +19,16 @@ const ContactSection = (props: Props) => {
 
   const pathname = usePathname();
   const profileUser = useProfileUser();
-  if (!profileUser) return null;
+  const loggedUser = useLoggedUser();
+  if (!profileUser || !loggedUser) return null;
 
   const { email } = profileUser.contactInfo;
+
+  const renderEditAction = () => {
+    if (loggedUser.id !== profileUser.id) return null;
+
+    return <PencilIcon className="icon-action" />;
+  };
 
   const renderEmail = () => {
     if (!email) return null;
@@ -29,7 +36,7 @@ const ContactSection = (props: Props) => {
     return (
       <ContactCard
         title="Email"
-        icon={<MailIcon className="stroke-icon mr-4" />}
+        icon={<MailIcon className="icon-action mr-4" />}
         linkText={email}
         linkHref={""}
       />
@@ -56,7 +63,7 @@ const ContactSection = (props: Props) => {
 
         <ContactCard
           title={WEBSITE_TYPE_LABELS[website.type]}
-          icon={<BinaryIcon className="stroke-icon mr-4" />}
+          icon={<BinaryIcon className="icon-action mr-4" />}
           linkText={website.url}
           linkHref={website.url}
         />
@@ -68,7 +75,8 @@ const ContactSection = (props: Props) => {
     <section className={cn(classes["root"], className)}>
       <div className={classes["section-head"]}>
         <h2>Contact</h2>
-        <PencilIcon className="stroke-icon" />
+
+        {renderEditAction()}
       </div>
 
       <div className={classes["section-body"]}>

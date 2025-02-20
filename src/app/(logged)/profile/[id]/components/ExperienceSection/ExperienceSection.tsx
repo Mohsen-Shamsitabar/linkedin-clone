@@ -15,20 +15,20 @@ const ExperienceSection = (props: Props) => {
   const user = useProfileUser();
   if (!user) return null;
 
-  const { experiences: expIds } = user;
+  const { experiences } = user;
 
-  const eduCount = expIds.length;
+  const expCount = experiences.length;
 
   const renderContent = () => {
-    if (eduCount === 0) return <EmptyStatement />;
+    if (expCount === 0) return <EmptyStatement />;
 
-    return <ExpCardContainer experienceIds={expIds} />;
+    return <ExpCardContainer />;
   };
 
   return (
     <section
       className={cn(
-        eduCount > 0 ? classes["root"] : classes["root--empty"],
+        expCount > 0 ? classes["root"] : classes["root--empty"],
         className,
       )}
     >

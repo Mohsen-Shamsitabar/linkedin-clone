@@ -1,6 +1,6 @@
 import type { Experience, ExperienceId } from "@/types";
 
-type Experiences = Record<ExperienceId, Experience>;
+export type Experiences = Record<ExperienceId, Experience>;
 
 const experiences: Experiences = {
   EXP_1: {
@@ -49,12 +49,20 @@ const experiences: Experiences = {
   },
 };
 
+/**
+ * If `experienceIds` is empty, then all the `experiences` will be resolved.
+ */
 export const getExperiences = (experienceIds: ExperienceId[] = []) => {
-  const promise = new Promise<Experiences>((resolve, _reject) => {
+  const promise = new Promise<Experiences>((resolve, reject) => {
+    const allExperienceIds = Object.keys(experiences) as ExperienceId[];
+    const areExperienceIdsValid = allExperienceIds.some(expId =>
+      experienceIds.some(givenExpId => expId === givenExpId),
+    );
+
     setTimeout(() => {
       if (!experienceIds.length) resolve(experiences);
-
-      const allExperienceIds = Object.keys(experiences) as ExperienceId[];
+      if (!areExperienceIdsValid)
+        reject(new Error("Experience ids are invalid!"));
 
       const fetchedExperienceIds = allExperienceIds.filter(expId =>
         experienceIds.includes(expId),

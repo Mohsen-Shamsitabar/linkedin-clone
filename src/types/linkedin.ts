@@ -134,7 +134,6 @@ export type Comment = {
   userSummary: UserSummary;
   postId: PostId;
   text: string;
-  likedBy: UserId[];
 };
 
 export type ContactInfo = {
