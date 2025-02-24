@@ -1,7 +1,7 @@
 "use client";
 
 import { ExpandableText } from "@/components/common";
-import { useLoggedUser, useProfileUser } from "@/contexts";
+import { useLoggedUser, useUserProfile } from "@/contexts";
 import { cn } from "@/utility";
 import { PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
@@ -14,7 +14,7 @@ type Props = {
 const AboutSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useProfileUser();
+  const profileUser = useUserProfile();
   const loggedUser = useLoggedUser();
   if (!profileUser || !loggedUser) return null;
 

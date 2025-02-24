@@ -3,7 +3,7 @@
 import { LinkedinIcon } from "@/components/svgs";
 import { Separator } from "@/components/ui";
 import { WEBSITE_TYPE_LABELS } from "@/constants";
-import { useLoggedUser, useProfileUser } from "@/contexts";
+import { useLoggedUser, useUserProfile } from "@/contexts";
 import { cn } from "@/utility";
 import { BinaryIcon, MailIcon, PencilIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -18,7 +18,7 @@ const ContactSection = (props: Props) => {
   const { className } = props;
 
   const pathname = usePathname();
-  const profileUser = useProfileUser();
+  const profileUser = useUserProfile();
   const loggedUser = useLoggedUser();
   if (!profileUser || !loggedUser) return null;
 

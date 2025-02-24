@@ -1,6 +1,6 @@
 "use client";
 
-import { useLoggedUser, useProfileUser } from "@/contexts";
+import { useLoggedUser, useUserProfile } from "@/contexts";
 import { cn } from "@/utility";
 import { PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
@@ -13,7 +13,7 @@ type Props = {
 const SkillsSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useProfileUser();
+  const profileUser = useUserProfile();
   const loggedUser = useLoggedUser();
   if (!profileUser || !loggedUser) return null;
 

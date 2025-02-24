@@ -1,6 +1,6 @@
 "use client";
 
-import { useProfileUser } from "@/contexts";
+import { useUserProfile } from "@/contexts";
 import { cn } from "@/utility";
 
 import { EduCardContainer, EmptyStatement } from "./components";
@@ -13,7 +13,7 @@ type Props = {
 const EducationSection = (props: Props) => {
   const { className } = props;
 
-  const user = useProfileUser();
+  const user = useUserProfile();
   if (!user) return null;
 
   const { educations } = user;

@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui";
-import { useLoggedUser, useProfileUser } from "@/contexts";
+import { useLoggedUser, useUserProfile } from "@/contexts";
 import { PostStateManager } from "@/stateManagers/PostStateManager";
 import { cn } from "@/utility";
 import { ArrowRightIcon, PencilIcon, PlusIcon } from "lucide-react";
@@ -24,7 +24,7 @@ type Props = {
 const PostsSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useProfileUser();
+  const profileUser = useUserProfile();
   const loggedUser = useLoggedUser();
 
   const [api, setApi] = React.useState<CarouselApi>();

@@ -5,7 +5,7 @@ import type { Posts } from "@/api/posts";
 import { getPosts } from "@/api/posts";
 import { getUser } from "@/api/users";
 import type { ProfileUserData } from "@/contexts";
-import { ProfileUserProvider } from "@/contexts";
+import { UserProfileProvider } from "@/contexts";
 import type { UserId } from "@/types";
 import classes from "../../commonStyles.module.css";
 import {
@@ -43,7 +43,7 @@ const UserProfile = async (props: Props) => {
 
   return (
     <div className="relative">
-      <ProfileUserProvider context={profileUserData}>
+      <UserProfileProvider context={profileUserData}>
         <main className={classes["main-content"]}>
           <ProfileSection />
 
@@ -59,7 +59,7 @@ const UserProfile = async (props: Props) => {
 
           <ContactSection className={classes["section"]} />
         </main>
-      </ProfileUserProvider>
+      </UserProfileProvider>
     </div>
   );
 };

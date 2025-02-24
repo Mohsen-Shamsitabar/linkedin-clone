@@ -1,8 +1,8 @@
 export {
-  Provider as ProfileUserProvider,
-  useContext as useProfileUser,
+  Provider as UserProfileProvider,
+  useContext as useUserProfile,
   type ContextValue as ProfileUserData,
-} from "./profile-user-context";
+} from "./user-profile-context";
 
 export {
   Provider as LoggedUserProvider,

@@ -1,10 +1,10 @@
 import { Separator } from "@/components/ui";
-import { useProfileUser } from "@/contexts";
+import { useUserProfile } from "@/contexts";
 import { EduCard } from "./components";
 import classes from "./styles.module.css";
 
 const EduCardContainer = () => {
-  const user = useProfileUser();
+  const user = useUserProfile();
   if (!user) return null;
 
   const { educations, educationsData } = user;

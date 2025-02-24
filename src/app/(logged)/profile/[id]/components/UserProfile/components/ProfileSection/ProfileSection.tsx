@@ -1,6 +1,6 @@
 "use client";
 
-import { useLoggedUser, useProfileUser } from "@/contexts";
+import { useLoggedUser, useUserProfile } from "@/contexts";
 import { cn } from "@/utility";
 import {
   CameraIcon,
@@ -19,7 +19,7 @@ type Props = {
 const ProfileSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useProfileUser();
+  const profileUser = useUserProfile();
   const loggedUser = useLoggedUser();
   if (!profileUser || !loggedUser) return null;
 

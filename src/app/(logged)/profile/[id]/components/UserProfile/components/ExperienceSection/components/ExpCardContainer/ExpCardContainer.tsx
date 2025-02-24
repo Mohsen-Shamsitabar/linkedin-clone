@@ -1,12 +1,12 @@
 "use client";
 
 import { Separator } from "@/components/ui";
-import { useProfileUser } from "@/contexts";
+import { useUserProfile } from "@/contexts";
 import { ExpCard } from "./components";
 import classes from "./styles.module.css";
 
 const ExpCardContainer = () => {
-  const user = useProfileUser();
+  const user = useUserProfile();
   if (!user) return null;
 
   const { experiences, experiencesData } = user;

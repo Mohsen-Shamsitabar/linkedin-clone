@@ -1,6 +1,6 @@
 "use client";
 
-import { useProfileUser } from "@/contexts";
+import { useUserProfile } from "@/contexts";
 import { cn } from "@/utility";
 import { EmptyStatement, ExpCardContainer } from "./components";
 import classes from "./styles.module.css";
@@ -12,7 +12,7 @@ type Props = {
 const ExperienceSection = (props: Props) => {
   const { className } = props;
 
-  const user = useProfileUser();
+  const user = useUserProfile();
   if (!user) return null;
 
   const { experiences } = user;
