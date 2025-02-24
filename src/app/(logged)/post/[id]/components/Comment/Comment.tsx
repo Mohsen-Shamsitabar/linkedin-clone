@@ -1,7 +1,7 @@
 import { ExpandableText } from "@/components/common";
-import { cn } from "@/lib/utils";
 import * as paths from "@/routes/paths";
 import type { Comment as CommentT } from "@/types";
+import { cn } from "@/utility";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";

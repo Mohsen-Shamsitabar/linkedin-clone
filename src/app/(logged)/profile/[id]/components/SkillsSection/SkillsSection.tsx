@@ -1,7 +1,7 @@
 "use client";
 
 import { useLoggedUser, useProfileUser } from "@/contexts";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import { PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
 import classes from "./styles.module.css";

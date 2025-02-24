@@ -1,7 +1,7 @@
 import { LinkedinLogo } from "@/components/svgs";
 import { Button, Separator } from "@/components/ui";
-import { cn } from "@/lib/utils";
 import * as PATHS from "@/routes/paths";
+import { cn } from "@/utility";
 import {
   BriefcaseBusiness,
   Gamepad2,

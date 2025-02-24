@@ -1,7 +1,7 @@
 "use client";
 
 import { useProfileUser } from "@/contexts";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 
 import { EduCardContainer, EmptyStatement } from "./components";
 import classes from "./styles.module.css";

@@ -4,7 +4,7 @@ import { LinkedinIcon } from "@/components/svgs";
 import { Separator } from "@/components/ui";
 import { WEBSITE_TYPE_LABELS } from "@/constants";
 import { useLoggedUser, useProfileUser } from "@/contexts";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import { BinaryIcon, MailIcon, PencilIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ContactCard } from "./components";

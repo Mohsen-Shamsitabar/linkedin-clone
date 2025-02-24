@@ -9,7 +9,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import { useFormContext } from "react-hook-form";
 import classes from "./styles.module.css";
 

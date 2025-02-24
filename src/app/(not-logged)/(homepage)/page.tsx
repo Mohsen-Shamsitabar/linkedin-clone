@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import Link from "next/link";
 import {
   ARTICLE_CHIPS,

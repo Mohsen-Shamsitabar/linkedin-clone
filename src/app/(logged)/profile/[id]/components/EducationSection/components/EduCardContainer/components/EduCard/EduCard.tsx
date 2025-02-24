@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import type { Education } from "@/types";
+import { cn } from "@/utility";
 import moment from "moment";
 import Image from "next/image";
 import classes from "./styles.module.css";

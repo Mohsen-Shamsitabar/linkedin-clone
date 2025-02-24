@@ -2,8 +2,8 @@
 
 import { Button, Input } from "@/components/ui";
 import { useLoggedUser } from "@/contexts";
-import { cn } from "@/lib/utils";
 import * as paths from "@/routes/paths";
+import { cn } from "@/utility";
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";

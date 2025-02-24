@@ -1,11 +1,11 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import * as paths from "@/routes/paths";
 import {
   PostStateManager,
   usePostStateManager,
 } from "@/stateManagers/PostStateManager";
+import { cn } from "@/utility";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";

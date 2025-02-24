@@ -1,8 +1,8 @@
 import { AgreementText } from "@/app/(not-logged)/components";
 import GoogleLogo from "@/components/svgs/GoogleLogo";
 import { Button } from "@/components/ui";
-import { cn } from "@/lib/utils";
 import heroSectionImg from "@/public/svgs/not-logged-herosection.svg";
+import { cn } from "@/utility";
 import Image from "next/image";
 import Link from "next/link";
 import classes from "./styles.module.css";

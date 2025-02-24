@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import classes from "./styles.module.css";
 
 type Props = {

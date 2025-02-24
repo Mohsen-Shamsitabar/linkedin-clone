@@ -10,8 +10,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui";
 import { useLoggedUser, useProfileUser } from "@/contexts";
-import { cn } from "@/lib/utils";
 import { PostStateManager } from "@/stateManagers/PostStateManager";
+import { cn } from "@/utility";
 import { ArrowRightIcon, PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
