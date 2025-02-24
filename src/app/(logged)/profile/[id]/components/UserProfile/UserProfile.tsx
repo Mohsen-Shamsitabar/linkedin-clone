@@ -1,0 +1,67 @@
+import { getEducations } from "@/api/educations";
+import type { Experiences } from "@/api/experiences";
+import { getExperiences } from "@/api/experiences";
+import type { Posts } from "@/api/posts";
+import { getPosts } from "@/api/posts";
+import { getUser } from "@/api/users";
+import type { ProfileUserData } from "@/contexts";
+import { ProfileUserProvider } from "@/contexts";
+import type { UserId } from "@/types";
+import classes from "../../commonStyles.module.css";
+import {
+  AboutSection,
+  ContactSection,
+  EducationSection,
+  ExperienceSection,
+  PostsSection,
+  ProfileSection,
+  SkillsSection,
+} from "./components";
+
+type Props = {
+  userId: UserId;
+};
+
+const UserProfile = async (props: Props) => {
+  const { userId } = props;
+
+  const profileUser = await getUser(userId);
+
+  const [profileUsersExperiences, profileUsersEducations, profileUsersPosts] =
+    await Promise.all<[Promise<Posts>, Promise<Experiences>, Promise<Posts>]>([
+      getExperiences(profileUser.experiences),
+      getEducations(profileUser.educations),
+      getPosts(profileUser.posts),
+    ]);
+
+  const profileUserData: ProfileUserData = {
+    ...profileUser,
+    experiencesData: profileUsersExperiences,
+    educationsData: profileUsersEducations,
+    postsData: profileUsersPosts,
+  };
+
+  return (
+    <div className="relative">
+      <ProfileUserProvider context={profileUserData}>
+        <main className={classes["main-content"]}>
+          <ProfileSection />
+
+          <AboutSection className={classes["section"]} />
+
+          <PostsSection className={classes["section"]} />
+
+          <ExperienceSection className={classes["section"]} />
+
+          <EducationSection className={classes["section"]} />
+
+          <SkillsSection className={classes["section"]} />
+
+          <ContactSection className={classes["section"]} />
+        </main>
+      </ProfileUserProvider>
+    </div>
+  );
+};
+
+export default UserProfile;
