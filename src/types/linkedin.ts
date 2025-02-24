@@ -1,3 +1,5 @@
+import type { IdIdentifier } from "@/enums";
+
 // === === === === === OPTIONS === === === === === //
 export type EmploymentType =
   | "FULL_TIME"
@@ -23,12 +25,20 @@ export type CompanyType = "EDUCATIONAL" | "PRIVATELY_HELD";
 
 // === === === === === SUB TYPES === === === === === //
 
-export type CompanyId = `COMPANY_${string}`;
-export type UserId = `USER_${string}`;
-export type ExperienceId = `EXP_${string}`;
-export type EducationId = `EDU_${string}`;
-export type PostId = `POST_${string}`;
-export type CommentId = `CMNT_${string}`;
+export type CompanyId = `${IdIdentifier.companyId}${string}`;
+export type UserId = `${IdIdentifier.userId}${string}`;
+export type ExperienceId = `${IdIdentifier.experienceId}${string}`;
+export type EducationId = `${IdIdentifier.educationId}${string}`;
+export type PostId = `${IdIdentifier.postId}${string}`;
+export type CommentId = `${IdIdentifier.commentId}${string}`;
+
+export type ID =
+  | CommentId
+  | UserId
+  | ExperienceId
+  | EducationId
+  | PostId
+  | CompanyId;
 
 export type Skill = string;
 
