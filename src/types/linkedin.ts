@@ -92,7 +92,9 @@ export type Company = Omit<
 > & {
   id: string;
   name: string;
-  contactInfo: Omit<ContactInfo, "birthday" | "address">;
+  contactInfo: Omit<ContactInfo, "birthday" | "address" | "websites"> & {
+    website: Website | null;
+  };
   specialties: Skill[];
   aboutUs: string;
   size: ValueRange;
