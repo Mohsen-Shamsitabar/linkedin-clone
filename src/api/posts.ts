@@ -43,6 +43,7 @@ const posts: Posts = {
     ownerSummary: {
       type: "company",
       id: "COMPANY_4",
+      headline: "THE place to get stuff",
       location: { country: "Iran", city: "Tehran" },
       name: "Divar",
       avatar: "https://picsum.photos/id/22/152/152",

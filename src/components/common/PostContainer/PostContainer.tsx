@@ -34,13 +34,14 @@ const PostContainer = (props: Props) => {
   const deltaDate = moment(post.createDate).fromNow();
 
   const renderOwnerInfo = () => {
-    if (isCompanySummary(owner)) {
+    if (isOwnerCompany) {
       return (
         <div>
           <Link href={`${paths.PROFILE}/${owner.id}`}>
             <p className={classes["owner-name"]}>{`${owner.name}`}</p>
           </Link>
 
+          <p className={classes["subtitle-text"]}>{owner.headline}</p>
           <p className={classes["subtitle-text"]}>{deltaDate}</p>
         </div>
       );

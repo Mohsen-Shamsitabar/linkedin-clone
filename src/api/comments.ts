@@ -24,6 +24,7 @@ const comments: Comments = {
       type: "company",
       id: "COMPANY_4",
       location: { country: "Iran", city: "Tehran" },
+      headline: "THE place to get stuff",
       name: "Divar",
       avatar: "https://picsum.photos/id/22/152/152",
     },

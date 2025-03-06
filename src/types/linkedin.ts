@@ -85,7 +85,7 @@ export type Company = Omit<
   | "followings"
   | "id"
 > & {
-  id: string;
+  id: CompanyId;
   name: string;
   contactInfo: Omit<ContactInfo, "birthday" | "address" | "websites"> & {
     website: Website | null;
@@ -107,7 +107,7 @@ export type UserSummary = Pick<
 
 export type CompanySummary = Pick<
   Company,
-  "id" | "avatar" | "name" | "location"
+  "id" | "avatar" | "name" | "location" | "headline"
 > & {
   type: "company";
 };
