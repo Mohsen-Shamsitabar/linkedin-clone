@@ -6,7 +6,8 @@ const posts: Posts = {
   POST_1: {
     id: "POST_1",
     createDate: "2024-12-26T18:38:00+03:30",
-    userSummary: {
+    ownerSummary: {
+      type: "user",
       id: "USER_1",
       firstName: "Mohsen",
       lastName: "Shamsitabar",
@@ -22,7 +23,8 @@ const posts: Posts = {
   POST_2: {
     id: "POST_2",
     createDate: "2024-12-26T18:38:00+03:30",
-    userSummary: {
+    ownerSummary: {
+      type: "user",
       id: "USER_2",
       firstName: "Mostafa",
       lastName: "Shamsitabar",

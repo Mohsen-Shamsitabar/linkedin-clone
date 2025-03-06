@@ -72,11 +72,6 @@ export type User = {
   followings: UserId[];
 };
 
-export type UserSummary = Pick<
-  User,
-  "avatar" | "firstName" | "id" | "lastName" | "headline"
->;
-
 export type Company = Omit<
   User,
   | "firstName"
@@ -101,10 +96,25 @@ export type Company = Omit<
   type: CompanyType;
 };
 
+// === === SUMMARY === === //
+
+export type UserSummary = Pick<
+  User,
+  "avatar" | "firstName" | "id" | "lastName" | "headline"
+> & {
+  type: "user";
+};
+
 export type CompanySummary = Pick<
   Company,
   "id" | "avatar" | "name" | "location"
->;
+> & {
+  type: "company";
+};
+
+export type Summary = UserSummary | CompanySummary;
+
+// === === === === //
 
 export type Experience = {
   id: ExperienceId;
@@ -133,7 +143,7 @@ export type Education = {
 export type Post = {
   id: PostId;
   createDate: string;
-  userSummary: UserSummary;
+  ownerSummary: Summary;
   caption: string;
   media: string;
   likedBy: UserId[];
@@ -143,7 +153,7 @@ export type Post = {
 export type Comment = {
   id: CommentId;
   createDate: string;
-  userSummary: UserSummary;
+  ownerSummary: Summary;
   postId: PostId;
   text: string;
 };

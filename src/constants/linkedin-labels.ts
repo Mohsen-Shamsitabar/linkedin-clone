@@ -1,4 +1,9 @@
-import type { EmploymentType, WebsiteType, WorkEnviromentType } from "@/types";
+import type {
+  CompanyType,
+  EmploymentType,
+  WebsiteType,
+  WorkEnviromentType,
+} from "@/types";
 
 export const EMPLOYMENT_TYPE_LABELS: Record<EmploymentType, string> = {
   APPRENTICESHIP: "Apprentice ship",
@@ -24,4 +29,9 @@ export const LOCATION_TYPE_LABELS: Record<WorkEnviromentType, string> = {
   HYBRID: "Hybrid",
   ON_SITE: "On site",
   REMOTE: "Remote",
+};
+
+export const COMPANY_TYPE_LABELS: Record<CompanyType, string> = {
+  EDUCATIONAL: "Educational",
+  PRIVATELY_HELD: "Privately Held",
 };

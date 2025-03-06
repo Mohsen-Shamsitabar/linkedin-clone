@@ -1,7 +1,7 @@
 import { ExpandableText } from "@/components/common";
 import * as paths from "@/routes/paths";
 import type { Comment as CommentT } from "@/types";
-import { cn } from "@/utility";
+import { cn, isCompanySummary } from "@/utility";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,21 +13,23 @@ type Props = {
 
 const Comment = (props: Props) => {
   const { comment } = props;
-  const commenter = comment.userSummary;
+  const commentOwner = comment.ownerSummary;
 
   const deltaDate = moment(comment.createDate).fromNow();
 
-  const commenterProfile = `${paths.PROFILE}/${commenter.id}`;
+  const commentOwnerProfile = `${paths.PROFILE}/${commentOwner.id}`;
+
+  const isCompanySum = isCompanySummary(commentOwner);
 
   return (
     <li className={classes["root"]}>
       <div className={classes["avatar-container"]}>
-        <Link href={commenterProfile}>
+        <Link href={commentOwnerProfile}>
           <div className={cn("image-container", "rounded-full")}>
             <Image
               width={32}
               height={32}
-              src={commenter.avatar}
+              src={commentOwner.avatar}
               alt={"avatar"}
             />
           </div>
@@ -38,13 +40,17 @@ const Comment = (props: Props) => {
         <div className={classes["text-head"]}>
           <Link
             className="text-subtitle1 font-semibold"
-            href={commenterProfile}
-          >{`${commenter.firstName} ${commenter.lastName}`}</Link>
+            href={commentOwnerProfile}
+          >
+            {isCompanySum
+              ? `${commentOwner.name}`
+              : `${commentOwner.firstName} ${commentOwner.lastName}`}
+          </Link>
 
           <span>{deltaDate}</span>
         </div>
 
-        <span>{commenter.headline}</span>
+        {!isCompanySum && <span>{commentOwner.headline}</span>}
 
         <ExpandableText
           className="text-subtitle2 font-medium mt-3"
