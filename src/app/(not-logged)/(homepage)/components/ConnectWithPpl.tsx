@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui";
-import { cn } from "@/lib/utils";
 import connectImage from "@/public/svgs/not-logged-connect.svg";
+import { cn } from "@/utility";
 import { ImageWithHeader } from "./components";
 
 type Props = {

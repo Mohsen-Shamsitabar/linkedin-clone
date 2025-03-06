@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import type { SvgContainerProps } from "./types";
 
 const LinkedinLogo = (props: SvgContainerProps) => {

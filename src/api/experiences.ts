@@ -6,6 +6,7 @@ const experiences: Experiences = {
   EXP_1: {
     id: "EXP_1",
     userSummary: {
+      type: "user",
       id: "USER_1",
       firstName: "Mohsen",
       lastName: "Shamsitabar",
@@ -13,7 +14,9 @@ const experiences: Experiences = {
       headline: "Im sad and broke",
     },
     companySummary: {
+      type: "company",
       id: "COMPANY_3",
+      headline: "",
       name: "TAPSI",
       avatar: "https://picsum.photos/id/20/152/152",
       location: { country: "Iran", city: "Tehran" },
@@ -28,6 +31,7 @@ const experiences: Experiences = {
   EXP_2: {
     id: "EXP_2",
     userSummary: {
+      type: "user",
       id: "USER_2",
       firstName: "Mostafa",
       lastName: "Shamsitabar",
@@ -35,8 +39,10 @@ const experiences: Experiences = {
       headline: "Senior Software Engineer @ TAPSI",
     },
     companySummary: {
+      type: "company",
       id: "COMPANY_4",
       name: "Divar",
+      headline: "THE place to get stuff",
       avatar: "https://picsum.photos/id/22/152/152",
       location: { country: "Iran", city: "Tehran" },
     },

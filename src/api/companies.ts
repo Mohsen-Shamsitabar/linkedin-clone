@@ -2,7 +2,7 @@ import type { Company, CompanyId } from "@/types";
 
 type Companies = Record<CompanyId, Company>;
 
-const users: Companies = {
+const companies: Companies = {
   COMPANY_1: {
     id: "COMPANY_1",
     name: "Alborz School",
@@ -18,12 +18,7 @@ const users: Companies = {
     contactInfo: {
       email: "AlborzSchool@yahoo.com",
       phoneNumber: "09121547428",
-      websites: [
-        {
-          type: "COMPANY",
-          url: "/",
-        },
-      ],
+      website: null,
     },
     posts: [],
     size: [12, 20],
@@ -44,12 +39,10 @@ const users: Companies = {
     contactInfo: {
       email: "AzadUni.edu@yahoo.com",
       phoneNumber: "09121547428",
-      websites: [
-        {
-          type: "COMPANY",
-          url: "https://google.com",
-        },
-      ],
+      website: {
+        type: "COMPANY",
+        url: "https://google.com",
+      },
     },
     posts: [],
     size: [100, 499],
@@ -70,12 +63,10 @@ const users: Companies = {
     contactInfo: {
       email: "Tapsi.corpo@gmail.com",
       phoneNumber: "",
-      websites: [
-        {
-          type: "COMPANY",
-          url: "http://Tapsi.ir",
-        },
-      ],
+      website: {
+        type: "COMPANY",
+        url: "http://Tapsi.ir",
+      },
     },
     posts: [],
     size: [501, 1000],
@@ -101,23 +92,26 @@ const users: Companies = {
     contactInfo: {
       email: "",
       phoneNumber: "09121547428",
-      websites: [
-        {
-          type: "COMPANY",
-          url: "https://divar.ir",
-        },
-      ],
+      website: {
+        type: "COMPANY",
+        url: "https://divar.ir",
+      },
     },
-    posts: [],
+    posts: ["POST_3"],
     size: [200, 500],
     specialties: [],
   },
 };
 
-export const getCompanies = (_query = "") => {
-  const promise = new Promise<Companies>((resolve, _reject) => {
+export const getCompany = (companyId: CompanyId) => {
+  const promise = new Promise<Company>((resolve, reject) => {
+    const allUserIds = new Set(Object.keys(companies));
+    const isValidUserId = allUserIds.has(companyId);
+
     setTimeout(() => {
-      resolve(users);
+      if (isValidUserId) resolve(companies[companyId]!);
+
+      reject(new Error(`Company id "${companyId}" is invalid!`));
     }, 1000);
   });
 

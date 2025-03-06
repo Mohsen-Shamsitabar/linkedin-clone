@@ -1,5 +1,5 @@
 import { LinkedinLogo } from "@/components/svgs";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import Link from "next/link";
 import { FOOTER_OPTIONS } from "./footerOptions";
 import classes from "./styles.module.css";

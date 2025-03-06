@@ -1,7 +1,7 @@
 .root {
   --clipped-height: 54px;
 
-  @apply size-full flex flex-col border-light-divider border-y;
+  @apply size-full flex flex-col border-light-divider border-y bg-white;
 }
 
 .root--compact {
@@ -17,7 +17,7 @@
 }
 
 .owner-avatar {
-  @apply rounded-full mr-2;
+  @apply mr-2;
 }
 
 .owner-name {

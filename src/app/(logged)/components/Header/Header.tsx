@@ -1,10 +1,10 @@
 "use client";
 
+import { Avatar } from "@/components/common";
 import { LinkedinIcon } from "@/components/svgs";
 import { useLoggedUser } from "@/contexts";
 import * as paths from "@/routes/paths";
 import { MessageSquareMoreIcon } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { ActionNav, Searchbar } from "./components";
 
@@ -24,14 +24,11 @@ const Header = (props: Props) => {
 
       <nav className="container flex flex-row justify-between items-center py-2 md:hidden">
         <Link href={`${paths.PROFILE}/${loggedUser.id}`}>
-          <div className="image-container rounded-full hover:cursor-pointer">
-            <Image
-              width={32}
-              height={32}
-              src={loggedUser.avatar}
-              alt={`${loggedUser.firstName}'s avatar`}
-            />
-          </div>
+          <Avatar
+            size={32}
+            src={loggedUser.avatar}
+            alt={`${loggedUser.firstName}'s avatar`}
+          />
         </Link>
 
         <Searchbar />

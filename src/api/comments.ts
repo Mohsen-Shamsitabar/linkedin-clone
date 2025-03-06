@@ -6,7 +6,8 @@ const comments: Comments = {
   CMNT_1: {
     id: "CMNT_1",
     createDate: "2024-12-26T18:38:00+03:30",
-    userSummary: {
+    ownerSummary: {
+      type: "user",
       id: "USER_2",
       firstName: "Mostafa",
       lastName: "Shamsitabar",
@@ -15,6 +16,20 @@ const comments: Comments = {
     },
     postId: "POST_1",
     text: "THIS IS SOME GOOOOOOD shit !!!",
+  },
+  CMNT_2: {
+    id: "CMNT_2",
+    createDate: "2024-12-26T18:38:00+03:30",
+    ownerSummary: {
+      type: "company",
+      id: "COMPANY_4",
+      location: { country: "Iran", city: "Tehran" },
+      headline: "THE place to get stuff",
+      name: "Divar",
+      avatar: "https://picsum.photos/id/22/152/152",
+    },
+    postId: "POST_1",
+    text: "YOOOOOOO, good post.",
   },
 };
 

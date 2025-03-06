@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui";
-import { cn } from "@/lib/utils";
 import learnImage from "@/public/svgs/not-logged-learn.svg";
+import { cn } from "@/utility";
 import { ImageWithHeader } from "./components";
 
 type Props = {

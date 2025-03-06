@@ -7,14 +7,11 @@ import { usePostStateManager } from "@/stateManagers/PostStateManager";
 import { MessageSquareTextIcon, ThumbsUpIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import classes from "./styles.module.css";
 
-type Props = {
-  isInPostsPage: boolean;
-};
-
-const PostStatistics = (props: Props) => {
-  const { isInPostsPage } = props;
+const PostStatistics = () => {
+  const pathname = usePathname();
 
   const postManager = usePostStateManager();
   const loggedUser = useLoggedUser();
@@ -26,6 +23,8 @@ const PostStatistics = (props: Props) => {
   const likeCount = post.likedBy.length;
 
   const isLikedByMe = post.likedBy.includes(loggedUser.id);
+
+  const isInPostsPage = pathname.includes(paths.POST);
 
   const renderCommentBtn = () => {
     if (isInPostsPage) {

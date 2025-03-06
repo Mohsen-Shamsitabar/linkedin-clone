@@ -1,5 +1,5 @@
 import type { Option } from "@/app/(not-logged)/(homepage)/types";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import classes from "./styles.module.css";

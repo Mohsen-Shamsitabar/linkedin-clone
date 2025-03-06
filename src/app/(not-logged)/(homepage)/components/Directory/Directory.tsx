@@ -1,5 +1,5 @@
 import { LinkedinLogo } from "@/components/svgs";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import {
   BROWSE_OPTIONS,
   BUSINESS_OPTIONS,

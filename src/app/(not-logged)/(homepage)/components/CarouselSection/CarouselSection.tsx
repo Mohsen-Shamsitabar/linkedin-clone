@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui";
 import type { CarouselApi } from "@/components/ui/Carousel";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import * as React from "react";
 import { CarouselSlide } from "./components";
 import { SLIDES } from "./slides";

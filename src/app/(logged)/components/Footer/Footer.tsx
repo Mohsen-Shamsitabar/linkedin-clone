@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import { FooterOption } from "./components";
 import { FOOTER_OPTIONS } from "./constant";
 import classes from "./styles.module.css";

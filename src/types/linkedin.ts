@@ -1,3 +1,5 @@
+import type { IdIdentifier } from "@/enums";
+
 // === === === === === OPTIONS === === === === === //
 export type EmploymentType =
   | "FULL_TIME"
@@ -23,12 +25,20 @@ export type CompanyType = "EDUCATIONAL" | "PRIVATELY_HELD";
 
 // === === === === === SUB TYPES === === === === === //
 
-export type CompanyId = `COMPANY_${string}`;
-export type UserId = `USER_${string}`;
-export type ExperienceId = `EXP_${string}`;
-export type EducationId = `EDU_${string}`;
-export type PostId = `POST_${string}`;
-export type CommentId = `CMNT_${string}`;
+export type CompanyId = `${IdIdentifier.companyId}${string}`;
+export type UserId = `${IdIdentifier.userId}${string}`;
+export type ExperienceId = `${IdIdentifier.experienceId}${string}`;
+export type EducationId = `${IdIdentifier.educationId}${string}`;
+export type PostId = `${IdIdentifier.postId}${string}`;
+export type CommentId = `${IdIdentifier.commentId}${string}`;
+
+export type ID =
+  | CommentId
+  | UserId
+  | ExperienceId
+  | EducationId
+  | PostId
+  | CompanyId;
 
 export type Skill = string;
 
@@ -62,11 +72,6 @@ export type User = {
   followings: UserId[];
 };
 
-export type UserSummary = Pick<
-  User,
-  "avatar" | "firstName" | "id" | "lastName" | "headline"
->;
-
 export type Company = Omit<
   User,
   | "firstName"
@@ -80,19 +85,36 @@ export type Company = Omit<
   | "followings"
   | "id"
 > & {
-  id: string;
+  id: CompanyId;
   name: string;
-  contactInfo: Omit<ContactInfo, "birthday" | "address">;
+  contactInfo: Omit<ContactInfo, "birthday" | "address" | "websites"> & {
+    website: Website | null;
+  };
   specialties: Skill[];
   aboutUs: string;
   size: ValueRange;
   type: CompanyType;
 };
 
+// === === SUMMARY === === //
+
+export type UserSummary = Pick<
+  User,
+  "avatar" | "firstName" | "id" | "lastName" | "headline"
+> & {
+  type: "user";
+};
+
 export type CompanySummary = Pick<
   Company,
-  "id" | "avatar" | "name" | "location"
->;
+  "id" | "avatar" | "name" | "location" | "headline"
+> & {
+  type: "company";
+};
+
+export type Summary = UserSummary | CompanySummary;
+
+// === === === === //
 
 export type Experience = {
   id: ExperienceId;
@@ -121,7 +143,7 @@ export type Education = {
 export type Post = {
   id: PostId;
   createDate: string;
-  userSummary: UserSummary;
+  ownerSummary: Summary;
   caption: string;
   media: string;
   likedBy: UserId[];
@@ -131,7 +153,7 @@ export type Post = {
 export type Comment = {
   id: CommentId;
   createDate: string;
-  userSummary: UserSummary;
+  ownerSummary: Summary;
   postId: PostId;
   text: string;
 };

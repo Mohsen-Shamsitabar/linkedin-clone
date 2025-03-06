@@ -1,0 +1,27 @@
+.root {
+  @apply px-4 py-6;
+}
+
+/* === */
+
+.text-container {
+  @apply flex flex-col justify-center mb-16;
+}
+
+.text-container > h2 {
+  @apply mb-4 text-h4;
+}
+
+.text-container > p {
+  @apply text-body2;
+}
+
+/* === */
+
+.info-container {
+  @apply flex flex-col justify-center space-y-4;
+}
+
+.infocard-link {
+  @apply p-0 size-fit !important;
+}

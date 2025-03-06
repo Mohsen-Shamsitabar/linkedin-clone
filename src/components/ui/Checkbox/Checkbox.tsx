@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 import * as React from "react";
 import classes from "./styles.module.css";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,

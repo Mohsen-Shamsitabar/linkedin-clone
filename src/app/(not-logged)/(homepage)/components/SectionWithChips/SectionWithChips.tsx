@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/utility";
 import type { Chip } from "../../types";
 import { Chips } from "./components";
 import classes from "./styles.module.css";

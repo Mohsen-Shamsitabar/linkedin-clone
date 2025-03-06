@@ -6,6 +6,7 @@ const educations: Educations = {
   EDU_1: {
     id: "EDU_1",
     userSummary: {
+      type: "user",
       id: "USER_1",
       firstName: "Mohsen",
       lastName: "Shamsitabar",
@@ -13,8 +14,10 @@ const educations: Educations = {
       headline: "Im sad and broke",
     },
     companySummary: {
+      type: "company",
       id: "COMPANY_1",
       name: "Alborz School",
+      headline: "A Quarter Century of Purposeful Activities",
       avatar: "https://picsum.photos/id/12/152/152",
       location: { country: "Iran", city: "Tehran" },
     },
@@ -28,6 +31,7 @@ const educations: Educations = {
   EDU_2: {
     id: "EDU_2",
     userSummary: {
+      type: "user",
       id: "USER_2",
       firstName: "Mostafa",
       lastName: "Shamsitabar",
@@ -35,8 +39,10 @@ const educations: Educations = {
       headline: "Senior Software Engineer @ TAPSI",
     },
     companySummary: {
+      type: "company",
       id: "COMPANY_2",
       name: "Azad University Research Branch",
+      headline: "This is my headLine >:3",
       avatar: "https://picsum.photos/id/14/152/152",
       location: { country: "Iran", city: "Tehran" },
     },

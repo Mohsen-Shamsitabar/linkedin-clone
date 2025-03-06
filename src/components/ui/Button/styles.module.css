@@ -78,5 +78,6 @@
 }
 
 .ghost.primary {
-  @apply text-primary;
+  @apply text-primary
+  hover:text-primary-dark;
 }
