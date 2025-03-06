@@ -1,10 +1,8 @@
 import { getEducations } from "@/api/educations";
-import type { Experiences } from "@/api/experiences";
 import { getExperiences } from "@/api/experiences";
-import type { Posts } from "@/api/posts";
 import { getPosts } from "@/api/posts";
 import { getUser } from "@/api/users";
-import type { ProfileUserData } from "@/contexts";
+import type { UserProfileData } from "@/contexts";
 import { UserProfileProvider } from "@/contexts";
 import type { UserId } from "@/types";
 import classes from "../../commonStyles.module.css";
@@ -28,13 +26,13 @@ const UserProfile = async (props: Props) => {
   const profileUser = await getUser(userId);
 
   const [profileUsersExperiences, profileUsersEducations, profileUsersPosts] =
-    await Promise.all<[Promise<Posts>, Promise<Experiences>, Promise<Posts>]>([
+    await Promise.all([
       getExperiences(profileUser.experiences),
       getEducations(profileUser.educations),
       getPosts(profileUser.posts),
     ]);
 
-  const profileUserData: ProfileUserData = {
+  const profileUserData: UserProfileData = {
     ...profileUser,
     experiencesData: profileUsersExperiences,
     educationsData: profileUsersEducations,

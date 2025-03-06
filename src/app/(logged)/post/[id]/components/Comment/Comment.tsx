@@ -47,7 +47,7 @@ const Comment = (props: Props) => {
           <span>{deltaDate}</span>
         </div>
 
-        {!isCompanySum && <span>{commentOwner.headline}</span>}
+        <span>{commentOwner.headline}</span>
 
         <ExpandableText
           className="text-subtitle2 font-medium mt-3"

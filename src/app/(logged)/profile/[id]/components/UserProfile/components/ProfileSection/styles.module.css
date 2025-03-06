@@ -13,8 +13,6 @@
   hover:cursor-pointer;
 }
 
-/*  */
-
 .info-container {
   @apply w-full p-4;
 }

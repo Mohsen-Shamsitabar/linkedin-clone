@@ -1,0 +1,33 @@
+.root {
+  @apply flex flex-col relative;
+}
+
+/* === */
+
+.banner-container {
+  @apply relative top-0 right-0 left-0;
+}
+
+/* === */
+
+.profile-info {
+  @apply px-4 -translate-y-10;
+}
+
+.avatar-container {
+  @apply w-[96] h-[96] border-2 border-white;
+}
+
+.company-name {
+  @apply text-body1 font-semibold mb-2;
+}
+
+/* === */
+
+.actions {
+  @apply flex items-center justify-center -mb-6 mt-6 space-x-3;
+}
+
+.actions > button {
+  @apply w-1/2;
+}

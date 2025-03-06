@@ -1,6 +1,6 @@
 import type { CompanyId, RouteProps, UserId } from "@/types";
 import { isCompanyId } from "@/utility";
-import { UserProfile } from "./components";
+import { CompanyProfile, UserProfile } from "./components";
 
 const ProfilePage = (props: RouteProps<{ id: UserId | CompanyId }>) => {
   const {
@@ -8,7 +8,7 @@ const ProfilePage = (props: RouteProps<{ id: UserId | CompanyId }>) => {
   } = props;
 
   if (isCompanyId(paramId)) {
-    return null;
+    return <CompanyProfile companyId={paramId} />;
   }
 
   return <UserProfile userId={paramId} />;
