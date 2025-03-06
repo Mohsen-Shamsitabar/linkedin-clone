@@ -86,7 +86,7 @@ const PostsSection = (props: Props) => {
     return profileUser.posts.map(post => (
       <CarouselItem key={post}>
         <PostStateManager post={postsData[post]!}>
-          <PostContainer />
+          <PostContainer isCompact />
         </PostStateManager>
       </CarouselItem>
     ));

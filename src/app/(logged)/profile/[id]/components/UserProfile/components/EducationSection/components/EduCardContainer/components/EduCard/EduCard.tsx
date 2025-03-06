@@ -1,7 +1,9 @@
+import { Avatar } from "@/components/common";
+import { paths } from "@/routes";
 import type { Education } from "@/types";
 import { cn } from "@/utility";
 import moment from "moment";
-import Image from "next/image";
+import Link from "next/link";
 import classes from "./styles.module.css";
 
 type Props = {
@@ -16,21 +18,23 @@ const EduCard = (props: Props) => {
   const startYear = moment(education.startDate).format("YYYY");
   const endYear = moment(education.endDate).format("YYYY");
 
+  const companyProfileUrl = `${paths.PROFILE}/${companySummary.id}`;
+
   return (
     <li className={cn(classes["root"], className)}>
-      <div className="mt-1">
-        <div className="image-container">
-          <Image
-            width={48}
-            height={48}
-            src={companySummary.avatar}
-            alt={`${companySummary.name}'s avatar`}
-          />
-        </div>
-      </div>
+      <Link className="mt-1" href={companyProfileUrl}>
+        <Avatar
+          size={48}
+          src={companySummary.avatar}
+          alt={`${companySummary.name}'s avatar`}
+          rounded={false}
+        />
+      </Link>
 
       <div className={classes["text-container"]}>
-        <p className={classes["company-name"]}>{companySummary.name}</p>
+        <Link href={companyProfileUrl}>
+          <p className={classes["company-name"]}>{companySummary.name}</p>
+        </Link>
 
         <p className="space-x-2">
           <span>{education.degree}</span>

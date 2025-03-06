@@ -1,7 +1,9 @@
+import { Avatar } from "@/components/common";
+import { paths } from "@/routes";
 import type { Experience } from "@/types";
 import { cn } from "@/utility";
 import moment from "moment";
-import Image from "next/image";
+import Link from "next/link";
 import classes from "./styles.module.css";
 
 type Props = {
@@ -20,21 +22,23 @@ const ExpCard = (props: Props) => {
     true,
   );
 
+  const companyProfileUrl = `${paths.PROFILE}/${companySummary.id}`;
+
   return (
     <li className={cn(classes["root"], className)}>
-      <div className="mt-1">
-        <div className="image-container">
-          <Image
-            width={48}
-            height={48}
-            src={companySummary.avatar}
-            alt={`${companySummary.name}'s avatar`}
-          />
-        </div>
-      </div>
+      <Link className="mt-1" href={companyProfileUrl}>
+        <Avatar
+          size={48}
+          src={companySummary.avatar}
+          alt={`${companySummary.name}'s avatar`}
+          rounded={false}
+        />
+      </Link>
 
       <div className={classes["text-container"]}>
-        <p className={classes["position-text"]}>{experience.position}</p>
+        <Link href={companyProfileUrl}>
+          <p className={classes["position-text"]}>{experience.position}</p>
+        </Link>
 
         <p>{companySummary.name}</p>
 

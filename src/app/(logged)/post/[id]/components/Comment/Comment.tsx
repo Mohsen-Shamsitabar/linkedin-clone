@@ -1,9 +1,8 @@
-import { ExpandableText } from "@/components/common";
+import { Avatar, ExpandableText } from "@/components/common";
 import * as paths from "@/routes/paths";
 import type { Comment as CommentT } from "@/types";
-import { cn, isCompanySummary } from "@/utility";
+import { isCompanySummary } from "@/utility";
 import moment from "moment";
-import Image from "next/image";
 import Link from "next/link";
 import classes from "./styles.module.css";
 
@@ -25,14 +24,12 @@ const Comment = (props: Props) => {
     <li className={classes["root"]}>
       <div className={classes["avatar-container"]}>
         <Link href={commentOwnerProfile}>
-          <div className={cn("image-container", "rounded-full")}>
-            <Image
-              width={32}
-              height={32}
-              src={commentOwner.avatar}
-              alt={"avatar"}
-            />
-          </div>
+          <Avatar
+            size={32}
+            src={commentOwner.avatar}
+            alt={"avatar"}
+            rounded={!isCompanySum}
+          />
         </Link>
       </div>
 
