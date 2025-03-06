@@ -97,7 +97,7 @@ const companies: Companies = {
         url: "https://divar.ir",
       },
     },
-    posts: [],
+    posts: ["POST_3"],
     size: [200, 500],
     specialties: [],
   },

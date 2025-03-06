@@ -17,6 +17,19 @@ const comments: Comments = {
     postId: "POST_1",
     text: "THIS IS SOME GOOOOOOD shit !!!",
   },
+  CMNT_2: {
+    id: "CMNT_2",
+    createDate: "2024-12-26T18:38:00+03:30",
+    ownerSummary: {
+      type: "company",
+      id: "COMPANY_4",
+      location: { country: "Iran", city: "Tehran" },
+      name: "Divar",
+      avatar: "https://picsum.photos/id/22/152/152",
+    },
+    postId: "POST_1",
+    text: "YOOOOOOO, good post.",
+  },
 };
 
 export const getComments = (postId: PostId) => {
