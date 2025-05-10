@@ -41,7 +41,7 @@ const UserProfile = async (props: Props) => {
 
   return (
     <div className="relative">
-      <UserProfileProvider context={profileUserData}>
+      <UserProfileProvider {...profileUserData}>
         <main className={classes["main-content"]}>
           <ProfileSection />
 

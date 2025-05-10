@@ -15,7 +15,7 @@ const LoggedLayout = async (props: LayoutPageProps) => {
 
   return (
     <div>
-      <LoggedUserProvider context={loggedUser}>
+      <LoggedUserProvider {...loggedUser}>
         <Header />
 
         <div>{children}</div>
