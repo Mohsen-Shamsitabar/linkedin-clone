@@ -1,4 +1,3 @@
-import { ReactQueryProvider } from "@/providers";
 import type { LayoutPageProps } from "@/types";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -29,9 +28,7 @@ export default function RootLayout(props: LayoutPageProps) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen overflow-x-hidden`}
       >
-        <ReactQueryProvider>
-          <div className="w-full">{children}</div>
-        </ReactQueryProvider>
+        <div className="w-full">{children}</div>
       </body>
     </html>
   );
