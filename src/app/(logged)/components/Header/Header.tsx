@@ -1,12 +1,11 @@
 "use client";
 
 import { Avatar } from "@/components/common";
-import { LinkedinIcon } from "@/components/svgs";
 import { useLoggedUser } from "@/contexts";
 import * as paths from "@/routes/paths";
 import { MessageSquareMoreIcon } from "lucide-react";
 import Link from "next/link";
-import { ActionNav, Searchbar } from "./components";
+import { Searchbar } from "./components";
 
 type Props = {
   className?: string;
@@ -36,16 +35,6 @@ const Header = (props: Props) => {
         <div className="hover:cursor-pointer">
           <MessageSquareMoreIcon className="icon-action" />
         </div>
-      </nav>
-
-      {/* PC VIEW */}
-
-      <nav className="hidden container flex-row items-center justify-between py-2 md:flex">
-        <LinkedinIcon className="size-10 fill-primary" />
-
-        <Searchbar />
-
-        <ActionNav />
       </nav>
     </header>
   );
