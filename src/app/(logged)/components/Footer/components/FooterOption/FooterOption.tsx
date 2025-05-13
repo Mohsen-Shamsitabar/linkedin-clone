@@ -1,4 +1,4 @@
-import { cn } from "@/utility";
+import Link from "next/link";
 import type { FooterOptionType } from "../../types";
 import classes from "./styles.module.css";
 
@@ -7,12 +7,14 @@ type Props = {
 } & FooterOptionType;
 
 const FooterOption = (props: Props) => {
-  const { icon, title, className } = props;
+  const { icon, title, className, href } = props;
 
   return (
-    <li className={cn(classes["root"], className)}>
-      {icon}
-      <span>{title}</span>
+    <li className={className}>
+      <Link className={classes["root"]} href={href}>
+        {icon}
+        <span>{title}</span>
+      </Link>
     </li>
   );
 };

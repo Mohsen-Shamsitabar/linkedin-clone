@@ -16,6 +16,7 @@ const Footer = (props: Props) => {
         key={`${option.title}-${idx}`}
         icon={option.icon}
         title={option.title}
+        href={option.href}
       />
     ));
   };
