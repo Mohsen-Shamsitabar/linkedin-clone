@@ -20,7 +20,7 @@ const LoggedLayout = async (props: LayoutPageProps) => {
 
         <div>{children}</div>
 
-        <Footer />
+        <Footer className="sticky bottom-0 right-0 left-0" />
       </LoggedUserProvider>
     </div>
   );
