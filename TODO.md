@@ -1,7 +1,8 @@
 # MISSING FEATURES:
 
+<!-- npm run dev -- -H 0.0.0.0 -->
+
 - Responsive Design.
-- Homepage.
 - See all connections.
 - See all posts.
 - Authentications ( Login / Signin ).
@@ -16,6 +17,8 @@
 
 ### [] fix linter
 
+[] fix footer position -> needs to be stuck at the bottom of screen.(not buttom of content)
+
 [] remove module styles for ui components! (we cant overwrite styles).
 
 [] it rerenders the loading page when error has occurred, then shows the error page.
@@ -27,6 +30,8 @@
 [] refactor url for company profile and user profile.
 `profile/company/:id`
 `profile/user/:id`
+
+[] do we need react query ?
 
 <!-- IMPORTANT -->
 

@@ -1,4 +1,4 @@
-import type { Post, PostId } from "@/types";
+import type { CompanyId, Post, PostId, UserId } from "@/types";
 
 export type Posts = Record<PostId, Post>;
 
@@ -80,6 +80,22 @@ export const getPosts = (postIds: PostId[] = []) => {
       });
 
       resolve(result);
+    }, 1000);
+  });
+
+  return promise;
+};
+
+export const getPostsFromOwners = (ownerIds: Set<UserId | CompanyId>) => {
+  const promise = new Promise<Post[]>((resolve, _reject) => {
+    const allPosts = Object.values(posts);
+
+    const postsFromOwner = allPosts.filter(({ ownerSummary }) =>
+      ownerIds.has(ownerSummary.id),
+    );
+
+    setTimeout(() => {
+      resolve(postsFromOwner);
     }, 1000);
   });
 

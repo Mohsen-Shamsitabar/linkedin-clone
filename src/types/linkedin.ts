@@ -68,8 +68,8 @@ export type User = {
   posts: PostId[];
   skills: Skill[];
   connections: UserId[];
-  followers: UserId[];
-  followings: UserId[];
+  followers: (UserId | CompanyId)[];
+  followings: (UserId | CompanyId)[];
 };
 
 export type Company = Omit<

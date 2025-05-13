@@ -18,9 +18,13 @@ const PostPage = async (props: RouteProps<{ id: PostId }>) => {
   const renderComments = () => {
     if (!post.comments.length) return null;
 
-    return post.comments.map(commentId => (
-      <Comment key={commentId} comment={allComments[commentId]!} />
-    ));
+    return (
+      <ul className={classes["comments-container"]}>
+        {post.comments.map(commentId => (
+          <Comment key={commentId} comment={allComments[commentId]!} />
+        ))}
+      </ul>
+    );
   };
 
   return (
@@ -30,9 +34,7 @@ const PostPage = async (props: RouteProps<{ id: PostId }>) => {
 
         <CommentInput />
 
-        <section>
-          <ul className={classes["comments-container"]}>{renderComments()}</ul>
-        </section>
+        <section>{renderComments()}</section>
       </PostStateManager>
     </div>
   );
