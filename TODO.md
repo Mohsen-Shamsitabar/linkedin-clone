@@ -15,7 +15,9 @@
 - - Editing posts.
 - - Editing comments.
 
-### [] fix linter
+[] WTF are connections? (do we need them?)
+
+[] fix linter
 
 [] fix footer position -> needs to be stuck at the bottom of screen.(not buttom of content)
 
