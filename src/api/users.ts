@@ -87,7 +87,7 @@ const users: Users = {
     summary: `As a Front-end Software Engineer with a profound dedication to the open-source movement, I excel in creating tools and infrastructure that serve as the backbone for innovative applications. My expertise extends beyond the code—I am deeply passionate about design in all its forms. This passion manifests in a meticulous approach to user experience and interface design, ensuring that the tools I craft are not only functional but also intuitive and aesthetically pleasing.\nIn every project I undertake, my goal is to harmonize efficiency with elegance, creating a seamless experience for developers and end-users alike. My commitment to this dual craft of engineering and design is what drives me to contribute to a future where technology is accessible, reliable, and delightful to use.\n\n> Check out my open-source projects:\nhttps://github.com/mimshins`,
     educations: ["EDU_2"],
     experiences: ["EXP_2"],
-    posts: ["POST_2"],
+    posts: ["POST_2", "POST_4", "POST_5"],
     connections: ["USER_1"],
     followers: ["USER_1"],
     followings: ["USER_1"],

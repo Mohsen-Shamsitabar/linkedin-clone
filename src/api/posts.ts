@@ -54,6 +54,40 @@ const posts: Posts = {
     likedBy: [],
     comments: [],
   },
+  POST_4: {
+    id: "POST_4",
+    createDate: "2024-12-26T18:38:00+03:30",
+    ownerSummary: {
+      type: "user",
+      id: "USER_2",
+      firstName: "Mostafa",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/6/152/152",
+      headline: "Senior Software Engineer @ TAPSI",
+    },
+    caption:
+      "meow meow meow meow, this is a description for this post, just ignore it!!!",
+    media: "https://picsum.photos/id/300/552/696",
+    likedBy: [],
+    comments: [],
+  },
+  POST_5: {
+    id: "POST_5",
+    createDate: "2024-12-26T18:38:00+03:30",
+    ownerSummary: {
+      type: "user",
+      id: "USER_2",
+      firstName: "Mostafa",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/6/152/152",
+      headline: "Senior Software Engineer @ TAPSI",
+    },
+    caption:
+      "meow meow meow meow, this is a description for this post, just ignore it!!!",
+    media: "https://picsum.photos/id/300/552/696",
+    likedBy: [],
+    comments: [],
+  },
 };
 
 /**
