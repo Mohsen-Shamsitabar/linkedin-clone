@@ -4,6 +4,7 @@ import "normalize.css";
 import "./globals.css";
 import { cn } from "@/utility";
 import { geistMono, geistSans } from "./fonts";
+import { Toaster } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Linkedin Clone",
@@ -23,6 +24,7 @@ export default function RootLayout(props: LayoutPageProps) {
         )}
       >
         <div className="w-full">{children}</div>
+        <Toaster />
       </body>
     </html>
   );
