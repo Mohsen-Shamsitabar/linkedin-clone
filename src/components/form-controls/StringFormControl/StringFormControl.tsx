@@ -85,9 +85,7 @@ const StringFormControl = (props: Props) => {
       render={({ field }) => (
         <FormItem className={cn(classes["root"], className)}>
           {renderLabel()}
-
           {renderFormControl(field)}
-
           {renderDescription()}
 
           <FormMessage />

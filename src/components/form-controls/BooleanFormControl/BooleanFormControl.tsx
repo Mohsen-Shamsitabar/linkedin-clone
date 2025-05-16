@@ -19,10 +19,11 @@ type Props = {
   className?: string;
   description?: string;
   required?: boolean;
+  disabled?: boolean;
 };
 
 const BooleanFormControl = (props: Props) => {
-  const { name, label, className, description, required } = props;
+  const { name, label, className, description, required, disabled } = props;
 
   const { control } = useFormContext();
 
@@ -52,6 +53,7 @@ const BooleanFormControl = (props: Props) => {
               checked={field.value as boolean}
               onCheckedChange={field.onChange}
               {...field}
+              disabled={disabled}
             />
           </FormControl>
 
