@@ -41,14 +41,6 @@
   @apply mx-2 font-black;
 }
 
-.own-connections {
-  @apply font-normal text-primary-dark hover:cursor-pointer;
-}
-
-.others-connections {
-  @apply font-normal;
-}
-
 /*  */
 
 .avatar-container {

@@ -49,22 +49,6 @@ const ProfileSection = (props: Props) => {
     );
   };
 
-  const renderConnectionsCount = () => {
-    if (!isProfileOwner) {
-      return (
-        <span
-          className={classes["others-connections"]}
-        >{`${userProfile.connections.length} connections`}</span>
-      );
-    }
-
-    return (
-      <span
-        className={classes["own-connections"]}
-      >{`${userProfile.connections.length} connections`}</span>
-    );
-  };
-
   const renderCameraIcon = () => {
     if (!isProfileOwner) return null;
 
@@ -106,8 +90,6 @@ const ProfileSection = (props: Props) => {
 
           <p className={classes["user-info"]}>
             <span>{userProfile.contactInfo.address}</span>
-            <span className={classes["separator"]}>.</span>
-            {renderConnectionsCount()}
           </p>
         </div>
       </div>
