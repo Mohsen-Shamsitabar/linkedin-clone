@@ -5,4 +5,4 @@ const isCompanyId = (id: ID): id is CompanyId => {
   return id.includes(IdIdentifier.companyId);
 };
 
-export default isCompanyId;
+export { isCompanyId };

@@ -13,6 +13,9 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import classes from "./styles.module.css";
+import { useRouter } from "next/navigation";
+import { LoaderIcon } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -21,6 +24,9 @@ const formSchema = z.object({
 });
 
 const SigninForm = () => {
+  const { toast } = useToast();
+
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -30,9 +36,26 @@ const SigninForm = () => {
     },
   });
 
-  const onSubmit = (_values: z.infer<typeof formSchema>) => {
-    return;
+  const onSubmit = async (_values: z.infer<typeof formSchema>) => {
+    const url = new URL("http://localhost:3000/api/auth/login");
+    const res = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        email: _values.email,
+        password: _values.password,
+      }),
+    });
+
+    if (res.ok) {
+      toast({
+        variant: "default",
+        title: "login successful",
+      });
+      router.replace("/");
+    }
   };
+
+  const { isSubmitting } = form.formState;
 
   return (
     <Form {...form}>
@@ -55,19 +78,28 @@ const SigninForm = () => {
             <Link href={""}>Forgot password?</Link>
           </div>
 
-          <BooleanFormControl label="Keep me logged in" name="keepLogged" />
+          <BooleanFormControl
+            disabled={isSubmitting}
+            label="Keep me logged in"
+            name="keepLogged"
+          />
         </div>
 
         <AgreementText />
 
         <div className={classes["btn-container"]}>
           <Button
+            disabled={isSubmitting}
             className="w-full"
             variant="fill"
             color="primary"
             type="submit"
           >
-            Continue
+            {isSubmitting ? (
+              <LoaderIcon className="animate-spin" />
+            ) : (
+              "Continue"
+            )}
           </Button>
 
           <div className={classes["separator-container"]}>
@@ -76,7 +108,7 @@ const SigninForm = () => {
             <span>or</span>
           </div>
 
-          <Button variant="outline" className="w-full">
+          <Button disabled={isSubmitting} variant="outline" className="w-full">
             <div className={classes["google-logo-container"]}>
               <GoogleLogo />
             </div>

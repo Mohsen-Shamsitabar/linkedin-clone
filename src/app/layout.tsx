@@ -1,19 +1,10 @@
 import type { LayoutPageProps } from "@/types";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "normalize.css";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { cn } from "@/utility";
+import { geistMono, geistSans } from "./fonts";
+import { Toaster } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Linkedin Clone",
@@ -26,9 +17,14 @@ export default function RootLayout(props: LayoutPageProps) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen overflow-x-hidden`}
+        className={cn(
+          "antialiased w-screen overflow-x-hidden",
+          geistSans.variable,
+          geistMono.variable,
+        )}
       >
         <div className="w-full">{children}</div>
+        <Toaster />
       </body>
     </html>
   );

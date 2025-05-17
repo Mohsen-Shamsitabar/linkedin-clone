@@ -18,7 +18,7 @@ const CompanyProfilePage = async (props: RouteProps<{ id: CompanyId }>) => {
 
   return (
     <div>
-      <CompanyProfileProvider context={context}>
+      <CompanyProfileProvider {...context}>
         <main className={classes["main-content"]}>
           <ProfileSection className={classes["section"]} />
           <AboutUsSection className={classes["section"]} />

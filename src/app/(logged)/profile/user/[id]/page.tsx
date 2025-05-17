@@ -39,7 +39,7 @@ const UserProfilePage = async (props: RouteProps<{ id: UserId }>) => {
 
   return (
     <div className="relative">
-      <UserProfileProvider context={profileUserData}>
+      <UserProfileProvider {...profileUserData}>
         <main className={classes["main-content"]}>
           <ProfileSection />
 
