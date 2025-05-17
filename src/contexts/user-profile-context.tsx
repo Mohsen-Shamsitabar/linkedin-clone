@@ -2,14 +2,13 @@
 
 import type { Educations } from "@/api/educations";
 import type { Experiences } from "@/api/experiences";
-import type { Posts } from "@/api/posts";
-import type { User } from "@/types";
+import type { Post, User } from "@/types";
 import * as React from "react";
 
 export type ContextValue = User & {
   experiencesData: Experiences;
   educationsData: Educations;
-  postsData: Posts;
+  postsData: Post[];
 };
 
 const Context = React.createContext<ContextValue | null>(null);
