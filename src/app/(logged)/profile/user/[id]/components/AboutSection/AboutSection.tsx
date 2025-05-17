@@ -14,22 +14,22 @@ type Props = {
 const AboutSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useUserProfile();
+  const userProfile = useUserProfile();
   const loggedUser = useLoggedUser();
-  if (!profileUser || !loggedUser) return null;
+  if (!userProfile || !loggedUser) return null;
 
-  const isProfileOwner = loggedUser.id === profileUser.id;
+  const isProfileOwner = loggedUser.id === userProfile.id;
 
-  if (!isProfileOwner && !profileUser.summary) return null;
+  if (!isProfileOwner && !userProfile.summary) return null;
 
   const renderEditAction = () => {
-    if (!profileUser.summary || !isProfileOwner) return null;
+    if (!userProfile.summary || !isProfileOwner) return null;
 
     return <PencilIcon className="icon-action" />;
   };
 
   const renderAddSummaryBtn = () => {
-    if (profileUser.summary) return null;
+    if (userProfile.summary) return null;
 
     return (
       <Link href={"/"} className={classes["add-summary"]}>
@@ -49,7 +49,7 @@ const AboutSection = (props: Props) => {
 
       <ExpandableText
         className={classes["summary-text"]}
-        text={profileUser.summary}
+        text={userProfile.summary}
       />
 
       {renderAddSummaryBtn()}

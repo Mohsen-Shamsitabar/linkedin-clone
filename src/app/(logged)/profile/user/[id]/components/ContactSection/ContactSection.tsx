@@ -18,14 +18,14 @@ const ContactSection = (props: Props) => {
   const { className } = props;
 
   const pathname = usePathname();
-  const profileUser = useUserProfile();
+  const userProfile = useUserProfile();
   const loggedUser = useLoggedUser();
-  if (!profileUser || !loggedUser) return null;
+  if (!userProfile || !loggedUser) return null;
 
-  const { email } = profileUser.contactInfo;
+  const { email } = userProfile.contactInfo;
 
   const renderEditAction = () => {
-    if (loggedUser.id !== profileUser.id) return null;
+    if (loggedUser.id !== userProfile.id) return null;
 
     return <PencilIcon className="icon-action" />;
   };
@@ -57,7 +57,7 @@ const ContactSection = (props: Props) => {
   };
 
   const renderOtherWebsites = () => {
-    return profileUser.contactInfo.websites.map((website, idx) => (
+    return userProfile.contactInfo.websites.map((website, idx) => (
       <div key={`${website.type}-${idx}`}>
         <Separator orientation="horizontal" className="my-5" />
 
