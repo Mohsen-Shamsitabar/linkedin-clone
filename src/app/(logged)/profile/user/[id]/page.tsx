@@ -4,7 +4,7 @@ import { getPosts } from "@/api/posts";
 import { getUser } from "@/api/users";
 import type { UserProfileData } from "@/contexts";
 import { UserProfileProvider } from "@/contexts";
-import type { UserId } from "@/types";
+import type { RouteProps, UserId } from "@/types";
 import classes from "../../commonStyles.module.css";
 import {
   AboutSection,
@@ -16,12 +16,10 @@ import {
   SkillsSection,
 } from "./components";
 
-type Props = {
-  userId: UserId;
-};
-
-const UserProfile = async (props: Props) => {
-  const { userId } = props;
+const UserProfilePage = async (props: RouteProps<{ id: UserId }>) => {
+  const {
+    params: { id: userId },
+  } = props;
 
   const profileUser = await getUser(userId);
 
@@ -62,4 +60,4 @@ const UserProfile = async (props: Props) => {
   );
 };
 
-export default UserProfile;
+export default UserProfilePage;

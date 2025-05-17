@@ -1,17 +1,18 @@
-import type { CompanyId, RouteProps, UserId } from "@/types";
+import { COMPANY_PROFILE, USER_PROFILE } from "@/routes/paths";
+import type { ClientId, RouteProps } from "@/types";
 import { isCompanyId } from "@/utility";
-import { CompanyProfile, UserProfile } from "./components";
+import { redirect } from "next/navigation";
 
-const ProfilePage = (props: RouteProps<{ id: UserId | CompanyId }>) => {
+const ProfilePage = (props: RouteProps<{ id: ClientId }>) => {
   const {
     params: { id: paramId },
   } = props;
 
   if (isCompanyId(paramId)) {
-    return <CompanyProfile companyId={paramId} />;
+    redirect(`${COMPANY_PROFILE}/${paramId}`);
   }
 
-  return <UserProfile userId={paramId} />;
+  redirect(`${USER_PROFILE}/${paramId}`);
 };
 
 export default ProfilePage;

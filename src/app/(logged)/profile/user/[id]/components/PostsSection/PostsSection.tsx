@@ -10,7 +10,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui";
 import { useLoggedUser, useUserProfile } from "@/contexts";
-import { PostStateManager } from "@/stateManagers/PostStateManager";
+import { USER_PROFILE } from "@/routes/paths";
+import { PostStateManager } from "@/stateManagers";
 import { cn } from "@/utility";
 import { ArrowRightIcon, PencilIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
@@ -64,10 +65,13 @@ const PostsSection = (props: Props) => {
     if (postsCount) {
       return (
         <div className={classes["show-posts"]}>
-          <div className={classes["show-posts"]}>
+          <Link
+            href={`${USER_PROFILE}/${profileUser.id}/posts`}
+            className={classes["show-posts"]}
+          >
             <span className="mr-1">Show all posts</span>
             <ArrowRightIcon size={16} />
-          </div>
+          </Link>
         </div>
       );
     }
@@ -83,9 +87,9 @@ const PostsSection = (props: Props) => {
   const renderRecentPosts = () => {
     if (!postsCount) return null;
 
-    return profileUser.posts.map(post => (
-      <CarouselItem key={post}>
-        <PostStateManager post={postsData[post]!}>
+    return postsData.map(post => (
+      <CarouselItem key={post.id}>
+        <PostStateManager post={post}>
           <PostContainer isCompact />
         </PostStateManager>
       </CarouselItem>
