@@ -1,10 +1,13 @@
-# MISSING FEATURES:
+## NOTES:
+
+logged client is always considered to be of type `User`, company clients are just for demo, and we developers create them.
 
 <!-- npm run dev -- -H 0.0.0.0 -->
 
+# MISSING FEATURES:
+
 - Responsive Design.
 - See all connections.
-- See all posts.
 - Authentications ( Login / Signin ).
 - Data Modifications:
 - - Adding posts.
@@ -14,6 +17,16 @@
 - - Editing Profile.
 - - Editing posts.
 - - Editing comments.
+
+### [] api's must return array
+
+### [] find a better way to redirect to profile page
+
+### [] header must be shown when scrolling up.
+
+[] fix redirecting when clicking on profile avatars.
+
+[] owner's comment must be in the right side.
 
 [] WTF are connections? (do we need them?)
 
