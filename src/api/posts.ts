@@ -93,24 +93,25 @@ const posts: Posts = {
 /**
  * If `postIds` is empty, then all the `posts` will be resolved.
  */
-export const getPosts = (postIds: PostId[] = []) => {
+export const getPosts = (postIds: PostId[] = []): Promise<Post[]> => {
   const postIdsSet = new Set(postIds);
 
-  const promise = new Promise<Posts>((resolve, _reject) => {
+  const promise = new Promise<Post[]>((resolve, _reject) => {
     const allPostIds = Object.keys(posts) as PostId[];
     // const arePostIdsValid = allPostIds.some(postId =>
     //   postIds.some(givenPostId => postId === givenPostId),
     // );
+    const allPostsArray = Object.values(posts);
 
     setTimeout(() => {
-      if (!postIds.length) resolve(posts);
+      if (!postIds.length) resolve(allPostsArray);
       // if (!arePostIdsValid) reject(new Error("Post ids are invalid!"));
 
-      const result: Posts = {};
+      const result: Post[] = [];
 
       allPostIds.forEach(postId => {
         if (!postIdsSet.has(postId)) return;
-        result[postId] = posts[postId]!;
+        result.push(posts[postId]!);
       });
 
       resolve(result);
