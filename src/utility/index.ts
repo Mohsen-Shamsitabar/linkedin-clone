@@ -1,5 +1,6 @@
-export { default as cn } from "./cn";
-export { default as isCompanyId } from "./is-company-id";
-export { default as isCompanySummary } from "./is-company-summary";
+export * from "./cn";
+export * from "./is-company-summary";
+export * from "./is-company-id";
 export * from "./string";
 export * from "./trigger-pathname";
+export * from "./is-user-id";

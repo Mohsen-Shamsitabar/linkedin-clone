@@ -1,10 +1,7 @@
 "use client";
 
 import * as paths from "@/routes/paths";
-import {
-  PostStateManager,
-  usePostStateManager,
-} from "@/stateManagers/PostStateManager";
+import { PostStateManager, usePostStateManager } from "@/stateManagers";
 import { cn, isCompanySummary } from "@/utility";
 import moment from "moment";
 import Image from "next/image";

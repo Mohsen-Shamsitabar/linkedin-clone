@@ -27,6 +27,7 @@ export type CompanyType = "EDUCATIONAL" | "PRIVATELY_HELD";
 
 export type CompanyId = `${IdIdentifier.companyId}${string}`;
 export type UserId = `${IdIdentifier.userId}${string}`;
+export type ClientId = CompanyId | UserId;
 export type ExperienceId = `${IdIdentifier.experienceId}${string}`;
 export type EducationId = `${IdIdentifier.educationId}${string}`;
 export type PostId = `${IdIdentifier.postId}${string}`;
@@ -67,9 +68,8 @@ export type User = {
   educations: EducationId[];
   posts: PostId[];
   skills: Skill[];
-  connections: UserId[];
-  followers: (UserId | CompanyId)[];
-  followings: (UserId | CompanyId)[];
+  followers: ClientId[];
+  followings: ClientId[];
 };
 
 export type Company = Omit<
@@ -81,7 +81,6 @@ export type Company = Omit<
   | "experiences"
   | "educations"
   | "skills"
-  | "connections"
   | "followings"
   | "id"
 > & {
@@ -146,7 +145,7 @@ export type Post = {
   ownerSummary: Summary;
   caption: string;
   media: string;
-  likedBy: UserId[];
+  likedBy: ClientId[];
   comments: CommentId[];
 };
 

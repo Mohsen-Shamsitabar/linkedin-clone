@@ -11,6 +11,8 @@ const ROUTES = {
     },
     PROFILE: {
       BASE: "/profile",
+      COMPANY: { BASE: "/company" },
+      USER: { BASE: "/user" },
     },
     FEED: {
       BASE: "/feed",

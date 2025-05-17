@@ -31,20 +31,34 @@ const comments: Comments = {
     postId: "POST_1",
     text: "YOOOOOOO, good post.",
   },
+  CMNT_3: {
+    id: "CMNT_3",
+    createDate: "2023-12-26T18:38:00+03:30",
+    ownerSummary: {
+      type: "user",
+      id: "USER_1",
+      firstName: "Mohsen",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/0/152/152",
+      headline: "Im sad and broke",
+    },
+    postId: "POST_1",
+    text: "Thanks for the support yall.",
+  },
 };
 
-export const getComments = (postId: PostId) => {
-  const promise = new Promise<Comments>((resolve, _reject) => {
+export const getComments = (postId: PostId): Promise<Comment[]> => {
+  const promise = new Promise<Comment[]>((resolve, _reject) => {
     const allCommentIds = Object.keys(comments) as CommentId[];
 
     setTimeout(() => {
-      const result: Comments = {};
+      const result: Comment[] = [];
 
       allCommentIds.forEach(commentId => {
         const comment = comments[commentId]!;
 
         if (comment.postId === postId) {
-          result[commentId] = comment;
+          result.push(comment);
           return;
         }
       });

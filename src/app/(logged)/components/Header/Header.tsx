@@ -3,6 +3,7 @@
 import { Avatar } from "@/components/common";
 import { useLoggedUser } from "@/contexts";
 import * as paths from "@/routes/paths";
+import { cn } from "@/utility";
 import { MessageSquareMoreIcon } from "lucide-react";
 import Link from "next/link";
 import { Searchbar } from "./components";
@@ -18,7 +19,12 @@ const Header = (props: Props) => {
   if (!loggedUser) return null;
 
   return (
-    <header className={className}>
+    <header
+      className={cn(
+        className,
+        "sticky top-0 bg-white border-b border-divider z-50",
+      )}
+    >
       {/* MOBILE VIEW */}
 
       <nav className="container flex flex-row justify-between items-center py-2 md:hidden">

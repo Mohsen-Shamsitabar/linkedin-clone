@@ -58,15 +58,18 @@ const experiences: Experiences = {
 /**
  * If `experienceIds` is empty, then all the `experiences` will be resolved.
  */
-export const getExperiences = (experienceIds: ExperienceId[] = []) => {
-  const promise = new Promise<Experiences>((resolve, reject) => {
+export const getExperiences = (
+  experienceIds: ExperienceId[] = [],
+): Promise<Experience[]> => {
+  const promise = new Promise<Experience[]>((resolve, reject) => {
     const allExperienceIds = Object.keys(experiences) as ExperienceId[];
     const areExperienceIdsValid = allExperienceIds.some(expId =>
       experienceIds.some(givenExpId => expId === givenExpId),
     );
+    const allExperiences = Object.values(experiences);
 
     setTimeout(() => {
-      if (!experienceIds.length) resolve(experiences);
+      if (!experienceIds.length) resolve(allExperiences);
       if (!areExperienceIdsValid)
         reject(new Error("Experience ids are invalid!"));
 
@@ -74,11 +77,9 @@ export const getExperiences = (experienceIds: ExperienceId[] = []) => {
         experienceIds.includes(expId),
       );
 
-      const result: Experiences = {};
+      const result: Experience[] = [];
 
-      fetchedExperienceIds.forEach(
-        expId => (result[expId] = experiences[expId]!),
-      );
+      fetchedExperienceIds.forEach(expId => result.push(experiences[expId]!));
 
       resolve(result);
     }, 1000);
