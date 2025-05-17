@@ -3,6 +3,7 @@ import type { NextFetchEvent, NextMiddleware, NextRequest } from "next/server";
 
 import { triggerPathname } from "@/utility";
 import { ROUTES } from "@/constants";
+import { decodeJwt } from "jose";
 
 const {
   LOCAL: {
@@ -21,7 +22,7 @@ const withProtectedRoutes =
       nextUrl: { pathname },
     } = request;
 
-    const triggeredUnprotectedPathname = triggerPathname(pathname, [
+    const isUnprotectedPath = triggerPathname(pathname, [
       HOME_BASE_PATH,
       SIGNUP_BASE_PATH,
       SIGNIN_BASE_PATH,
@@ -29,16 +30,24 @@ const withProtectedRoutes =
 
     const accessToken = cookies.get("access_token")?.value;
 
-    const success = accessToken && accessToken.length > 0;
+    // If no access token and trying to access protected route, redirect to signin
+    if (!accessToken && !isUnprotectedPath) {
+      request.nextUrl.pathname = SIGNIN_BASE_PATH;
+      return NextResponse.redirect(request.nextUrl);
+    }
 
-    if (success) {
-      if (triggeredUnprotectedPathname) {
+    if (accessToken) {
+      const { exp: accessTokenExp } = decodeJwt(accessToken);
+
+      // If token is invalid or expired, redirect to signin (unless already on unprotected route)
+      if (!accessTokenExp || Date.now() >= accessTokenExp * 1000) {
+        if (!isUnprotectedPath) {
+          request.nextUrl.pathname = SIGNIN_BASE_PATH;
+          return NextResponse.redirect(request.nextUrl);
+        }
+      } else if (isUnprotectedPath) {
+        // If token is valid and user is on an unprotected route, redirect to feed
         request.nextUrl.pathname = FEED_BASE_PATH;
-        return NextResponse.redirect(request.nextUrl);
-      }
-    } else {
-      if (!triggeredUnprotectedPathname) {
-        request.nextUrl.pathname = SIGNUP_BASE_PATH;
         return NextResponse.redirect(request.nextUrl);
       }
     }

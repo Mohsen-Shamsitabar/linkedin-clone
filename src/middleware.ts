@@ -1,5 +1,5 @@
 import { NextResponse, type NextMiddleware } from "next/server";
-import { withProfileRedirect } from "@/middlewares";
+import { withProfileRedirect, withProtectedRoutes } from "@/middlewares";
 
 const stackMiddlewares = (
   middlewares: Array<(middleware: NextMiddleware) => NextMiddleware>,
@@ -15,10 +15,7 @@ const stackMiddlewares = (
   return () => NextResponse.next();
 };
 
-export default stackMiddlewares([
-  // withProtectedRoutes
-  withProfileRedirect,
-]);
+export default stackMiddlewares([withProtectedRoutes, withProfileRedirect]);
 
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico|robots.txt).*)"],
