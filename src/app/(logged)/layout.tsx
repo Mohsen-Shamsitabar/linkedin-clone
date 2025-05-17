@@ -11,11 +11,11 @@ const LoggedLayout = async (props: LayoutPageProps) => {
 
   const loggedUserId: UserId = "USER_1";
 
-  const loggedUser = await getUser(loggedUserId);
+  const loggedClient = await getUser(loggedUserId);
 
   return (
     <div>
-      <LoggedUserProvider context={loggedUser}>
+      <LoggedUserProvider context={loggedClient}>
         <Header />
 
         <div>{children}</div>

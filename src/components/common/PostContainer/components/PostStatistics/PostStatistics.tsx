@@ -3,7 +3,7 @@
 import { useLoggedUser } from "@/contexts";
 import likeIcon from "@/public/svgs/linkedinLikeIcon.svg";
 import * as paths from "@/routes/paths";
-import { usePostStateManager } from "@/stateManagers/PostStateManager";
+import { usePostStateManager } from "@/stateManagers";
 import { MessageSquareTextIcon, ThumbsUpIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

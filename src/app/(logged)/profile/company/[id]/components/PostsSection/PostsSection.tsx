@@ -2,7 +2,7 @@
 
 import { PostContainer } from "@/components/common";
 import { useCompanyProfile } from "@/contexts";
-import { PostStateManager } from "@/stateManagers/PostStateManager";
+import { PostStateManager } from "@/stateManagers";
 import { cn } from "@/utility";
 
 type Props = {
@@ -22,8 +22,8 @@ const PostsSection = (props: Props) => {
   const renderPosts = () => {
     if (postsCount <= 0) return null;
 
-    return company.posts.map(postId => (
-      <PostStateManager key={postId} post={postsData[postId]!}>
+    return postsData.map(post => (
+      <PostStateManager key={post.id} post={post}>
         <PostContainer />
       </PostStateManager>
     ));
