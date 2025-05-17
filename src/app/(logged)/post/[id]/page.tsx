@@ -20,8 +20,8 @@ const PostPage = async (props: RouteProps<{ id: PostId }>) => {
 
     return (
       <ul className={classes["comments-container"]}>
-        {post.comments.map(commentId => (
-          <Comment key={commentId} comment={allComments[commentId]!} />
+        {allComments.map(comment => (
+          <Comment key={comment.id} comment={comment} />
         ))}
       </ul>
     );

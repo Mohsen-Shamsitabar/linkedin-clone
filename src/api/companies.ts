@@ -103,7 +103,7 @@ const companies: Companies = {
   },
 };
 
-export const getCompany = (companyId: CompanyId) => {
+export const getCompany = (companyId: CompanyId): Promise<Company> => {
   const promise = new Promise<Company>((resolve, reject) => {
     const allUserIds = new Set(Object.keys(companies));
     const isValidUserId = allUserIds.has(companyId);

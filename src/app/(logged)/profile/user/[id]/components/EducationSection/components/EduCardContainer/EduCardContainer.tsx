@@ -7,14 +7,14 @@ const EduCardContainer = () => {
   const user = useUserProfile();
   if (!user) return null;
 
-  const { educations, educationsData } = user;
+  const { educationsData } = user;
 
   const renderCards = () => {
-    return educations.map((eduId, idx) => (
-      <div className="w-full" key={`${eduId}-${idx}`}>
+    return educationsData.map((education, idx) => (
+      <div className="w-full" key={education.id}>
         {idx !== 0 && <Separator className={classes["separator"]} />}
 
-        <EduCard education={educationsData[eduId]!} />
+        <EduCard education={education} />
       </div>
     ));
   };

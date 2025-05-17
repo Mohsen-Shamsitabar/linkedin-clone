@@ -47,18 +47,18 @@ const comments: Comments = {
   },
 };
 
-export const getComments = (postId: PostId) => {
-  const promise = new Promise<Comments>((resolve, _reject) => {
+export const getComments = (postId: PostId): Promise<Comment[]> => {
+  const promise = new Promise<Comment[]>((resolve, _reject) => {
     const allCommentIds = Object.keys(comments) as CommentId[];
 
     setTimeout(() => {
-      const result: Comments = {};
+      const result: Comment[] = [];
 
       allCommentIds.forEach(commentId => {
         const comment = comments[commentId]!;
 
         if (comment.postId === postId) {
-          result[commentId] = comment;
+          result.push(comment);
           return;
         }
       });
