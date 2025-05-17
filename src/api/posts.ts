@@ -18,7 +18,7 @@ const posts: Posts = {
       "meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!meow meow meow meow, this is a description for this post, just ignore it!!!",
     media: "https://picsum.photos/id/237/552/696",
     likedBy: ["USER_2"],
-    comments: ["CMNT_1", "CMNT_2"],
+    comments: ["CMNT_1", "CMNT_2", "CMNT_3"],
   },
   POST_2: {
     id: "POST_2",

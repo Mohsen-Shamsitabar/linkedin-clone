@@ -31,6 +31,20 @@ const comments: Comments = {
     postId: "POST_1",
     text: "YOOOOOOO, good post.",
   },
+  CMNT_3: {
+    id: "CMNT_3",
+    createDate: "2023-12-26T18:38:00+03:30",
+    ownerSummary: {
+      type: "user",
+      id: "USER_1",
+      firstName: "Mohsen",
+      lastName: "Shamsitabar",
+      avatar: "https://picsum.photos/id/0/152/152",
+      headline: "Im sad and broke",
+    },
+    postId: "POST_1",
+    text: "Thanks for the support yall.",
+  },
 };
 
 export const getComments = (postId: PostId) => {
