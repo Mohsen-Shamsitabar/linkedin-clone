@@ -1,11 +1,10 @@
 "use client";
 import { getPostsFromOwners } from "@/api/posts";
 import GlobalLoading from "@/app/loading";
-import { PostContainer } from "@/components/common";
 import { useLoggedUser } from "@/contexts";
-import { PostStateManager } from "@/stateManagers/PostStateManager";
 import type { Post } from "@/types";
 import * as React from "react";
+import { PostList } from "../components";
 
 const FeedPage = () => {
   const [feedPosts, setFeedPosts] = React.useState<Post[]>([]);
@@ -41,19 +40,7 @@ const FeedPage = () => {
     );
   }
 
-  const renderPosts = () => {
-    return feedPosts.map(post => (
-      <li key={post.id}>
-        <PostStateManager post={post}>
-          <PostContainer />
-        </PostStateManager>
-      </li>
-    ));
-  };
-
-  return (
-    <ol className="flex flex-col space-y-2 bg-logged-bg">{renderPosts()}</ol>
-  );
+  return <PostList posts={feedPosts} />;
 };
 
 export default FeedPage;
