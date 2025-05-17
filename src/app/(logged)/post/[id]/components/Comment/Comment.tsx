@@ -1,7 +1,10 @@
+"use client";
+
 import { Avatar, ExpandableText } from "@/components/common";
+import { useLoggedUser } from "@/contexts";
 import * as paths from "@/routes/paths";
 import type { Comment as CommentT } from "@/types";
-import { isCompanySummary } from "@/utility";
+import { cn, isCompanySummary } from "@/utility";
 import moment from "moment";
 import Link from "next/link";
 import classes from "./styles.module.css";
@@ -12,7 +15,12 @@ type Props = {
 
 const Comment = (props: Props) => {
   const { comment } = props;
+
+  const loggedUser = useLoggedUser();
+  if (!loggedUser) return null;
+
   const commentOwner = comment.ownerSummary;
+  const sameAuthor = commentOwner.id === loggedUser.id;
 
   const deltaDate = moment(comment.createDate).fromNow();
 
@@ -21,7 +29,11 @@ const Comment = (props: Props) => {
   const isCompanySum = isCompanySummary(commentOwner);
 
   return (
-    <li className={classes["root"]}>
+    <li
+      className={
+        sameAuthor ? cn(classes["root"], classes["root--own"]) : classes["root"]
+      }
+    >
       <div className={classes["avatar-container"]}>
         <Link href={commentOwnerProfile}>
           <Avatar
@@ -33,7 +45,13 @@ const Comment = (props: Props) => {
         </Link>
       </div>
 
-      <div className={classes["text-container"]}>
+      <div
+        className={
+          sameAuthor
+            ? cn(classes["text-container"], classes["text-container--own"])
+            : classes["text-container"]
+        }
+      >
         <div className={classes["text-head"]}>
           <Link
             className="text-subtitle1 font-semibold"
