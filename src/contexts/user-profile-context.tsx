@@ -1,13 +1,11 @@
 "use client";
 
-import type { Educations } from "@/api/educations";
-import type { Experiences } from "@/api/experiences";
-import type { Post, User } from "@/types";
+import type { Education, Experience, Post, User } from "@/types";
 import * as React from "react";
 
 export type ContextValue = User & {
-  experiencesData: Experiences;
-  educationsData: Educations;
+  experiencesData: Experience[];
+  educationsData: Education[];
   postsData: Post[];
 };
 

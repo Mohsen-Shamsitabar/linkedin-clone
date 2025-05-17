@@ -9,14 +9,14 @@ const ExpCardContainer = () => {
   const user = useUserProfile();
   if (!user) return null;
 
-  const { experiences, experiencesData } = user;
+  const { experiencesData } = user;
 
   const renderCards = () => {
-    return experiences.map((expId, idx) => (
-      <div className="w-full" key={`${expId}-${idx}`}>
+    return experiencesData.map((experience, idx) => (
+      <div className="w-full" key={experience.id}>
         {idx !== 0 && <Separator className={classes["separator"]} />}
 
-        <ExpCard experience={experiencesData[expId]!} />
+        <ExpCard experience={experience} />
       </div>
     ));
   };

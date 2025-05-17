@@ -1,4 +1,4 @@
-import type { Option } from "./types";
+import type { Option } from "@/app/(not-logged)/(homepage)/types";
 
 export const GENERAL_OPTIONS: Option[] = [
   {

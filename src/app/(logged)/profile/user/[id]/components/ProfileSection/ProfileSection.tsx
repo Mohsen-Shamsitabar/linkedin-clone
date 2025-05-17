@@ -19,11 +19,11 @@ type Props = {
 const ProfileSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useUserProfile();
+  const userProfile = useUserProfile();
   const loggedUser = useLoggedUser();
-  if (!profileUser || !loggedUser) return null;
+  if (!userProfile || !loggedUser) return null;
 
-  const isProfileOwner = loggedUser.id === profileUser.id;
+  const isProfileOwner = loggedUser.id === userProfile.id;
 
   const renderSettingsIcon = () => {
     if (!isProfileOwner) return null;
@@ -49,22 +49,6 @@ const ProfileSection = (props: Props) => {
     );
   };
 
-  const renderConnectionsCount = () => {
-    if (!isProfileOwner) {
-      return (
-        <span
-          className={classes["others-connections"]}
-        >{`${profileUser.connections.length} connections`}</span>
-      );
-    }
-
-    return (
-      <span
-        className={classes["own-connections"]}
-      >{`${profileUser.connections.length} connections`}</span>
-    );
-  };
-
   const renderCameraIcon = () => {
     if (!isProfileOwner) return null;
 
@@ -82,8 +66,8 @@ const ProfileSection = (props: Props) => {
           <Image
             width={400}
             height={100}
-            src={profileUser.banner}
-            alt={`${profileUser.firstName}'s banner image`}
+            src={userProfile.banner}
+            alt={`${userProfile.firstName}'s banner image`}
           />
         </div>
 
@@ -98,16 +82,14 @@ const ProfileSection = (props: Props) => {
         <div>
           <h1
             className={classes["username"]}
-          >{`${profileUser.firstName} ${profileUser.lastName}`}</h1>
+          >{`${userProfile.firstName} ${userProfile.lastName}`}</h1>
 
-          <p className={classes["user-headline"]}>{profileUser.headline}</p>
+          <p className={classes["user-headline"]}>{userProfile.headline}</p>
 
-          <p className={classes["user-industry"]}>{profileUser.industry}</p>
+          <p className={classes["user-industry"]}>{userProfile.industry}</p>
 
           <p className={classes["user-info"]}>
-            <span>{profileUser.contactInfo.address}</span>
-            <span className={classes["separator"]}>.</span>
-            {renderConnectionsCount()}
+            <span>{userProfile.contactInfo.address}</span>
           </p>
         </div>
       </div>
@@ -118,8 +100,8 @@ const ProfileSection = (props: Props) => {
             <Image
               width={152}
               height={152}
-              src={profileUser.avatar}
-              alt={`${profileUser.firstName}'s avatar`}
+              src={userProfile.avatar}
+              alt={`${userProfile.firstName}'s avatar`}
             />
           </div>
 

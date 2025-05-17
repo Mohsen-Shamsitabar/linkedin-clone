@@ -21,17 +21,17 @@ const UserProfilePage = async (props: RouteProps<{ id: UserId }>) => {
     params: { id: userId },
   } = props;
 
-  const profileUser = await getUser(userId);
+  const userProfile = await getUser(userId);
 
   const [profileUsersExperiences, profileUsersEducations, profileUsersPosts] =
     await Promise.all([
-      getExperiences(profileUser.experiences),
-      getEducations(profileUser.educations),
-      getPosts(profileUser.posts),
+      getExperiences(userProfile.experiences),
+      getEducations(userProfile.educations),
+      getPosts(userProfile.posts),
     ]);
 
   const profileUserData: UserProfileData = {
-    ...profileUser,
+    ...userProfile,
     experiencesData: profileUsersExperiences,
     educationsData: profileUsersEducations,
     postsData: profileUsersPosts,

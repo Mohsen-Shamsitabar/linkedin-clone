@@ -13,18 +13,18 @@ type Props = {
 const SkillsSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useUserProfile();
+  const userProfile = useUserProfile();
   const loggedUser = useLoggedUser();
-  if (!profileUser || !loggedUser) return null;
+  if (!userProfile || !loggedUser) return null;
 
   const renderEditAction = () => {
-    if (loggedUser.id !== profileUser.id) return null;
+    if (loggedUser.id !== userProfile.id) return null;
 
     return <PencilIcon className="icon-action" />;
   };
 
   const renderAddSkillBtn = () => {
-    if (loggedUser.id !== profileUser.id) return null;
+    if (loggedUser.id !== userProfile.id) return null;
 
     return (
       <Link href={"/"} className={classes["add-skills"]}>
@@ -35,10 +35,10 @@ const SkillsSection = (props: Props) => {
   };
 
   const renderSkills = () => {
-    return profileUser.skills.map((skill, idx) => (
+    return userProfile.skills.map((skill, idx) => (
       <li key={`${idx}-${skill}`} className={classes["skills-item"]}>
         <span>{skill}</span>
-        {idx !== profileUser.skills.length - 1 && (
+        {idx !== userProfile.skills.length - 1 && (
           <span className="mx-2">.</span>
         )}
       </li>

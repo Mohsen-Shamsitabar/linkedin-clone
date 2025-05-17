@@ -25,7 +25,7 @@ type Props = {
 const PostsSection = (props: Props) => {
   const { className } = props;
 
-  const profileUser = useUserProfile();
+  const userProfile = useUserProfile();
   const loggedUser = useLoggedUser();
 
   const [api, setApi] = React.useState<CarouselApi>();
@@ -45,18 +45,18 @@ const PostsSection = (props: Props) => {
     });
   }, [api]);
 
-  if (!profileUser || !loggedUser) return null;
+  if (!userProfile || !loggedUser) return null;
 
-  const { posts, postsData } = profileUser;
+  const { posts, postsData } = userProfile;
   const postsCount = posts.length;
 
   // dont show when others view empty posts.
-  if (loggedUser.id !== profileUser.id && !postsCount) {
+  if (loggedUser.id !== userProfile.id && !postsCount) {
     return null;
   }
 
   const renderEditAction = () => {
-    if (!postsCount || loggedUser.id !== profileUser.id) return null;
+    if (!postsCount || loggedUser.id !== userProfile.id) return null;
 
     return <PencilIcon className="icon-action" />;
   };
@@ -66,7 +66,7 @@ const PostsSection = (props: Props) => {
       return (
         <div className={classes["show-posts"]}>
           <Link
-            href={`${USER_PROFILE}/${profileUser.id}/posts`}
+            href={`${USER_PROFILE}/${userProfile.id}/posts`}
             className={classes["show-posts"]}
           >
             <span className="mr-1">Show all posts</span>

@@ -24,7 +24,7 @@ const PostStatistics = () => {
 
   const isLikedByMe = post.likedBy.includes(loggedUser.id);
 
-  const isInPostsPage = pathname.includes(paths.POST);
+  const isInPostsPage = pathname.includes(`${paths.POST}/`);
 
   const renderCommentBtn = () => {
     if (isInPostsPage) {

@@ -68,7 +68,6 @@ export type User = {
   educations: EducationId[];
   posts: PostId[];
   skills: Skill[];
-  connections: UserId[];
   followers: ClientId[];
   followings: ClientId[];
 };
@@ -82,7 +81,6 @@ export type Company = Omit<
   | "experiences"
   | "educations"
   | "skills"
-  | "connections"
   | "followings"
   | "id"
 > & {

@@ -58,15 +58,18 @@ const educations: Educations = {
 /**
  * If `educationIds` is empty, then all the `educations` will be resolved.
  */
-export const getEducations = (educationIds: EducationId[] = []) => {
-  const promise = new Promise<Educations>((resolve, reject) => {
+export const getEducations = (
+  educationIds: EducationId[] = [],
+): Promise<Education[]> => {
+  const promise = new Promise<Education[]>((resolve, reject) => {
     const allEducationIds = Object.keys(educations) as EducationId[];
     const areEducationIdsValid = allEducationIds.some(eduId =>
       educationIds.some(givenEduId => eduId === givenEduId),
     );
+    const allEducationValues = Object.values(educations);
 
     setTimeout(() => {
-      if (!educationIds.length) resolve(educations);
+      if (!educationIds.length) resolve(allEducationValues);
       if (!areEducationIdsValid)
         reject(new Error("Education ids are invalid!"));
 
@@ -74,11 +77,9 @@ export const getEducations = (educationIds: EducationId[] = []) => {
         educationIds.includes(eduId),
       );
 
-      const result: Educations = {};
+      const result: Education[] = [];
 
-      fetchedEducationIds.forEach(
-        eduId => (result[eduId] = educations[eduId]!),
-      );
+      fetchedEducationIds.forEach(eduId => result.push(educations[eduId]!));
 
       resolve(result);
     }, 1000);

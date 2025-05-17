@@ -1,14 +1,22 @@
 .root {
-  @apply w-full flex;
+  @apply w-full flex space-x-1;
+}
+
+.root--own {
+  @apply flex-row-reverse space-x-reverse;
 }
 
 .avatar-container {
-  @apply w-8 h-8 mr-1 shrink-0 grow-0;
+  @apply w-8 h-8 shrink-0 grow-0;
 }
 
 .text-container {
   @apply flex flex-col w-full bg-logged-bg
   p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl;
+}
+
+.text-container--own {
+  @apply rounded-tl-xl rounded-tr-none;
 }
 
 .text-container span {
