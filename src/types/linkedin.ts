@@ -19,7 +19,7 @@ export type WebsiteType =
   | "PORTFOLIO"
   | "OTHER";
 
-export type WorkEnviromentType = "ON_SITE" | "HYBRID" | "REMOTE";
+export type WorkEnvironmentType = "ON_SITE" | "HYBRID" | "REMOTE";
 
 export type CompanyType = "EDUCATIONAL" | "PRIVATELY_HELD";
 
@@ -120,7 +120,7 @@ export type Experience = {
   userSummary: UserSummary;
   companySummary: CompanySummary;
   employmentType: EmploymentType;
-  workEnv: WorkEnviromentType;
+  workEnv: WorkEnvironmentType;
   position: string;
   startDate: string;
   endDate: string;
