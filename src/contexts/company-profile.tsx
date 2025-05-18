@@ -1,11 +1,10 @@
 "use client";
 
-import type { Posts } from "@/api/posts";
-import type { Company } from "@/types";
+import type { Company, Post } from "@/types";
 import * as React from "react";
 
 export type CompanyProfileData = Company & {
-  postsData: Posts;
+  postsData: Post[];
 };
 
 const Context = React.createContext<CompanyProfileData | null>(null);

@@ -1,15 +1,12 @@
 "use client";
 
-import type { Educations } from "@/api/educations";
-import type { Experiences } from "@/api/experiences";
-import type { Posts } from "@/api/posts";
-import type { User } from "@/types";
+import type { Education, Experience, Post, User } from "@/types";
 import * as React from "react";
 
 export type UserProfileData = User & {
-  experiencesData: Experiences;
-  educationsData: Educations;
-  postsData: Posts;
+  experiencesData: Experience[];
+  educationsData: Education[];
+  postsData: Post[];
 };
 
 const Context = React.createContext<UserProfileData | null>(null);
