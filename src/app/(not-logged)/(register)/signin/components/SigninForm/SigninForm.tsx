@@ -7,15 +7,15 @@ import {
 } from "@/components/form-controls";
 import GoogleLogo from "@/components/svgs/GoogleLogo";
 import { Button, Form, Separator } from "@/components/ui";
+import { useToast } from "@/hooks/use-toast";
 import * as PATHS from "@/routes/paths";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { LoaderIcon } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import classes from "./styles.module.css";
-import { useRouter } from "next/navigation";
-import { LoaderIcon } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -51,8 +51,18 @@ const SigninForm = () => {
         variant: "default",
         title: "login successful",
       });
+
       router.replace("/");
+
+      return;
     }
+
+    const data = (await res.json()) as Record<"error", string>;
+
+    toast({
+      variant: "destructive",
+      title: data.error,
+    });
   };
 
   const { isSubmitting } = form.formState;
