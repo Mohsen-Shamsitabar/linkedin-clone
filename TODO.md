@@ -8,7 +8,6 @@ logged client is always considered to be of type `User`, company clients are jus
 
 - Responsive Design.
 - See all connections.
-- Authentications ( Login / Signin ).
 - Data Modifications:
 - - Adding posts.
 - - Adding comments.
